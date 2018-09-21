@@ -1,0 +1,7 @@
+*.pyc
+*.log
+.idea/
+report
+build
+dist
+pyse.egg-info
