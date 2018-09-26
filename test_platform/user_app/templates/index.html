@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>登录</title>
+<html lang="zh-CN">
 
-    <h3>测试平台</h3>
-    <form action="/login_action/" method="get">
-      账号: <input type="text" name="username" /><br>
-      密码: <input type="password" name="password" /><br>
-      {{ error }}<br>
-      <input type="submit" value="Submit" />
-    </form>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+  <title>Signin Template for Bootstrap</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://v3.bootcss.com/examples/signin/signin.css" rel="stylesheet">
+
 </head>
+
 <body>
+
+  <div class="container">
+
+    <form class="form-signin" method="post" action="/login_action/">
+      <h2 class="form-signin-heading">测试平台</h2>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username" required>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      {{ error }}
+      {% csrf_token %}
+      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+
+  </div> <!-- /container -->
+
 
 </body>
 </html>
