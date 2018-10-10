@@ -37,8 +37,8 @@ def project_manage(request):
     project_all = Project.objects.all()
     print(project_all)
     return render(request, "project_manage.html", {
-        "user": username,
-        "projects": project_all
+        "user": username
+        "":project_all
         })
 
 
