@@ -5,7 +5,7 @@
 参考：
 https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-1、__settting.py__文件设置
+1、__settting.py__ 文件设置
 
 ```
 STATIC_URL = '/static/'
