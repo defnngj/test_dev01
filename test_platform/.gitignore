@@ -1,5 +1,6 @@
 *.pyc
 *.log
+*.sqlite3
 .idea/
 report
 build
