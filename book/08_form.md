@@ -2,6 +2,7 @@
 ### Django表单处理
 
 参考：https://docs.djangoproject.com/en/2.1/topics/forms/
+参考：https://docs.djangoproject.com/en/2.1/topics/forms/modelforms/
 
 
 1、创建表单 __forms.py__ 样例代码。
@@ -59,3 +60,46 @@ def get_name(request):
 * {{ form.as_table }} 将它们作为表单封装在```<tr>```标签中。
 * {{ form.as_p }} 将它们封装在```<p>```标签中。
 * {{ form.as_ul }} 将它们封装在```<li>```标签中。
+
+
+4、更新数据（最简单的方法）
+
+修改forms.py文件
+
+```python
+……
+from .models import Project
+
+
+class ProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        exclude = ['create_time']
+
+```
+* exclude 表示屏蔽的表字段。
+
+实现编辑项目视图：views.py 
+
+```python
+def edit_project(request, pid):
+
+    if request.method == 'POST':
+        # 更新数据
+    else:
+        if pid:
+            form = ProjectForm(
+                instance=Project.objects.get(id=pid)
+                )
+        else:
+            form = ProjectForm()
+
+    return render(request, 'project_manage.html', {
+        'form': form,
+        "type": "edit",
+    })
+```
+
+
+
