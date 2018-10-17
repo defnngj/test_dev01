@@ -6,5 +6,7 @@ urlpatterns = [
     # guest system interface:
     # ex : /manage/project_manage/
     path('project_manage/', views.project_manage),
-    path('add_project/',  views.add_project)
+    path('add_project/',  views.add_project),
+    path('edit_project/<int:pid>/',  views.edit_project),
+    
 ]

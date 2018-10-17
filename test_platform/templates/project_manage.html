@@ -58,6 +58,7 @@
                                 <th>描述</th>
                                 <th>状态</th>
                                 <th>创建时间</th>
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,6 +69,10 @@
                                 <td>{{ project.describe }}</td>
                                 <td>{{ project.status }}</td>
                                 <td>{{ project.create_time }}</td>
+                                <td>
+                                    <a href="/manage/edit_project/{{project.id}}/">编辑</a>
+                                    <a href="/manage/edit_project/{{project.id}}/">删除</a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -82,11 +87,28 @@
                 <h3 class="sub-header">添加项目</h3>
             
                 <div class="table-responsive">
-                    这是创建项目的表单，只不过我还没开发！！！！
+                    <form action="/manage/add_project/" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">创建</button>
+                    </form>
                 </div>
             </div>
             {% endif %}
             
+            {% if type == 'edit'%}
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h3 class="sub-header">编辑项目</h3>
+            
+                <div class="table-responsive">
+                    <form action="/manage/edit_project/" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
         </div>
 
 
