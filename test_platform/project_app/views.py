@@ -40,6 +40,7 @@ def add_project(request):
         })
 
 
+@login_required
 def edit_project(request, pid):
     """
     编辑项目
@@ -67,6 +68,7 @@ def edit_project(request, pid):
     })
 
 
+@login_required
 def delete_project(request, pid):
     """
     删除项目
