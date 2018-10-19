@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project
+from .models import Project, Module
 
 
 # # 问题：1、如果不勾选状态怎么设置？
@@ -13,6 +13,12 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
+        fields = ['name', 'describe', 'status']
+        #exclude = ['create_time']
+
+
+class ModuleForm(forms.ModelForm):
+    
+    class Meta:
+        model = Module
         exclude = ['create_time']
-
-

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from project_app.models import Project
-from .forms import ProjectForm
+from project_app.forms import ProjectForm
 
 
 @login_required
@@ -29,7 +29,8 @@ def add_project(request):
         if form.is_valid():
             name = form.cleaned_data['name']
             describe = form.cleaned_data['describe']
-            Project.objects.create(name=name, describe=describe)
+            status = form.cleaned_data['status']
+            Project.objects.create(name=name, describe=describe, status=status)
             return HttpResponseRedirect('/manage/project_manage/')
     else:
         form = ProjectForm()
@@ -59,8 +60,6 @@ def edit_project(request, pid):
             form = ProjectForm(
                 instance=Project.objects.get(id=pid)
             )
-        else:
-            form = ProjectForm()
 
     return render(request, 'project_manage.html', {
         'form': form,
