@@ -84,15 +84,16 @@
 
             {% if type == 'add'%}
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h3 class="sub-header">添加项目</h3>
+                <h3 class="sub-header">添加项目
+                    <button class="btn btn-default" onclick="window.location.href='/manage/project_manage/'" style="margin-left: 180px;">取消
+                    </button>
+                </h3>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="table-responsive">
                             <form action="/manage/add_project/" method="post">
-                                {% csrf_token %} {{ form.as_p }}
-                                <button class="btn btn-default" 
-                                        onclick="window.location.href='/manage/project_manage/'" 
-                                        style="margin-right: 10px;">取消</button>
+                                {% csrf_token %} 
+                                {{ form.as_p }}
                                 <button type="submit" class="btn btn-success">创建</button>
                             </form>
                         </div>
@@ -104,17 +105,19 @@
             
             {% if type == 'edit'%}
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h3 class="sub-header">编辑项目</h3>
-            
+                <h3 class="sub-header">编辑项目
+                    <button class="btn btn-default" 
+                            onclick="window.location.href='/manage/project_manage/'"
+                            style="margin-left: 180px;">取消
+                    </button>
+                </h3>
+                
                 <div class="table-responsive">
                     <form role="form" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button class="btn btn-default" 
-                                onclick="window.location.href='/manage/project_manage/'"
-                                style="margin-right: 10px;">取消</button>
                         <button type="submit" class="btn btn-success">保存</button>
-                    </form>
+                    </form>    
                 </div>
             </div>
             {% endif %}

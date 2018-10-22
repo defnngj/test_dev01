@@ -82,41 +82,92 @@
         {% endif %}
 
 
-        {% if type == 'add'%}
+        {% if type == "add" %}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h3 class="sub-header">添加模块</h3>
+            <h3 class="page-header">创建模块
+                <button class="btn btn-default" onclick="window.location.href='/manage/module_manage/'" style="margin-left: 280px;">取消</button>
+            </h3>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="table-responsive">
-                        <form action="/manage/add_module/" method="post">
-                            {% csrf_token %} 
-                            {{ form.as_p }}
-                            <button class="btn btn-default" onclick="window.location.href='/manage/module_manage/'"
-                                style="margin-right: 10px;">取消</button>
-                            <button type="submit" class="btn btn-success">创建</button>
-                        </form>
-                    </div>
+                    <form class="form-horizontal" role="form" method="post" style="margin-left: 50px;">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">项目:</label>
+                            <div class="col-sm-10">
+                                {{ form.project }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">名称:</label>
+                            <div class="col-sm-10">
+                                {{ form.name }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">描述:</label>
+                            <div class="col-sm-10">
+                                {{ form.describe }}
+                            </div>
+                        </div>
+                         {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
-
         </div>
         {% endif %}
 
         {% if type == 'edit'%}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h3 class="sub-header">编辑模块</h3>
-
-            <div class="table-responsive">
-                <form role="form" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="btn btn-default" 
-                    onclick="window.location.href='/manage/module_manage/'" style="margin-right: 10px;">取消</button>
-                    <button type="submit" class="btn btn-success">保存</button>
-                </form>
+            <h3 class="page-header">编辑模块
+                <button class="btn btn-default" onclick="window.location.href='/manage/module_manage/'" style="margin-left: 280px;">取消</button>
+            </h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="form-horizontal" role="form" method="post" style="margin-left: 50px;">
+                        <div class="form-group">
+        
+                            <label class="col-sm-2 control-label">名称:</label>
+                            <div class="col-sm-10">
+                                {{ form.project }}
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">名称:</label>
+                            <div class="col-sm-10">
+                                {{ form.name }}
+                            </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <!-- Textarea -->
+                            <label class="col-sm-2 control-label">描述:</label>
+                            <div class="col-sm-10">
+                                {{ form.describe }}
+                            </div>
+                        </div>
+                         {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <!-- <button class="btn btn-default" onclick="window.location.href='/manage/module/'">取消</button> -->
+                                <button type="submit" class="btn btn-primary">更新</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         {% endif %}
+
+
     </div>
 
 
