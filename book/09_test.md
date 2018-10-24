@@ -95,3 +95,22 @@ class MySeleniumTests(StaticLiveServerTestCase):
 ```
 
 * UI自动化测试当然是交给selenium来完成，不过Django给我们提供了一些封装，使我们测试django的UI时更加方便。
+
+#### 运行测试粒度
+
+```shell
+# Run all the test in porject
+$ ./manage.py test
+
+# Run all the tests found within the 'animals' package
+$ ./manage.py test animals
+
+# Run all the tests in the animals.tests module
+$ ./manage.py test animals.tests
+
+# Run just one test case
+$ ./manage.py test animals.tests.AnimalTestCase
+
+# Run just one test method
+$ ./manage.py test animals.tests.AnimalTestCase.test_animals_can_speak
+```
