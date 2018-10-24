@@ -58,7 +58,7 @@ class SimpleTest(unittest.TestCase):
 
 * django提供的有 ```Client()``` 来模拟发送HTTP请求。
 
-* 从形式上看，更像是接口测试测试，但它有全面验证了viesw.py中的代码逻辑。所以，也可以认为是单元测试。
+* 从形式上看，更像是接口测试，但它又全面验证了viesw.py中的代码逻辑。所以，也可以认为是单元测试。
 
 * views.py 是离不开 models.py 的，比如要获取项目管理列表，所以，多数时候还需要初始化创建测试数据。
 
@@ -94,4 +94,4 @@ class MySeleniumTests(StaticLiveServerTestCase):
 
 ```
 
-* UI自动化测试当然是交给selenium来完成，不过Django给我们提供了一些封装，使我们测试django时更加方便。
+* UI自动化测试当然是交给selenium来完成，不过Django给我们提供了一些封装，使我们测试django的UI时更加方便。
