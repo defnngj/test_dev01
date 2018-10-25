@@ -15,7 +15,7 @@ class ProjectMangeTest(TestCase):
         self.client.post('/login_action/', data=login_user)  # 预先登录
 
     def test_project_manage_success(self):
-        ''' 测试发布会:xiaomi5 '''
+        ''' 项目管理:xx项目 '''
         response = self.client.post('/manage/project_manage/')
         project_html = response.content.decode('utf-8')
         self.assertEqual(response.status_code, 200)

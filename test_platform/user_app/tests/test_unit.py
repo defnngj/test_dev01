@@ -40,7 +40,6 @@ class UserModelsTest(TestCase):
         self.assertEqual(len(user), 0)
 
 
-
 class IndexPageTest(TestCase):
     '''测试index登录首页'''
 

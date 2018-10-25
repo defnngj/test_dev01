@@ -6,12 +6,12 @@
     <form class="form-signin" method="post" action="/login_action/">
       <h2 class="form-signin-heading">测试平台</h2>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username" required>
+      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username">
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      {{ error }}
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
+      <p id="error">{{ error }}</p>
       {% csrf_token %}
-      <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+      <button class="btn btn-lg btn-primary btn-block" id="loginButton" type="submit">登录</button>
     </form>
 
   </div> <!-- /container -->
