@@ -19,16 +19,6 @@ class ProjectTest(TestCase):
         """项目管理"""
         response = self.client.get('/manage/project_manage/')
         project_html = response.content.decode("utf-8")
-        print(project_html)
         self.assertEqual(response.status_code, 200)
         self.assertIn("退出", project_html)
         self.assertIn("测试平台项目", project_html)
-
-
-
-
-
-
-
-
-

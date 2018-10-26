@@ -25,33 +25,15 @@ class UserTestCase(TestCase):
         user.username = "test02"
         user.email = "test02@mail.com"
         user.save()
-        user2 = User.objects.get(username="test02")
-        self.assertEqual(user2.email, "test02@mail.com")
-
-    def test_user_delete(self):
-        """测试删除用户"""
-        user = User.objects.get(username="test01")
-        user.delete()
-        users = User.objects.all()
-        self.assertEqual(len(users), 0)
 
 # 运行测试的时候，不会真的调用数据库里面的数据
 
+class IndexPageTest(TestCase):
+    """测试index登录首页"""
 
-
-
-class IndexTest(TestCase):
-
-    def setUp(self):
-        # Every test needs a client.
-        self.client = Client()
-
-    def test_index(self):
-        """测试index.html页面"""
-        # Issue a GET request.
+    def test_index_page_renders_index_template(self):
+        """断言是否用给定的index.html模版响应"""
         response = self.client.get('/')
-        #print(response.content.decode("utf-8"))
-        # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
@@ -92,13 +74,34 @@ class LogoutTest(TestCase):
     """ 测试退出"""
 
     def setUp(self):
-        User.objects.create_user("test01", "test01@mail.com", "test123456")
-        self.client = Client()
-        login_data = {"username": "test01", "password": "test123456"}
-        response = self.client.post('/login_action/', data=login_data)
+        User.objects.create_user('admin', 'admin@mail.com', 'admin123456')
 
-    def test_logout(self):
-        """用户名密码为空"""
-        response = self.client.post('/logout/')
-        login_html = response.content.decode("utf-8")
+    def test_add_author_email(self):
+        ''' 测试添加用户 '''
+        user = User.objects.get(username="admin")
+        self.assertEqual(user.username, "admin")
+        self.assertEqual(user.email, "admin@mail.com")
+
+    def test_login_action_username_password_null(self):
+        ''' 用户名密码为空 '''
+        response = self.client.post(
+            '/login_action/', {'username': '', 'password': ''})
+        login_html = response.content.decode('utf-8')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("用户名或者密码为空", login_html)
+
+    def test_login_action_username_password_error(self):
+        ''' 用户名密码错误 '''
+        response = self.client.post(
+            '/login_action/', {'username': 'abc', 'password': '123'})
+        login_html = response.content.decode('utf-8')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("用户名或者密码错", login_html)
+
+    def test_login_action_success(self):
+        ''' 登录成功 '''
+        user = {'username': 'admin', 'password': 'admin123456'}
+        response = self.client.post('/login_action/', data=user)
         self.assertEqual(response.status_code, 302)
+
+

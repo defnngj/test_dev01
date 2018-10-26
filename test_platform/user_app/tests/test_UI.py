@@ -4,6 +4,7 @@ from time import sleep
 from django.contrib.auth.models import User
 from project_app.models import Project
 
+
 class LoginTests(StaticLiveServerTestCase):
 
     @classmethod
@@ -57,6 +58,4 @@ class LoginTests(StaticLiveServerTestCase):
         error_hint = self.driver.find_element_by_class_name("navbar-brand").text
         print(error_hint)
         self.assertEqual("测试平台", error_hint)
-
-
 

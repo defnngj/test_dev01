@@ -9,9 +9,9 @@
       <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username">
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
-      <p id="error">{{ error }}<p>
+      <p id="error">{{ error }}</p>
       {% csrf_token %}
-      <button class="btn btn-lg btn-primary btn-block" type="submit" id="LoginButton">登录</button>
+      <button class="btn btn-lg btn-primary btn-block" id="LoginButton" type="submit">登录</button>
     </form>
 
   </div> <!-- /container -->
