@@ -4,7 +4,6 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
 
-
 # 首页
 def index(request):
     return render(request, "index.html")
@@ -30,9 +29,11 @@ def login_action(request):
             else:
                 return render(request, "index.html",
                                         {"error": "用户名或者密码错误"})
-
+    else:
+        return render(request, "index.html")
 
 # 退出登录
+@login_required
 def logout(request):
     auth.logout(request)  # 清楚用户登录状态
     response = HttpResponseRedirect('/')
@@ -40,25 +41,6 @@ def logout(request):
 
 
 
-
-# 添加项目
-@login_required
-def add_project(request):
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = ProjectForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = ProjectForm()
-
-    return render(request, 'project_manage.html', {'form': form})
 
 """
 几个应用
