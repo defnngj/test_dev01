@@ -7,8 +7,9 @@ urlpatterns = [
     # ex : /intereface/case_manage/
     # 用例管理
     path('case_manage/', views.case_manage),
+    path('debug/', views.debug),
     path('api_debug/', views.api_debug),
-    
+
 ]
 
 
