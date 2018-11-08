@@ -10,6 +10,7 @@ urlpatterns = [
     path('debug/', testcase_views.debug),
     path('api_debug/', testcase_views.api_debug),
     path('save_case/', testcase_views.save_case),
+    path('get_porject_list', testcase_views.get_porject_list),
 ]
 
 
