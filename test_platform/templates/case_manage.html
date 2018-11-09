@@ -49,25 +49,33 @@
                 onclick="window.location.href='/interface/debug/'">调试</button>
             </h3>
             <div class="table-responsive">
+
+                <form class="navbar-form" method="get" action="/interface/search_case_name/">
+                    <div class="form-group">
+                        <input name="case_name" type="text" placeholder="用例名称" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">搜索</button>
+                </form>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>id</th>
                             <th>名称</th>
-                            <th>描述</th>
-                            <th>状态</th>
+                            <th>URL</th>
+                            <th>方法</th>
                             <th>创建时间</th>
                             <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for project in projects %}
+                        {% for case in testcases %}
                         <tr>
-                            <td>{{ project.id }}</td>
-                            <td>{{ project.name }}</td>
-                            <td>{{ project.describe }}</td>
-                            <td>{{ project.status }}</td>
-                            <td>{{ project.create_time | date:"Y-m-d H:i:s" }}</td>
+                            <td>{{ case.id }}</td>
+                            <td>{{ case.name }}</td>
+                            <td>{{ case.url }}</td>
+                            <td>{{ case.req_method }}</td>
+                            <td>{{ case.create_time | date:"Y-m-d H:i:s" }}</td>
                             <td>
                                 <a href="/manage/edit_project/{{project.id}}/">编辑</a>
                                 <a href="/manage/delete_project/{{project.id}}/">删除</a>
@@ -77,6 +85,30 @@
                     </tbody>
                 </table>
             </div>
+        
+
+            <!-- 列表分页器 -->
+            <div class="pagination">
+                <span class="step-links">
+                    <ul class="pagination">
+                        {% if testcases.has_previous %}
+                            <li><a href="?case_name={{ case_name }}&page={{ testcases.previous_page_number }}">&laquo;</a></li>
+                        {% endif %}
+            
+                        <li><a href="#">{{ testcases.number }}</a></li>
+            
+                        {% if testcases.has_next %}
+                            {% if case_name %}
+                                <li><a href="?case_name={{ case_name }}&page={{ testcases.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                                <li><a href="?page={{ testcases.next_page_number }}">&raquo;</a></li>
+                            {% endif %}
+                        {% endif %}
+                        <li><a href="#">共：{{ testcases.paginator.num_pages }} 页</a></li>
+                    </ul>
+                </span>
+            </div>
+        
         </div>
         {% endif %}
 

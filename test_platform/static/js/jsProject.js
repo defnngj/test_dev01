@@ -16,7 +16,7 @@ var ProjectInit = function (_cmbProject, _cmbModule) {
     //改变项目
     function changeProject() {
         cmbModule.options.length = 0;
-        cmbModule.onchange = null;
+        //cmbModule.onchange = null;
         if (cmbProject.selectedIndex == -1) {
             return;
         }
@@ -25,7 +25,6 @@ var ProjectInit = function (_cmbProject, _cmbModule) {
             cmbAddOption(cmbModule, item.moduleList[i], null);
         }
     }
-   
 
     function getProjectList(){
         // 调用项目列表接口

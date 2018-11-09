@@ -5,6 +5,8 @@ from django.http import HttpResponse, JsonResponse
 from interface_app.form import TestCaseForm
 from interface_app.models import TestCase
 from project_app.models import Project, Module
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 
 # 获取项目模块列表
@@ -19,7 +21,6 @@ def get_porject_list(request):
         if len(module_list) != 0:
             module_name = []
             for module in module_list:
-                print(module_name)
                 module_name.append(module.name)
             
             project_dict["moduleList"] = module_name
@@ -31,9 +32,50 @@ def get_porject_list(request):
 
 # 用例列表
 def case_manage(request):
+    testcases = TestCase.objects.all()
+    paginator = Paginator(testcases, 2)
+
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # 如果页数不是整型, 取第一页.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # 如果页数超出查询范围，取最后一页
+        contacts = paginator.page(paginator.num_pages)
+    
     if request.method == "GET":
         return render(request, "case_manage.html",{
-            "type": "list"
+            "type": "list",
+            "testcases": contacts,
+        })
+    else:
+        return HttpResponse("404")
+
+
+# 搜索用例的名称
+def search_case_name(request):
+    
+    if request.method == "GET":
+        case_name = request.GET.get('case_name', "")
+        cases = TestCase.objects.filter(name__contains=case_name)
+        
+        paginator = Paginator(cases, 2)
+        page = request.GET.get('page')
+        try:
+            contacts = paginator.page(page)
+        except PageNotAnInteger:
+            # 如果页数不是整型, 取第一页.
+            contacts = paginator.page(1)
+        except EmptyPage:
+            # 如果页数超出查询范围，取最后一页
+            contacts = paginator.page(paginator.num_pages)
+        
+        return render(request, "case_manage.html", {
+            "type": "list",
+            "testcases": contacts,
+            "case_name": case_name,
         })
     else:
         return HttpResponse("404")
