@@ -81,13 +81,13 @@ def search_case_name(request):
         return HttpResponse("404")
 
 
-# 创建/调试接口
-def debug(request):
+# 创建/调试用例
+def add_case(request):
     if request.method == "GET":
         form = TestCaseForm()
-        return render(request, "api_debug.html", {
+        return render(request, "add_case.html", {
             "form": form,
-            "type": "debug"
+            "type": "add"
         })
     else:
         return HttpResponse("404")
@@ -145,3 +145,37 @@ def save_case(request):
         
     else:
          return HttpResponse("404")
+
+
+# 编辑/调试用例
+def debug_case(request, cid):
+    print("调试的用例id", cid)
+
+    if request.method == "GET":
+        form = TestCaseForm()
+        return render(request, "debug_case.html", {
+            "form": form,
+            "type": "debug"
+        })
+    else:
+        return HttpResponse("404")
+
+# 获取接口信息接口
+def get_case_info(request):
+    if request.method == "POST":
+        case_id = request.POST.get("caseId", "")
+        if case_id == "":
+           return JsonResponse({"success":"false", "message":"case id Null."})
+        case_obj = TestCase.objects.get(pk=case_id)
+        case_info = {
+            "name": case_obj.name,
+            "url": case_obj.url,
+            "req_method": case_obj.req_method,
+            "req_type": case_obj.req_type,
+            "req_header": case_obj.req_header,
+            "req_parameter": case_obj.req_parameter,
+        }
+        return JsonResponse({"success": "true", "message": "ok", "data": case_info})
+
+    else:
+        return HttpResponse("404")
