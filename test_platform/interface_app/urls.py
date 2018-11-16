@@ -14,6 +14,8 @@ urlpatterns = [
     path('search_case_name/', testcase_views.search_case_name),
     path("debug_case/<int:cid>/", testcase_views.debug_case),
     path("get_case_info/", testcase_views.get_case_info),
+    path("api_assert/", testcase_views.api_assert),
+    
 ]
 
 

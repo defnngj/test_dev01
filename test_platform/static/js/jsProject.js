@@ -1,8 +1,19 @@
-var ProjectInit = function (_cmbProject, _cmbModule) {
+var ProjectInit = function (_cmbProject, _cmbModule, defaultProject, defaultMudle) {
     var cmbProject = document.getElementById(_cmbProject);
     var cmbModule = document.getElementById(_cmbModule);
     var dataList = [];
 
+    //window.alert(defaultProject);
+    //window.alert(defaultMudle);
+    //设置默认选项
+    function cmbSelect(cmb, str) {
+        for(var i=0; i< cmb.options.length; i++){
+            if(cmb.options[i].value == str){
+                cmb.selectedIndex = i;
+                return;
+            }
+        }
+    }
     //创建下拉选项
     function cmbAddOption(cmb, str, obj) {
         console.log(str);
@@ -24,6 +35,8 @@ var ProjectInit = function (_cmbProject, _cmbModule) {
         for (var i = 0; i < item.moduleList.length; i++) {
             cmbAddOption(cmbModule, item.moduleList[i], null);
         }
+
+        cmbSelect(cmbModule, defaultMudle);
     }
 
     function getProjectList(){
@@ -31,14 +44,17 @@ var ProjectInit = function (_cmbProject, _cmbModule) {
         $.get("/interface/get_porject_list", {}, function (resp) {
             if(resp.success === "true"){
                 dataList = resp.data;
-                //遍历省份
+                //遍历项目
                 for (var i = 0; i < dataList.length; i++) {
                     cmbAddOption(cmbProject, dataList[i].name, dataList[i]);
                 }
 
+                cmbSelect(cmbProject, defaultProject);
                 changeProject();
                 cmbProject.onchange = changeProject;
             }
+
+            cmbSelect(cmbProject, defaultProject);
             //$("#result").html(resp);
         });
     }

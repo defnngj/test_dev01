@@ -166,16 +166,47 @@ def get_case_info(request):
         case_id = request.POST.get("caseId", "")
         if case_id == "":
            return JsonResponse({"success":"false", "message":"case id Null."})
+        
         case_obj = TestCase.objects.get(pk=case_id)
+
+        module_obj = Module.objects.get(id=case_obj.module_id)
+        module_name = module_obj.name
+
+        project_name = Project.objects.get(id=module_obj.project_id).name
+
         case_info = {
+            "module_name": module_name,
+            "project_name": project_name,
             "name": case_obj.name,
             "url": case_obj.url,
             "req_method": case_obj.req_method,
             "req_type": case_obj.req_type,
             "req_header": case_obj.req_header,
             "req_parameter": case_obj.req_parameter,
+            
         }
+        print(case_info)
+
         return JsonResponse({"success": "true", "message": "ok", "data": case_info})
 
+    else:
+        return HttpResponse("404")
+
+
+# 验证预期结果
+def api_assert(request):
+    if request.method == "POST":
+        result_text = request.POST.get("result", "")
+        assert_text = request.POST.get("assert", "")
+        
+        if result_text == "" or assert_text == "":
+            return JsonResponse({"success": "false", "message":"验证的数据不能为空"})
+        
+        try:
+            assert assert_text in result_text
+        except AssertionError:
+            return JsonResponse({"success": "false", "message": "验证失败"})
+        else:
+            return JsonResponse({"success": "false", "message": "验证成功"})
     else:
         return HttpResponse("404")

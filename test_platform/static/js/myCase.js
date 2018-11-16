@@ -1,6 +1,9 @@
 
 // 获取指定case_id的用例信息
 var CaseInit = function (case_id) {
+    
+    //window.alert("abc")
+    //document.write("<script language=javascript src='./jsProject.js'><\/script>");
 
     function getCaseInfo() {
         // 获取某个用例的信息
@@ -18,7 +21,8 @@ var CaseInit = function (case_id) {
                 if (result.req_method == "post"){
                     document.getElementById("post").setAttribute("checked", "")
                 }
-                
+                // 初始化菜单
+                ProjectInit('project_name', 'module_name', result.project_name, result.module_name);
             }else{
                 window.alert("用例id不存在");
             }
@@ -28,21 +32,5 @@ var CaseInit = function (case_id) {
     // 调用getCaseInfo函数
     getCaseInfo();
     
-
-    var myVar = setInterval(function () { 
-        myTimer() 
-    }, 
-    1000);
-
-    function myTimer() {
-        请求后端接口拿数据;
-    }
-
-    function myStopFunction() {
-        clearInterval(myVar);
-    }
-
-    myStopFunction();
-
 
 }
