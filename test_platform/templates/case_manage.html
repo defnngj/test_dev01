@@ -27,25 +27,38 @@
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li><a href="/manage/project_manage/">项目管理</a></li>
-                <li><a href="/manage/module_manage/">模块管理</a></li>
+                <li><a href="/manage/project_manage/">
+                    <span class="glyphicon glyphicon-th-large"></span> 项目管理</a>
+                </li>
+                <li><a href="/manage/module_manage/">
+                    <span class="glyphicon glyphicon-th"></span> 模块管理</a>
+                </li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">用例管理</a></li>
-                <li><a href="/interface/task_manage/">任务管理</a></li>
+                <li class="active"><a href="#">
+                    <span class="glyphicon glyphicon-th-list"></span> 用例管理</a>
+                </li>
+                <li><a href="/interface/task_manage/">
+                    <span class="glyphicon glyphicon-tasks"></span> 任务管理</a>
+                </li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="">mockserver</a></li>
-                <li><a href="">测试工具</a></li>
+                <li><a href="#">
+                    <span class="glyphicon glyphicon-log-in"></span> mockserver</a>
+                </li>
+                <li><a href="#">
+                    <span class="glyphicon glyphicon-wrench"></span> 测试工具</a>
+                </li>
             </ul>
         </div>
 
         {% if type == 'list'%}
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h3 class="sub-header">用例列表
-                <button type="button" class="btn btn-success" style="float: right;" 
+                <button type="button" class="btn btn-primary" style="float: right;"
                 onclick="window.location.href='/interface/add_case/'">创建</button>
             </h3>
             <div class="table-responsive">

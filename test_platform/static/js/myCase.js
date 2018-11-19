@@ -15,14 +15,24 @@ var CaseInit = function (case_id) {
                 console.log("结果", result);
                 document.getElementById("req_name").value = result.name;
                 document.getElementById("req_url").value = result.url;
-                document.getElementById("req_header").value = result.req_header;
-                document.getElementById("req_parameter").value = result.req_parameter;
-                
-                if (result.req_method == "post"){
+                document.getElementById("req_header").value = result.reqHeader;
+                document.getElementById("req_parameter").value = result.reqParameter;
+                document.getElementById("assert_text").value = result.assertText;
+
+                if (result.reqMethod === "post"){
                     document.getElementById("post").setAttribute("checked", "")
                 }
+
+                if (result.reqType === "json"){
+                    document.getElementById("json").setAttribute("checked", "")
+                }
+
+                // window.alert(result.projectName);
+                // window.alert(result.moduleName);
+
                 // 初始化菜单
-                ProjectInit('project_name', 'module_name', result.project_name, result.module_name);
+                ProjectInit('project_name', 'module_name', result.projectName, result.moduleName);
+
             }else{
                 window.alert("用例id不存在");
             }
@@ -31,6 +41,5 @@ var CaseInit = function (case_id) {
     }
     // 调用getCaseInfo函数
     getCaseInfo();
-    
 
-}
+};

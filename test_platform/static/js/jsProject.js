@@ -1,4 +1,4 @@
-var ProjectInit = function (_cmbProject, _cmbModule, defaultProject, defaultMudle) {
+var ProjectInit = function (_cmbProject, _cmbModule, defaultProject, defaultModule) {
     var cmbProject = document.getElementById(_cmbProject);
     var cmbModule = document.getElementById(_cmbModule);
     var dataList = [];
@@ -36,12 +36,12 @@ var ProjectInit = function (_cmbProject, _cmbModule, defaultProject, defaultMudl
             cmbAddOption(cmbModule, item.moduleList[i], null);
         }
 
-        cmbSelect(cmbModule, defaultMudle);
+        cmbSelect(cmbModule, defaultModule);
     }
 
     function getProjectList(){
-        // 调用项目列表接口
-        $.get("/interface/get_porject_list", {}, function (resp) {
+        // 调用项目服务列表接口
+        $.get("/interface/get_project_list", {}, function (resp) {
             if(resp.success === "true"){
                 dataList = resp.data;
                 //遍历项目
@@ -61,9 +61,9 @@ var ProjectInit = function (_cmbProject, _cmbModule, defaultProject, defaultMudl
     // 调用getProjectList函数
     getProjectList(); 
     
-}
+};
 
-
+// 数据格式
 // var dataList = [{
 //     name: '项目AAAA',
 //     moduleList: [
