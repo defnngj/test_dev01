@@ -16,6 +16,7 @@ urlpatterns = [
     path('api_debug/', testcase_api.api_debug),
     path("api_assert/", testcase_api.api_assert),
     path('save_case/', testcase_api.save_case),
+    path('update_case/', testcase_api.update_case),
     path("get_case_info/", testcase_api.get_case_info),
     
 ]

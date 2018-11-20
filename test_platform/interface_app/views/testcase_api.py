@@ -133,6 +133,52 @@ def save_case(request):
         return common.response_failed("请求方法错误")
 
 
+def update_case(request):
+    """
+    更新接口测试用例
+    :param request:
+    :return:
+    """
+    if request.method == "POST":
+        case_id = request.POST.get("cid", "")
+        name = request.POST.get("name", "")
+        url = request.POST.get("req_url", "")
+        method = request.POST.get("req_method", "")
+        parameter = request.POST.get("req_parameter", "")
+        req_type = request.POST.get("req_type", "")
+        header = request.POST.get("header", "")
+        module_name = request.POST.get("module", "")
+        assert_text = request.POST.get("assert_text", "")
+        print("接口id", case_id)
+
+        if url == "" or method == "" or req_type == "" or module_name == "" or assert_text == "":
+            return common.response_failed("必传参数为空")
+
+        if parameter == "":
+            parameter = "{}"
+
+        if header == "":
+            header = "{}"
+
+        module_obj = Module.objects.get(name=module_name)
+        case_obj = TestCase.objects.filter(id=case_id).update(
+                module=module_obj,
+                name=name,
+                url=url,
+                req_method=method, 
+                req_header=header,
+                req_type=req_type,
+                req_parameter=parameter,
+                resp_assert=assert_text
+            )
+        if case_obj == 1: 
+            return common.response_succeed("更新成功！")
+        else:
+            return common.response_failed("更新失败！")
+    else:
+        return common.response_failed("请求方法错误")
+
+
 def get_case_info(request):
     """
     获取接口数据

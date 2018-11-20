@@ -75,7 +75,7 @@
 
             <div style="width: 100%; height: 60px;">
                 <button type="button" class="btn btn-success" id="send" style="float: right;margin-right: 10px;">调试</button>
-                <button type="button" class="btn btn-primary" id="save" style="float: right;margin-right: 10px;">保存</button>
+                <button type="button" class="btn btn-primary" id="update" style="float: right;margin-right: 10px;">更新</button>
             </div>
 
         </form>
@@ -131,8 +131,8 @@
 
         });
 
-        // 保存
-        $("#save").click(function () {
+        // 更新
+        $("#update").click(function () {
             let module_name = $('select[id="module_name"]').val();
             let name = $("#req_name").val();
             let url = $("#req_url").val();
@@ -153,7 +153,8 @@
             }
 
             // 保存用例接口
-            $.post("/interface/save_case/", {
+            $.post("/interface/update_case/", {
+                "cid": case_id,
                 "name": name,
                 "req_url": url,
                 "req_method": method,
