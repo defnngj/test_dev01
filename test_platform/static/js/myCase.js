@@ -34,7 +34,7 @@ var CaseInit = function (case_id) {
                 ProjectInit('project_name', 'module_name', result.projectName, result.moduleName);
 
             }else{
-                window.alert("用例id不存在");
+                window.alert(resp.message);
             }
             //$("#result").html(resp);
         });

@@ -47,16 +47,21 @@ def api_debug(request):
         url = request.POST.get("req_url", "")
         method = request.POST.get("req_method", "")
         type_ = request.POST.get("req_type", "")
+        header = request.POST.get("req_header", "")
         parameter = request.POST.get("req_parameter", "")
 
         if url == "" or method == "" or type_ == "":
             return common.response_failed("必传参数为空")
 
-        payload = json.loads(parameter.replace("'", "\""))
+        try:
+            header_dict = json.loads(header.replace("'", "\""))
+            payload = json.loads(parameter.replace("'", "\""))
+        except json.decoder.JSONDecodeError:
+            return common.response_failed("请检查header或参数的格式！")
 
         if method == "get":
             if type_ == "from":
-                r = requests.get(url, params=payload)
+                r = requests.get(url, headers=header_dict, params=payload)
             else:
                 return common.response_failed("参数类型错误")
 
@@ -189,8 +194,12 @@ def get_case_info(request):
         case_id = request.POST.get("caseId", "")
         if case_id == "":
             return common.response_failed("用例id为空")
-
-        case_obj = TestCase.objects.get(pk=case_id)
+        
+        try:
+            case_obj = TestCase.objects.get(pk=case_id)
+        except TestCase.DoesNotExist:
+            return common.response_failed("查询用例不存在")
+        
         module_obj = Module.objects.get(id=case_obj.module_id)
         module_name = module_obj.name  # 模块名称
 

@@ -105,12 +105,15 @@
             let url = $("#req_url").val();
             let method = $('input[name="req_method"]:checked').val();
             let type = $('input[name="req_type"]:checked').val();
+            let header = $("#req_header").val();
             let parameter = $("#req_parameter").val();
 
             if(url === ""){
                 window.alert("请求的URL不能为空");
+                return;
             }else if (method === ""){
                 window.alert("请求的方法不能为空");
+                return;
             }else if (parameter === ""){
                 parameter = "{}";
             }
@@ -120,6 +123,7 @@
                 "req_url": url,
                 "req_method": method,
                 "req_type": type,
+                "req_header": header,
                 "req_parameter": parameter
             }, function (resp) {
                 if(resp.success === "true"){
@@ -183,7 +187,7 @@
                 window.alert("验证数据不能为空！");
             }
 
-            window.alert("发送请求");
+            //window.alert("发送请求");
             // 发送一个post请求
             $.post("/interface/api_assert/", {
                 "result": result,
