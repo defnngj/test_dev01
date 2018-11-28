@@ -222,3 +222,28 @@ def get_case_info(request):
     else:
         return common.response_failed("请求方法错误")
 
+
+def get_case_list(request):
+    """
+    获取测试用例列表
+    :param request:
+    :return:
+    """
+    if request.method == "GET":
+        # 项目 -> 模块 -> 用例
+
+        cases_list = []
+
+        projects = Project.objects.all()
+        for project in projects:
+            modules = Module.objects.filter(project_id = project.id)
+            for module in modules:
+                cases = TestCase.objects.filter(module_id= module.id)
+                for case in cases:
+                    case_info = project.name +" -> "+ module.name +" -> "+ case.name
+                    cases_list.append(case_info)
+
+        return common.response_succeed(data=cases_list)
+
+    else:
+        return common.response_failed("请求方法错误")

@@ -1,6 +1,7 @@
 from django.urls import path
-from interface_app.views import testcase_views, testcase_api
-
+from interface_app.views import testcase_views
+from interface_app.views import testcase_api
+from interface_app.views import testtask_view
 
 urlpatterns = [
     # guest system interface:
@@ -18,6 +19,13 @@ urlpatterns = [
     path('save_case/', testcase_api.save_case),
     path('update_case/', testcase_api.update_case),
     path("get_case_info/", testcase_api.get_case_info),
+
+    # 任务管理
+    path('task_manage/', testtask_view.task_manage),
+    path('add_task/', testtask_view.add_task),
+
+    # 任务管理--由JS调用的接口
+    path('get_case_list', testcase_api.get_case_list),
     
 ]
 
