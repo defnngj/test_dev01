@@ -7,26 +7,30 @@
 	</div>
 
 	<div style="width:80%; margin-left: 20px;">
-		<form action="/debug/" method="get" class="bs-example bs-example-form" role="form" style="margin-top: 30px">
+		<form class="bs-example bs-example-form" role="form" style="margin-top: 30px">
 
 			<div class="form-group">
 				<label>名称：</label>
-				<input type="text" class="form-control">
+				<input type="text" id="taskName"  class="form-control">
 			</div>
 
 			<div class="form-group">
 				<label>描述：</label>
-				<textarea id="result" class="form-control" rows="3" name=textarea></textarea>
+				<textarea id="taskDescribe" class="form-control" rows="3" name=textarea></textarea>
 			</div>
 
 			<div class="form-group">
 				<label>用例：</label>
-				<p>xxx</p>
+				<div class="caseList" style="overflow-y:scroll; height: 200px; background: #FFFFFF; padding-left: 15px;">
+					
+				</div>
+				
 			</div>
 
 			
 			<div style="width: 100%; height: 60px;">
-				<button type="button" class="btn btn-primary" id="saveTask" style="float: right;margin-right: 10px;">保存</button>
+				<button type="button" class="btn btn-primary" id="saveTask" 
+				style="float: right;margin-right: 10px;">保存</button>
 			</div>
 
 		</form>
@@ -40,119 +44,47 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-	// 初始化项目模块选择框
-	ProjectInit('project_name', 'module_name');
+	// 初始化用例的列表
+	CaseListInit()
 
-	// 设置header 与 参数输入框默认值
-	document.querySelector("#req_header").value = "{}";
-	document.querySelector("#req_parameter").value = "{}";
+		// 保存任务
+		$("#saveTask").click(function () {
 
-	$(document).ready(function () {
+			let tName = $("#taskName").val();
+			let tDescribe = $("#taskDescribe").val();
 
-		$("#send").click(function () {
-			let url = $("#req_url").val();
-			let method = $('input[name="req_method"]:checked').val();
-			let type = $('input[name="req_type"]:checked').val();
-			let header = $("#req_header").val();
-			let parameter = $("#req_parameter").val();
-
-			if (url === "") {
-				window.alert("请求的URL不能为空");
-				return;
-			} else if (method === "") {
-				window.alert("请求的方法不能为空");
-				return;
-			} else if (parameter === "") {
-				parameter = "{}";
+			if (tName === "") {
+				window.alert("任务的名称不能为空！");
 			}
 
-			// 调试接口
-			$.post("/interface/api_debug/", {
-				"req_url": url,
-				"req_method": method,
-				"req_type": type,
-				"req_header": header,
-				"req_parameter": parameter
+			let selectCases = document.querySelectorAll("div.caseList > input");
+			//var selectCasesId = new Array()
+			var selectCasesId = "";
+			for (let i = 0; i < selectCases.length; i++) {
+				//window.alert("1111");
+				if (selectCases[i].checked === true){
+					let case_id = selectCases[i].value;
+					//selectCasesId.push(case_id);
+					selectCasesId = selectCasesId + case_id + ","
+				}
+			}
+
+			console.log("选中的用例id", selectCasesId);
+
+			$.post("/interface/save_task_data/", {
+				"task_name": tName,
+				"task_describe": tDescribe,
+				"task_cases": selectCasesId,
 			}, function (resp) {
-				if (resp.success === "true") {
-					$("#result").html(resp.data);
-				} else {
+				if (resp.success === "true"){
+					window.alert(resp.message);
+				}else{
 					window.alert(resp.message);
 				}
 			});
 
 		});
 
-		// 保存为接口测试用例
-		$("#save").click(function () {
-			let module_name = $('select[id="module_name"]').val();
-			let name = $("#req_name").val();
-			let url = $("#req_url").val();
-			let method = $('input[name="req_method"]:checked').val();
-			let parameter = $("#req_parameter").val();
-			let req_type = $('input[name="req_type"]:checked').val();
-			let header = $("#req_header").val();
-			let assert_text = $("#assert_text").val();
-
-			if (name === "") {
-				window.alert("名称不能为空");
-				return;
-			} else if (url === "") {
-				window.alert("请求的URL不能为空");
-				return;
-			} else if (method === "") {
-				window.alert("请求的方法不能为空");
-				return;
-			} else if (parameter === "") {
-				parameter = "{}";
-				retrun;
-			}
-
-			// 保存用例接口
-			$.post("/interface/save_case/", {
-				"name": name,
-				"req_url": url,
-				"req_method": method,
-				"req_parameter": parameter,
-				"req_type": req_type,
-				"header": header,
-				"module": module_name,
-				"assert_text": assert_text,
-			}, function (resp) {
-				if (resp.success === "true") {
-					window.alert(resp.message);
-					//$("#result").html(resp.data);
-				} else {
-					window.alert(resp.message);
-				}
-				//$("#result").html(resp);
-			});
-
-		});
-
-		// 验证数据
-		$("#assert").click(function () {
-
-			let result = $("#result").val();
-			let assert = $("#assert_text").val();
-
-			if (result === "" || assert === "") {
-				window.alert("验证数据不能为空！");
-			}
-
-			$.post("/interface/api_assert/", {
-				"result": result,
-				"assert": assert,
-			}, function (resp) {
-				//console.log("6666", resp);
-				window.alert(resp.message);
-			});
-
-		});
-
-
-
-	});
 </script>
 
 {% endblock %}
