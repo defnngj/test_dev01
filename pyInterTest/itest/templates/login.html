@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Mosaddek">
+  <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <link rel="shortcut icon" href="/static/img/test.png">
+
+  <title>接口测试平台</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-reset.css" rel="stylesheet">
+  <!--external css-->
+  <link href="/static/assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/style-responsive.css" rel="stylesheet"/>
+
+  <link href="/static/css/bootstrapValidator.min.css" rel="stylesheet"/>
+  <link href="/static/loading/css/jquery.mloading.css" rel="stylesheet"/>
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+  <form class="form-signin" id="form_login">
+    <h2 class="form-signin-heading">sign in now</h2>
+
+
+    <div class="login-wrap ">
+      <div class="alert alert-block alert-danger fade in" id="div_message_boards" style="display: none">
+        <button data-dismiss="alert" class="close close-sm" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <strong id="message">登录失败</strong>
+      </div>
+
+      {% csrf_token %}
+
+
+      <div class="form-group">
+
+        <input type="text" class="form-control required" id="input_user_name" data-bv-notempty placeholder="User ID"
+               autofocus name="user">
+      </div>
+      <div class="form-group">
+
+        <input type="password" class="form-control required" id="input_user_pwd" data-bv-notempty placeholder="Password"
+               name="pwd">
+      </div>
+
+
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me"> 记住我
+        <span class="pull-right"> <a href="#"> 忘记密码?</a></span>
+      </label>
+      <button class="btn btn-lg btn-login btn-block" type="button" id="bt_login">登录</button>
+
+      <div class="login-social-link">
+        <p>还没有账号?</p>
+        <a href="#" class="twitter" id="a_register">
+          <i class="icon-user"></i>
+          注册
+        </a>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/assets/gritter/js/jquery.gritter.js"></script>
+<script src="/static/js/bootstrapValidator.min.js"></script>
+<script src="/static/cookie/jquery.cookie.js"></script>
+<script src="/static/loading/js/jquery.mloading.js"></script>
+<script src="/static/pyInter/js/pyInterBase2.js"></script>
+<script src="/static/pyInter/js/pyInter_login.js"></script>
+</body>
+</html>

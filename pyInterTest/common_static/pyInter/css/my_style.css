@@ -1,0 +1,20 @@
+input {
+    color: black;
+}
+
+textarea {
+    color: black;
+}
+
+.auto_scroll {
+    overflow: auto
+}
+
+.div_modal_button {
+    float: right;
+    margin-right: 15px
+}
+
+.div_project_list {
+    min-height:540px
+}

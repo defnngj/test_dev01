@@ -1,0 +1,173 @@
+
+<div class="row">
+	<div class="col-lg-7" id="div_debug_parmas">
+		<section class="panel" style="min-height: 564px"
+			id="section_debug_parmas">
+			<!-- <header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>
+						<strong>参数设置</strong>
+					</div>
+				</div>
+			</header> -->
+			<div class="panel-body">
+				<section class="panel" style="margin-top:-15px">
+					<header class="panel-heading" >
+						<div style="display: flex; justify-content: space-between">
+							<a1>1.请求地址 </a1>
+							<!-- <button class="btn btn-danger btn-sm" type="button" onclick="">发送 -->
+							<a href="#" style="color:red" onclick="ApiDebug.debug()"><i class=" icon-play">发送请求</i></a>
+							<!--  <button type="button" class="btn btn-danger btn-xs btn-block">Block level button</button> -->
+						<!-- </button> -->
+						</div>
+					
+						<!-- <button class="btn btn-danger" type="button" onclick="">发送
+						</button> -->
+					</header>
+					<div class="panel-body">
+
+						<div class="input-group m-bot15">
+							<div class="input-group-btn" id="div_debug_method">
+								<button type="button" class="btn btn-white dropdown-toggle"
+									data-toggle="dropdown">
+									get<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a>get</a></li>
+									<li><a>post</a></li>
+									<li><a>put</a></li>
+									<!-- <li class="divider"></li> -->
+									<li><a>delete</a></li>
+								</ul>
+							</div>
+							<input type="text" class="form-control" id="input_debug_url" placeholder="http://">
+						</div>
+					</div>
+
+				</section>
+
+				<section class="panel" style="margin-top: -30px">
+					<header class="panel-heading"> 2.头部设置 </header>
+					<div class="panel-body">
+						<table class="table table-hover table-bordered" id="table_debug_head">
+							<tbody>
+								<!-- <tr>
+
+									<td width="35%"><input type="text" class="form-control"
+										id="input_response_name" name="inputModuleName"></td>
+
+									<td width="60%"><input type="text" class="form-control"
+										id="input_response_dec" name="inputModuleName"></td>
+									<td width="5%">
+
+										<button class="btn btn-danger btn-xs" type="button" onclick=""
+											style="margin-top: 5px">
+											<i class="icon-trash "></i>
+										</button>
+									</td>
+								</tr> -->
+							</tbody>
+						</table>
+						<button class="btn btn-success" type="button" id="bt_debug_add_header"
+							style="margin-top: -10px">
+							<i class="icon-plus ">添加</i>
+						</button>
+					</div>
+
+				</section>
+
+				<section class="panel" style="margin-top: -20px">
+					<header class="panel-heading"> 3.参数设置 </header>
+					<div class="panel-body">
+
+						<div style="margin-bottom: 10px">
+							<!-- <label for="" class="control-label" style="margin-right:15px">类型:</label> -->
+							<label class="radio-inline"> <input type="radio"
+								class="radio_type" name="debug_parmas" id=""
+								value="x-www-form-urlencoded" checked>x-www-form-urlencoded
+							</label> <label class="radio-inline"> <input type="radio"
+								class="radio_type" name="debug_parmas" id="" value="json">json
+							</label>
+						</div>
+						<div id="div_debug_parmas_form">
+							<table class="table table-hover table-bordered" id="table_debug_parmas">
+								<tbody>
+									<!-- <tr>
+										<td width="35%"><input type="text" class="form-control"
+											id="input_response_name" name=""></td>
+
+										<td width="60%"><input type="text" class="form-control"
+											id="input_response_dec" name=""></td>
+										<td width="5%">
+
+											<button class="btn btn-danger btn-xs" type="button"
+												onclick="" style="margin-top: 5px">
+												<i class="icon-trash "></i>
+											</button>
+										</td>
+									</tr> -->
+								</tbody>
+							</table>
+							<button class="btn btn-success" type="button" id="bt_debug_add_parmas"
+								style="margin-top: -10px">
+								<i class="icon-plus ">添加</i>
+							</button>
+
+						</div>
+						<div id="div_debug_parmas_json" style="display: none">
+							<textarea id="textarea_debug_parmas" class="form-control"
+								style="color: black; resize: none; overflow: hidden;"></textarea>
+						</div>
+
+					</div>
+
+				</section>
+			</div>
+		</section>
+
+	</div>
+
+	<div class="col-lg-5" id="div_debug_response">
+		<section class="panel" style="min-height: 564px"
+			id="section_debug_response">
+			<header class="panel-heading"> 4.响应输出</header>
+			<div class="panel-body">
+				<section class="panel" style="margin-top:-15px;">
+					
+					<div class="panel-body">
+
+						<ul id="myTab" class="nav nav-tabs">
+							
+							<li class="active"><a href="#debug_response_text" class="li_debug_response" data-toggle="tab">text</a></li>
+							<li ><a href="#debug_response_json" class="li_debug_response" data-toggle="tab">json </a></li>
+							<li><a href="#debug_response_header" class="li_debug_response" data-toggle="tab">响应头</a></li>
+							<li><a href="#debug_response_request" class="li_debug_response" data-toggle="tab">请求数据</a></li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade in active" id="debug_response_text">
+								<textarea id="textarea_debug_response_text" class="form-control" 
+								style="BORDER-TOP: 0px solid;height:100%"></textarea>
+							</div>
+							<div class="tab-pane fade" id="debug_response_json">
+								<textarea id="textarea_debug_response_json" class="form-control" 
+								style="BORDER-TOP: 0px solid;height:100%"></textarea>
+							</div>
+							<div class="tab-pane fade" id="debug_response_header">
+								<textarea id="textarea_debug_response_header" class="form-control" 
+								style="BORDER-TOP: 0px solid;height:100%"></textarea>
+							</div>
+							<div class="tab-pane fade" id="debug_response_request">
+								<textarea id="textarea_debug_response_request" class="form-control" 
+								style="BORDER-TOP: 0px solid;height:100%"></textarea>
+							</div>
+							
+						</div>
+					</div>
+
+				</section>
+
+			</div>
+			
+		</section>
+	</div>
+</div>

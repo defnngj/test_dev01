@@ -1,0 +1,479 @@
+<div class="row">
+	<div class="col-lg-12" id="">
+		<section class="panel" style="min-height: 560px" id="">
+			<!-- <header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>
+						<strong>参数设置</strong>
+					</div>
+				</div>
+			</header> -->
+			<header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>测试任务</div>
+					<div>
+						<button class="btn btn-default btn-sm" type="button"
+							data-toggle="modal" data-target="#modal_add_task">
+							<i class="icon-plus-sign-alt">新建</i>
+						</button>
+					</div>
+				</div>
+			</header>
+			<div class="panel-body">
+				<div class="panel-group" id="panel_task_list">
+				</div>
+			</div>
+		</section>
+
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_add_task" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="">创建任务</h4>
+			</div>
+			<div class="modal-body">
+				<div>
+					<form role="form" id="form_task_add_task">
+						<div class="form-group">
+							<label for="input_add_task_name">名称:</label> <input type="text"
+								class="form-control" id="input_add_task_name" name="input_add_task_name">
+						</div>
+
+						<div>
+							<label for="">测试套件:</label>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<select class="selectpicker form-control" data-size="8" id="select_task_suite_list"
+										data-live-search="true">
+										<!-- <option>Mustard</option>
+										<option>Ketchup</option>
+										<option>Relish</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<div>
+							<label for="">环境变量:</label>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<select class="selectpicker form-control" data-size="8" id="select_task_env_list"
+										data-live-search="true">
+										<!-- <option>Mustard</option>
+										<option>Ketchup</option>
+										<option>Relish</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div>
+								<label for="">任务类型:</label>
+							</div>
+							<div style="margin-left: 5px">
+								<label class="label_radio" for="input_task_time_task"> <input
+									name="task_type" id="input_task_time_task" value="1"
+									type="radio" checked />定时任务
+								</label> <label class="label_radio" for="input_task_handle_task"
+									style="margin-left: 10px"> <input name="task_type"
+									id="input_task_handle_task" value="0" type="radio" />手动任务
+								</label>
+							</div>
+						</div>
+						<div id="div_task_add_for_time_task">
+							<div class="form-group">
+								<label for="input_add_task_datetimepicker">时间:</label> <input
+									type="text" class="form-control"
+									id="input_add_task_datetimepicker" readonly
+									style="cursor: text">
+							</div>
+
+							<div class="form-group">
+								<div>
+									<label for="">重复:</label>
+								</div>
+								<div style="margin-left: 5px">
+									<label class="label_radio" for="radio-01"> <input
+										name="repeat_type" id="radio-01" value="-1" type="radio"
+										checked /> 不重复
+									</label> <label class="label_radio" for="radio-02"
+										style="margin-left: 10px"> <input name="repeat_type"
+										id="radio-02" value="1" type="radio" />每天
+									</label> <label class="label_radio" for="radio-03"
+										style="margin-left: 10px"> <input name="repeat_type"
+										id="radio-03" value="3" type="radio" />每3天
+									</label> <label class="label_radio" for="radio-04"
+										style="margin-left: 10px"> <input name="repeat_type"
+										id="radio-04" value="7" type="radio" />每周
+									</label>
+								</div>
+							</div>
+
+						</div>
+
+
+					</form>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-10 col-lg-12">
+						<button type="button" id="bt_task_add_task" class="btn btn-danger">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="modal_edit_task" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="">编辑任务</h4>
+			</div>
+			<div class="modal-body">
+				<div>
+					<form role="form" id="form_task_edit_task">
+						<div class="form-group">
+							<label for="input_add_task_name">名称:</label> <input type="text"
+								class="form-control" id="input_edit_task_name" name="input_edit_task_name">
+						</div>
+
+						<div>
+							<label for="">测试套件:</label>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<select class="selectpicker form-control" data-size="8" id="select_task_suite_list_edit"
+										data-live-search="true">
+										<!-- <option>Mustard</option>
+										<option>Ketchup</option>
+										<option>Relish</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<div>
+							<label for="">环境变量:</label>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<select class="selectpicker form-control" data-size="8" id="select_task_env_list_edit"
+										data-live-search="true">
+										<!-- <option>Mustard</option>
+										<option>Ketchup</option>
+										<option>Relish</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div>
+								<label for="">任务类型:</label>
+							</div>
+							<div style="margin-left: 5px">
+								<label class="label_radio" for="input_task_time_task_edit"> 
+									<input name="task_type_edit" id="input_task_time_task_edit" value="1" type="radio" />定时任务
+								</label> 
+								<label class="label_radio" for="input_task_handle_task_edit" style="margin-left: 10px"> 
+									<input name="task_type_edit" id="input_task_handle_task_edit" value="0" type="radio" />手动任务
+								</label>
+							</div>
+						</div>
+						<div id="div_task_edit_for_time_task">
+							<div class="form-group">
+								<label for="input_edit_task_datetimepicker">时间:</label> <input
+									type="text" class="form-control"
+									id="input_edit_task_datetimepicker" readonly
+									style="cursor: text">
+							</div>
+
+							<div class="form-group">
+								<div>
+									<label for="">重复:</label>
+								</div>
+								<div style="margin-left: 5px">
+									<label class="label_radio" for="radio-01"> <input
+										name="repeat_type_edit" value=-1 type="radio" id="radio_never"
+										checked /> 不重复
+									</label> <label class="label_radio" for="radio-02"
+										style="margin-left: 10px"> <input name="repeat_type_edit" id="nadio_one"
+										value=1 type="radio" />每天
+									</label> <label class="label_radio" for="radio-03"
+										style="margin-left: 10px"> <input name="repeat_type_edit" id="nadio_three"
+										value=3 type="radio" />每3天
+									</label> <label class="label_radio" for="radio-04"
+										style="margin-left: 10px"> <input name="repeat_type_edit" id="nadio_weed"
+										value=7 type="radio" />每周
+									</label>
+								</div>
+							</div>
+
+						</div>
+
+
+					</form>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-10 col-lg-12">
+						<button type="button" id="bt_task_edit_task" class="btn btn-danger">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<div id="div_task_case_list_model" style="display:none">
+<div class="row">
+   <div class="col-lg-12">
+       <section class="panel">
+           <header class="panel-heading" style="display: flex;justify-content:space-between;">
+           		<div>
+           			<h6>上次执行时间: <hh id="last_running_time">2017-10-13 13:00</hh> &nbsp;&nbsp;&nbsp;&nbsp;执行者: <hh id="last_running_user">cch</hh></h6>
+           			<h6>上次执行结果: <result id="last_running_result" style="color:red"></result></h6>
+           		</div>
+           		<div>
+           			<button class="btn btn-success" type="button" style="width:60px;height:60px"><font size="4" id="last_running_success_count">10</font><br/>pass</button>
+           			<button class="btn btn-danger" type="button" style="width:60px;height:60px;margin-left:20px"><font size="4" id="last_running_failed_count">10</font><br/>failed</button>
+           		</div>
+           </header>
+           <div class="panel-body">
+	           
+	           <div style="display:none;margin-bottom: 0px">
+	           		<div>
+	           			<label  style="color:red">前置条件:</label>
+	          			 <div><hr style="margin-top:-0px;"></div>
+	           		</div>
+	           		<div style="padding: 10px;word-wrap:break-word;display:none;margin-top:-20px;" id="div_task_show_pre_sql" >
+	           		</div>
+	           		<table class="table table-striped table-advance table-hover" style="display:none;margin-top:-10px" id="table_pre_require_detail">
+		               <thead>
+		               <tr>
+		                   <th width="40%">接口名称</th>
+		                   <th width="40%">案例名称</th>
+		                   <th width="10%">结果</th>
+		                   <th width="10%">执行详情</th>
+		               </tr>
+		               </thead>
+		               <tbody id="tbody_pre_require_detail">        
+		                </tbody>
+		            </table>
+	           </div>
+           
+            	<div style="margin-top:-0px">
+            	<label style="color:red;">案例列表:</label>
+            	<div><hr style="margin-top:-0px"></div>
+            	<div style="margin-top:-15px">
+	            	<table class="table table-striped table-advance table-hover">
+		               <thead>
+		               <tr>
+		                   <th width="40%">接口名称</th>
+		                   <th width="40%">案例名称</th>
+		                   <th width="10%">结果</th>
+		                   <th width="10%">执行详情</th>
+		               </tr>
+		               </thead>
+		               <tbody id="tbody_case_list_detail">
+		               <!-- <tr>
+		                   <td width="40%" id="a_task_case_api_name">11111</td>
+		                   <td width="40%" id="a_task_case_case_name">sdafasdf</td>
+		                   <td width="10%"><span class="label label-info label-mini">结果</span></td>
+		                   <td width="10%"><button class="btn btn-primary btn-xs" id="bt_task_case_running_detail"><i class="icon-pencil">...</i></button></td>
+		                   <td>
+		                       <button class="btn btn-success btn-xs"><i class="icon-ok"></i></button>
+		                       <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>
+		                       <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+		                   </td>
+		                </tr> -->
+	
+		                </tbody>
+		            </table>
+            </div>
+           </div>
+            <div style="display:none">
+            	<label  style="color:red">后置条件:</label>
+	        	<div><hr style="margin-top:-0px"></div>           
+	        	<div style="padding: 10px;word-wrap:break-word;margin-top:-25px;margin-bottom: 10px" id="div_task_show_post_sql"></div>
+            </div>
+           
+            
+            <div>
+               	<button type="button" class="btn btn-danger" id="bt_show_history_result" onclick="TaskHandle.show_history_result(this)">查看历史结果</button>
+            </div>
+            </div>
+        </section>
+    </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_show_test_result" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 700px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="h4_task_result_pre_sql">测试结果</h4>
+			</div>
+			
+			<section class="panel" style="margin-top:0px">
+                 <header class="panel-heading tab-bg-dark-navy-blue ">
+                     <ul class="nav nav-tabs">
+                     	 <li class="active">
+                             <a data-toggle="tab" href="#tab_result_message">测试结果</a>
+                         </li>
+                         <li>
+                             <a data-toggle="tab" href="#tab_result_pre_sql">前置Sql</a>
+                         </li>
+                         <li class="">
+                             <a data-toggle="tab" href="#tab_result_request">请求</a>
+                         </li>
+                         <li class="">
+                             <a data-toggle="tab" href="#tab_result_response">响应</a>
+                         </li>
+                         <li class="">
+                             <a data-toggle="tab" href="#tab_result_picker">变量提取</a>
+                         </li>
+                         <li class="">
+                             <a data-toggle="tab" href="#tab_result_assert">断言</a>
+                         </li>
+                         <li class="">
+                             <a data-toggle="tab" href="#tab_result_post_sql">后置Sql</a>
+                         </li>
+                     </ul>
+                 </header>
+                 <div class="panel-body">
+                     <div class="tab-content">
+                     	 <div id="tab_result_message"  style="color:red;overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word" class="tab-pane active">
+                         </div>
+                         <div id="tab_result_pre_sql"  style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word" class="tab-pane">
+                         </div>
+                         <div id="tab_result_request" class="tab-pane" style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">
+                         	<div id="div_task_result_show_url" style="word-break:break-all;"></div>
+							<br>
+							<div><strong>head：</strong></div>
+							<div id="div_task_result_show_request_head" style="word-wrap:break-word;padding: 5px;"></div>
+							<br>
+							<div><strong id="div_task_result_show_request_body_type"></strong></div>
+							<div id="div_task_result_show_request_body" style="word-wrap:break-word;padding: 5px;"></div>
+                         </div>
+                         <div id="tab_result_response" class="tab-pane" style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);">
+                         	<div><strong>head：</strong></div>
+							<div id="div_task_result_show_response_head" style="word-wrap:break-word;padding: 5px;"></div>
+							<br>
+							<div><strong>body：</strong></div>
+							<div>
+							
+							</div>
+							<div id="div_task_result_show_response_body" style="padding: 5px;word-wrap:break-word;"></div>
+                         	
+                         </div>
+                         <div id="tab_result_picker" class="tab-pane" style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">
+							<table class="table table-bordered">
+							  <thead>
+							    <tr>
+							      <th>变量名</th>
+							      <th>值</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    
+							  </tbody>
+							</table>                         
+                         </div>
+                         <div id="tab_result_assert" class="tab-pane" style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">
+                         	<div class="list-group" id="div_task_result_sql_assert">
+								<a  class="list-group-item">
+									<!-- <h5 class="list-group-item-heading">24*7 支持</h5>
+									<span class="badge badger-success">新</span>
+									<p class="list-group-item-text">我们提供 24*7 支持。24*7 支持</p> -->
+								</a>
+							</div>
+                         </div>
+                         <div id="tab_result_post_sql" class="tab-pane" style="overflow:auto;max-height: 400px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">
+                         </div>
+                     </div>
+                 </div>
+             </section>
+<!-- 			<div class="modal-body">
+
+				<div style="overflow:auto;max-height: 500px;padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word" id="div_show_test_result">
+					
+				</div>
+				
+				<div style="display: flex;justify-content:flex-end;margin-top:10px">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">确定</button>
+				</div>
+			</div> -->
+			
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal_show_task_history" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title">历史数据</h4>
+			</div>
+			
+			<div class="modal-body">
+				<div style="overflow:auto;max-height: 400px;">
+					<div class="list-group" id="div_task_history_list">
+<!-- 						<a class="list-group-item">
+							<label>11111</label>
+							<span class="badge badger-info" style="cursor:pointer" onclick="">
+								<i class="icon-cloud-download">下载</i>
+							</span>
+						</a> -->
+					</div>
+				</div>
+				<div style="display: flex;justify-content:flex-end;margin-top:10px">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+
+			
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>

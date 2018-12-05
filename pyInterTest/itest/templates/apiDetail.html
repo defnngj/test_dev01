@@ -1,0 +1,1135 @@
+<section class="panel" id="section_api_detail_nodata"
+	style="min-height: 430px; overflow: auto;">
+	<header class="panel-heading">
+		<div style="display: flex; justify-content: space-between">
+			<div>
+				模块详情
+			</div>
+
+		</div>
+	</header>
+	<div style="margin: 35px auto; width: 100px; text-align: center">无数据</div>
+</section>
+
+
+<section class="panel" id="section_api_detail" style="display: none">
+	<!-- <header class="panel-heading tab-bg-dark-navy-blue tab-right ">
+		<ul class="nav nav-tabs pull-right">
+			<li class="active"><a data-toggle="tab" href="#inter_detail_base_tab">基础设置
+			</a></li>
+			<li class=""><a data-toggle="tab" href="#inter_detail_parmas_tab">参数设置
+			</a></li>
+			<li class=""><a data-toggle="tab" href="#inter_detail_response_tab"> 响应设置
+			</a></li>
+		</ul>
+		<span class="hidden-sm wht-color">接口详情</span>
+	</header> -->
+	<header class="panel-heading">
+		<div style="display: flex; justify-content: space-between">
+			<div>接口详情</div>
+			<div>
+				<button class="btn btn-default  btn-xs" type="button"
+					onclick="ApiDebug.debugApi()">
+					<i class="icon-bug">调试</i>
+				</button>
+			</div>
+		</div>
+	</header>
+	<!-- <div class="panel-body">
+		<div class="tab-content">
+			<div id="home-3" class="tab-pane active">Home</div>
+			<div id="about-3" class="tab-pane">About</div>
+			<div id="contact-3" class="tab-pane">Contact</div>
+		</div>
+	</div>
+</section> -->
+
+	<!-- <section class="panel" id="section_api_detail" style="display: none">
+	<header class="panel-heading tab-bg-dark-navy-blue tab-right">
+		<ul class="nav nav-tabs nav-justified ">
+			<li class="active"><a href="#inter_detail_base_tab"
+				data-toggle="tab">基础设置</a></li>
+			<li><a href="#inter_detail_parmas_tab" data-toggle="tab">参数设置</a>
+			</li>
+			<li class=""><a href="#inter_detail_response_tab"
+				data-toggle="tab">响应设置</a></li>
+		</ul>
+		<span class="hidden-sm wht-color">Right tab</span>
+	</header> -->
+	<div class="panel-body"
+		style="border-left: 1px solid rgb(241, 241, 247)">
+		<div class="tab-content tasi-tab">
+			<div class="tab-pane active" id="inter_detail_base_tab"
+				style="min-height: 430px; overflow: auto">
+				<div id="api_base_div" class="tab-pane active my-tab">
+					<form class="form-horizontal" role="form" id="modal_form">
+						<!-- <div class="row">
+						<div class="col-lg-6"> -->
+						<p id="aId" style="display: none"></p>
+
+						<div>
+							<div style="width: 50%; float: left">
+
+								<div>
+									<div class="form-group inter_save inter_save_name">
+										<div class="col-lg-2 control-label inter_save inter_save_name"
+											style="margin-left: 0px">
+											<strong>名称:</strong>
+										</div>
+										<div class="col-lg-7 control-label inter_save inter_save_name"
+											style="margin-left: -10px" id="lable_Inter_name"></div>
+									</div>
+								</div>
+								<div>
+									<div class="form-group inter_edit_name inter_edit">
+										<label for="inputModuleName"
+											class="col-lg-2 control-label inter_edit inter_edit_name"
+											style="margin-left: 0px"><strong>名称:</strong></label>
+										<div class="col-lg-7 inter_edit inter_edit_name"
+											style="margin-left: -10px">
+											<input type="text" class="form-control" id="input_inter_name"
+												name="inputModuleName">
+										</div>
+										<div class="inter_edit col-lg-3 inter_edit_name"
+											style="margin-left: -20px">
+											<button class="btn btn-default  btn-xs" type="button"
+												id="save_inter_name">
+												<i class="icon-ok"></i>
+											</button>
+											<button class="btn btn-default  btn-xs" type="button"
+												id="dismiss_inter_name">
+												<i class="icon-remove"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div style="width: 50%; float: left">
+								<div>
+									<div class="form-group inter_save inter_save_method">
+										<label
+											class="col-lg-2 control-label inter_save inter_save_method"><strong>类型:</strong></label>
+										<label
+											class="col-lg-10 control-label inter_save inter_save_method"
+											id="lable_Inter_method"></label>
+									</div>
+								</div>
+
+								<div>
+									<div class="form-group inter_edit inter_edit_method">
+										<label
+											class="col-lg-2 control-label inter_edit inter_edit_method"><strong>类型:</strong></label>
+										<div class="col-lg-7 inter_edit inter_edit_method"
+											style="display: none">
+											<label class="radio-inline"> <input type="radio"
+												name="method" id="" value="get" checked>get
+											</label> <label class="radio-inline"> <input type="radio"
+												name="method" id="" value="post">post
+											</label> <label class="radio-inline"> <input type="radio"
+												name="method" id="" value="put">put
+											</label> <label class="radio-inline"> <input type="radio"
+												name="method" id="" value="delete">delete
+											</label>
+										</div>
+										<div class="inter_edit col-lg-2 inter_edit_method">
+											<button class="btn btn-default  btn-xs" type="button"
+												id="save_inter_method">
+												<i class="icon-ok"></i>
+											</button>
+											<button class="btn btn-default  btn-xs" type="button"
+												id="dismiss_inter_method">
+												<i class="icon-remove"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div style="clear: both;">
+							<div>
+								<div class="form-group inter_save inter_save_url">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>url:</strong></label>
+									<label
+										class="col-lg-11 control-label inter_save inter_save_url"
+										style="margin-left: -7px" id="lable_Inter_url"></label>
+								</div>
+							</div>
+
+							<div>
+								<div class="form-group inter_edit inter_edit_url">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>url:</strong></label>
+									<div class="col-lg-9 inter_edit inter_edit_url"
+										style="display: none; margin-left: -7px">
+										<input type="text" class="form-control" id="input_inter_url"
+											name="input_inter_url">
+									</div>
+
+									<div class="inter_edit col-lg-2 inter_edit_url">
+										<button class="btn btn-default  btn-xs" type="button"
+											id="save_inter_url">
+											<i class="icon-ok"></i>
+										</button>
+										<button class="btn btn-default  btn-xs" type="button"
+											id="dismiss_inter_url">
+											<i class="icon-remove"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div>
+							<div>
+								<div class="form-group inter_save inter_save_dec">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>备注:</strong></label>
+									<div class="col-lg-11 inter_save inter_save_dec"
+										style="margin-top: 5px; margin-left: -7px" id="div_inter_dec"></div>
+								</div>
+							</div>
+							<div>
+								<div class="form-group inter_edit inter_edit_dec">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>备注:</strong></label>
+									<div class="col-lg-9 inter_edit inter_edit_dec"
+										style="margin-top: 5px; margin-left: -7px">
+										<textarea class="form-control inter_edit inter_edit_dec"
+											cols="10" rows="3" id="textarea_inter_dec"></textarea>
+									</div>
+									<div class="inter_edit col-lg-2 inter_edit_dec">
+										<button class="btn btn-default  btn-xs" type="button"
+											id="save_inter_dec">
+											<i class="icon-ok"></i>
+										</button>
+										<button class="btn btn-default  btn-xs" type="button"
+											id="dismiss_inter_dec">
+											<i class="icon-remove"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="form-group">
+
+								<div class="col-lg-12">
+
+									<div>
+										<!-- <label class="control-label"></label> -->
+										<!-- <a href="#" style="color: black" id="a_tonggle_header"> <i
+											class="icon-chevron-down" style="display: none"><strong>头部设置:</strong></i>
+											<i class="icon-chevron-up"><strong>头部设置:</strong></i>
+										</a> -->
+										<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+										data-target="#div_header">
+											<i class="icon-chevron-up"><strong>头部设置</strong></i>
+										</button>
+										<hr
+											style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+									</div>
+
+									<!-- <label for="inputModuleName" class="col-lg-2 control-label">头部信息:</label> -->
+									<div class="table-responsive collapse"
+										id="div_header">
+										<table class="table table-hover table-bordered" id="tb_header">
+											<thead>
+												<tr>
+													<th>op</th>
+													<th>名称</th>
+													<th>值</th>
+													<th>说明</th>
+													<th>turn</th>
+												</tr>
+											</thead>
+											<!-- <caption>精简表格布局</caption> -->
+											<!-- <h6>头部设置</h6> -->
+
+											<tbody>
+
+												<tr>
+													<td width="5%">
+														<button type="button" class="btn btn-success btn-xs"
+															id="bt_add_header" onclick="ApiHandle.bt_add_header()"
+															style="margin-top: 5px">
+															<i class="icon-plus"></i>
+														</button>
+													</td>
+													<td width="20%"><input type="text"
+														class="form-control" id="input_head_name"></td>
+													<td width="35%"><input type="text"
+														class="form-control" id="input_head_value"></td>
+													<td width="35%"><input type="text"
+														class="form-control" id="input_head_dec"></td>
+													<td width="5%"></td>
+												</tr>
+
+											</tbody>
+
+										</table>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div style="margin-top: -20px">
+							<div>
+								<!-- <label class="control-label"></label> -->
+								<!-- <a href="#" style="color: black" id="a_tonggle_parmas"> <i
+									class="icon-chevron-down" style="display: none"><strong>参数设置:</strong></i>
+									<i class="icon-chevron-up"><strong>参数设置:</strong></i>
+								</a> -->
+								<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+										data-target="#div_parmas">
+									<i class="icon-chevron-up"><strong>参数设置</strong></i>
+								</button>
+								<hr
+									style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+							</div>
+
+							<div id="div_parmas" class="collapse">
+								<div class="form-group inter_save inter_save_parmas_type">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>类型:</strong></label>
+									<label
+										class="col-lg-5 control-label inter_save inter_save_parmas_type"
+										style="margin-left: -7px" id="lable_Inter_parmas_type"></label>
+								</div>
+
+								<div class="form-group inter_edit inter_edit_parmas_type">
+									<label for="inputModuleName" class="col-lg-1 control-label"><strong>类型:</strong></label>
+									<div class="col-lg-4 inter_edit inter_edit_parmas_type"
+										style="margin-left: -7px">
+										<label class="radio-inline"> <input type="radio"
+											name="parmas" id="" value="json" checked>json
+										</label> <label class="radio-inline"> <input type="radio"
+											name="parmas" id="" value="x-www-form-urlencoded">x-www-form-urlencoded
+										</label>
+									</div>
+									<div class="inter_edit col-lg-2 inter_edit_parmas_type"
+										style="display: none">
+										<button class="btn btn-default  btn-xs" type="button"
+											id="save_inter_parmas_type">
+											<i class="icon-ok"></i>
+										</button>
+										<button class="btn btn-default  btn-xs" type="button"
+											id="dismiss_inter_parmas_type">
+											<i class="icon-remove"></i>
+										</button>
+									</div>
+
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+
+										<div class="table-responsive">
+											<table class="table table-hover table-bordered"
+												id="tb_parmas">
+												<thead>
+													<tr>
+														<th>op</th>
+														<th>名称</th>
+														<th>类型</th>
+														<th>说明</th>
+														<th>turn</th>
+													</tr>
+												</thead>
+												<!-- <caption>精简表格布局</caption> -->
+												<!-- <h6>头部设置</h6> -->
+												<!-- <label class="control-label">参数设置</label> -->
+												<tbody>
+
+													<tr>
+														<td width="5%"><button type="button"
+																class="btn btn-success btn-xs" id="bt_add_parmas"
+																onclick="ApiHandle.bt_add_parmas()"
+																style="margin-top: 5px">
+																<i class="icon-plus"></i>
+															</button></td>
+														<td width="30%"><input type="text"
+															class="form-control" id="input_parmas_name" name=""></td>
+														<td width="20%">
+															<div class="btn-group" style="width: 100%">
+																<button class="btn btn-white" id="input_parmas_type"
+																	type="button" style="width: 75%">string</button>
+																<button data-toggle="dropdown"
+																	class="btn btn-white dropdown-toggle"
+																	style="width: 25%" type="button">
+																	<span class="caret"></span>
+																</button>
+																<ul role="menu" class="dropdown-menu">
+																	<li class="select_type"><a >string</a></li>
+																	<li class="select_type"><a >int</a></li>
+																	<li class="select_type"><a >float</a></li>
+																	<li class="select_type"><a>boolean</a></li>
+																	<!-- <li class="divider"></li> -->
+																	<li class="select_type"><a>object</a></li>
+																	<li class="select_type"><a>list</a></li>
+																</ul>
+															</div>
+
+														</td>
+														<td width="40%"><input type="text"
+															class="form-control" id="input_parmas_dec" name=""></td>
+														<td width="5%"></td>
+													</tr>
+
+												</tbody>
+
+											</table>
+
+										</div>
+									</div>
+
+								</div>
+
+								<div class="form-group" style="margin-top: -20px">
+									<div align="center">
+										<button class="btn btn-info" id="button_sync_parmas_2_json"
+											data-toggle="tooltip" title="form格式转为json格式" type="button">
+											同步参数<i class="icon-long-arrow-down"></i>
+										</button>
+										<button class="btn btn-info" id="button_sync_json_2_parmas"
+											style="margin-left: 20px" data-toggle="tooltip"
+											title="json格式转为form格式" type="button">
+											同步json<i class="icon-long-arrow-up"></i>
+										</button>
+									</div>
+
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										json格式:
+										<!-- <textarea class="form-control" rows="18"
+											onfocus="$(this).css('overflow','auto')"
+											onblur="$(this).css('overflow','hidden')"
+											style="color: black; resize: none; overflow: hidden;"
+											id="textarea_inter_parmas"></textarea> -->
+										<textarea id="textarea_inter_parmas" class="form-control"
+											style="color: black; resize: none; overflow: hidden;"></textarea>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!-- </div>
+					</div> -->
+
+
+						<div style="margin-top:-5px">
+							<div>
+								<!-- <a href="#" style="color: black" id="a_tonggle_response"> <i
+									class="icon-chevron-down" style="display: none"><strong>响应设置:</strong></i>
+									<i class="icon-chevron-up"><strong>响应设置:</strong></i>
+								</a> -->
+								<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+										data-target="#div_response">
+									<i class="icon-chevron-up"><strong>响应设置</strong></i>
+								</button>
+								<hr
+									style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+							</div>
+
+							<div id="div_response" class="collapse">
+								<div class="form-group inter_save inter_save_response_type">
+									<!-- <label for="inputModuleName" class="col-lg-1 control-label ">类型:</label> -->
+									<label for="inputModuleName"
+										class="col-lg-1 control-label inter_save inter_save_response_type"><strong>类型:</strong></label>
+									<label
+										class="control-label inter_save inter_save_response_type col-lg-3"
+										id="lable_Inter_response_type"></label>
+									<!--  -->
+								</div>
+
+								<div class="form-group inter_edit inter_edit_response_type">
+									<label for="inputModuleName"
+										class="col-lg-1 control-label inter_edit inter_edit_response_type"><strong>类型:</strong></label>
+									<div class="col-lg-3 inter_edit inter_edit_response_type"
+										style="display: none">
+										<label class="radio-inline"> <input type="radio"
+											name="response" id="" value="json" checked>json
+										</label> <label class="radio-inline"> <input type="radio"
+											name="response" id="" value="text">text
+										</label>
+									</div>
+
+									<div class="inter_edit col-lg-3 inter_edit_response_type"
+										style="display: none">
+										<button class="btn btn-default  btn-xs" type="button"
+											id="save_inter_response_type">
+											<i class="icon-ok"></i>
+										</button>
+										<button class="btn btn-default  btn-xs" type="button"
+											id="dismiss_inter_response_type">
+											<i class="icon-remove"></i>
+										</button>
+									</div>
+
+								</div>
+
+								<div class="form-group">
+									<div class="col-lg-12">
+										<div class="table-responsive">
+											<table class="table table-hover table-bordered"
+												id="tb_response">
+												<thead>
+													<tr>
+														<th>op</th>
+														<th>名称</th>
+														<th>类型</th>
+														<th>说明</th>
+														<th>turn</th>
+													</tr>
+												</thead>
+												<tbody>
+
+
+													<tr>
+														<td width="5%">
+															<button type="button" class="btn btn-success btn-xs"
+																id="bt_add_response"
+																onclick="ApiHandle.bt_add_response()"
+																style="margin-top: 5px">
+																<i class="icon-plus"></i>
+															</button>
+														</td>
+														<td width="30%"><input type="text"
+															class="form-control" id="input_response_name"
+															name="inputModuleName"></td>
+														<td width="20%">
+															<div class="btn-group" style="width: 100%">
+																<button class="btn btn-white" type="button"
+																	id="input_response_type" style="width: 75%">string</button>
+																<button data-toggle="dropdown"
+																	class="btn btn-white dropdown-toggle" type="button"
+																	style="width: 25%">
+																	<span class="caret"></span>
+																</button>
+																<ul role="menu" class="dropdown-menu">
+																	<li class="select_type"><a>string</a></li>
+																	<li class="select_type"><a>int</a></li>
+																	<li class="select_type"><a>float</a></li>
+																	<li class="select_type"><a>boolean</a></li>
+																	<!-- <li class="divider"></li> -->
+																	<li class="select_type"><a>object</a></li>
+																	<li class="select_type"><a>list</a></li>
+																</ul>
+															</div>
+
+														</td>
+														<td width="40%"><input type="text"
+															class="form-control" id="input_response_dec"
+															name="inputModuleName"></td>
+														<td width="5%"></td>
+													</tr>
+
+												</tbody>
+
+											</table>
+
+										</div>
+
+									</div>
+								</div>
+
+								<div class="form-group" style="margin-top: -20px">
+									<div align="center">
+										<button class="btn btn-info" id="button_sync_response_2_json"
+											data-toggle="tooltip" title="form格式转为json格式" type="button">
+											同步参数<i class="icon-long-arrow-down"></i>
+										</button>
+										<button class="btn btn-info" id="button_sync_json_2_response"
+											style="margin-left: 20px" data-toggle="tooltip"
+											title="json格式转为form格式" type="button">
+											同步json<i class="icon-long-arrow-up"></i>
+										</button>
+									</div>
+
+								</div>
+								<div class="form-group">
+									<div class="col-lg-12">
+										json格式:
+										<!-- <textarea class="form-control" rows="18"
+											onfocus="$(this).css('overflow','auto')"
+											onblur="$(this).css('overflow','hidden')"
+											style="color: black; resize: none; overflow: hidden;"
+											id="textarea_inter_parmas"></textarea> -->
+										<textarea id="textarea_inter_response" class="form-control"
+											style="color: black; resize: none; overflow: hidden;"></textarea>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+
+<section class="panel" id="section_case_detail" style="display: none">
+
+	<header class="panel-heading">
+		<div style="display: flex; justify-content: space-between">
+			<div>案例详情</div>
+			<div>
+				<button class="btn btn-default  btn-xs" type="button" onclick="ApiDebug.debugCase()">
+					<i class="icon-bug">调试</i>
+				</button>
+
+			</div>
+		</div>
+	</header>
+
+	<div class="panel-body"
+		style="border-left: 1px solid rgb(241, 241, 247)">
+
+		<div class="" id="case_detail"
+			style="min-height: 430px; overflow: auto">
+
+			<form class="form-horizontal" role="form" id="form_case_info">
+
+				<div>
+					<div>
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+									data-target="#div_case_base_panel">
+								<i class="icon-chevron-down"><strong>基本设置</strong></i>
+							</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+					<div id="div_case_base_panel" class="collapse in">
+						<div style="margin-top: 0px">
+							<div style="width: 50%; float: left">
+								<div class="form-group">
+									<div class="col-lg-3">
+										<label class="control-label"><strong>接口名称:</strong></label>
+									</div>
+									<div class="col-lg-9" style="margin-left: -10px" id="">
+										<input type="text" class="form-control" style="cursor:text"
+											id="input_case_api_name" readonly>
+									</div>
+								</div>
+							</div>
+
+							<div style="width: 50%; float: left">
+								<div class="form-group">
+									<div class="col-lg-2">
+										<label class="control-label"><strong>类型:</strong></label>
+									</div>
+									<div class="col-lg-9" style="margin-left: -5px">
+										<input type="text" class="form-control" style="cursor:text"
+											id="input_case_api_method" readonly>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="form-group">
+								<label for="inputModuleName" class="col-lg-2 control-label"><strong>url:</strong></label>
+								<div class="col-lg-10" style="margin-left: -45px">
+									<input type="text" class="form-control" readonly style="cursor:text"
+										id="input_case_api_url">
+								</div>
+
+							</div>
+						</div>
+
+
+						<div>
+							<div class="form-group">
+								<label for="inputModuleName" class="col-lg-2 control-label"><strong>用例名称:</strong></label>
+								<div class="col-lg-10" style="margin-left: -45px">
+									<input type="text" class="form-control" id="input_case_name"
+										placeholder="请输入用例名称" name="input_case_name">
+								</div>
+
+							</div>
+						</div>
+
+						<div>
+
+							<div>
+								<div class="form-group">
+									<label for="inputModuleName" class="col-lg-2 control-label"><strong>标签:</strong></label>
+									<div class="col-lg-10" style="margin-left: -45px">
+										<input type="text" class="form-control" id="input_case_label"
+											placeholder="案例的标签，多个标签使用,隔开">
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+						<div>
+							<div class="form-group">
+								<label for="inputModuleName" class="col-lg-2 control-label"><strong>备注:</strong></label>
+								<div class="col-lg-10"
+									style="margin-top: 5px; margin-left: -45px">
+									<textarea class="form-control" cols="10" rows="2" name="textarea_case_dec"
+										id="textarea_case_dec"></textarea>
+								</div>
+
+							</div>
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_base">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<!-- <label class="control-label"></label> -->
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>前置条件:</strong></i>
+							<i class="icon-chevron-up"><strong>前置条件:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_pre_require_panel">
+							<i class="icon-chevron-up"><strong>前置条件</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+					<div id="div_case_pre_require_panel" class="collapse">
+						<div style="display:none">
+							<h5>前置案例:</h5>
+							<div class="panel-group" id="panel_case_requirement">
+								
+							</div>
+							
+							<div style="margin-top: 10px">
+								<button class="btn btn-success btn-sm" type="button"
+									id="bt_case_add_pre_require"><i class="icon-plus">添加</i></button>
+							</div>
+							
+							<!-- <div >
+								<div class="col-lg-12" style="background:#d8eecf;margin-bottom:10px;border-radius: 5px;;padding:10px">
+									提示，未定
+								</div>
+							</div> -->
+							
+						</div>
+						
+						<div class="form-group" style="margin-top:10px">
+							<div class="col-lg-12">
+								<div class="table-responsive" style="" id="">
+									<label>sql:</label>
+								</div>
+								<div class="" id="">
+									<textarea id="textarea_case_pre_sql" class="form-control"
+										rows="5" placeholder="请输入sql语句"></textarea>
+									<!-- <textarea rows="" cols=""></textarea> -->
+								</div>
+							</div>
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_pre_sql">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+						
+						
+
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<!-- <label class="control-label"></label> -->
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>头部设置:</strong></i>
+							<i class="icon-chevron-up"><strong>头部设置:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_head_panel">
+							<i class="icon-chevron-up"><strong>头部设置</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+					<div id="div_case_head_panel" class="collapse">
+						<div class="form-group">
+
+							<div class="col-lg-12">
+								<!-- <label for="inputModuleName" class="col-lg-2 control-label">头部信息:</label> -->
+								<div class="table-responsive" style="" id="">
+									<table class="table table-hover table-bordered"
+										id="tb_case_header">
+										<tbody>
+											<!-- <tr>
+												<td width="20%" style="padding: 5px;"><input
+													type="text" readonly="readonly" class="form-control"
+													placeholder="key" /></td>
+												<td width="80%" style="padding: 5px;"><input
+													type="text" class="form-control" placeholder="value" /></td>
+											</tr> -->
+
+
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_header">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<!-- <label class="control-label"></label> -->
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>参数设置:</strong></i>
+							<i class="icon-chevron-up"><strong>参数设置:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_parmas_panel">
+							<i class="icon-chevron-up"><strong>参数设置</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+
+					<div id="div_case_parmas_panel" class="collapse">
+
+						<div class="form-group" id="div_case_form_parmas">
+							<div class="col-lg-12">
+
+								<div class="table-responsive">
+									<table class="table table-hover table-bordered"
+										id="tb_case_parmas">
+
+										<!-- <caption>精简表格布局</caption> -->
+										<!-- <h6>头部设置</h6> -->
+										<!-- <label class="control-label">参数设置</label> -->
+										<tbody>
+											<!-- <tr>
+												<td width="20%" style="padding: 5px;"><input
+													type="text" readonly="readonly" class="form-control"
+													placeholder="key" value="key" /></td>
+												<td width="80%" style="padding: 5px;"><input
+													type="text" class="form-control" placeholder="value" /></td>
+
+											</tr> -->
+										</tbody>
+
+									</table>
+
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="form-group" id="div_case_json_parmas"
+							style="display: none">
+							<div class="col-lg-12">
+								<textarea id="textarea_case_parmas" class="form-control" 
+									style="color: black; resize: none; overflow: hidden;"></textarea>
+							</div>
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_parmas">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+					</div>
+
+				</div>
+				
+				<div>
+					<div>
+						<!-- <label class="control-label"></label> -->
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>变量提取:</strong></i>
+							<i class="icon-chevron-up"><strong>变量提取:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_picker_panel">
+							<i class="icon-chevron-up"><strong>变量提取</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+					<div id="div_case_picker_panel" class="collapse">
+						
+						<div class="form-group">
+							<div class="col-lg-12">
+								
+								
+								<div class="table-responsive" style="" id="">
+									<table class="table table-hover table-bordered"
+										id="tb_case_value_picker">
+
+										<tbody>
+											<tr>
+												<td width="40%" style="padding: 5px;"><input
+													type="text" readonly="readonly" class="form-control" style="cursor:text"
+													placeholder="key" value="key" /></td>
+
+												<td width="57%" style="padding: 5px;"><input
+													type="text" class="form-control" placeholder="value" /></td>
+												<td width="3%" style="padding: 5px;">
+													<button class="btn btn-danger btn-xs" type="button"
+														onclick="">
+														<i class="icon-trash "></i>
+													</button>
+												</td>
+											</tr>
+										</tbody>
+
+									</table>
+									<div style="margin-top: -10px">
+										<button class="btn btn-success " type="button" id="bt_case_picker_add">
+											<i class="icon-plus">添加</i>
+										</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div >
+							<div class="col-lg-12" style="background:#d8eecf;margin-bottom:10px;border-radius: 5px;;padding:10px">
+								说明：目前只能接受json格式的响应的变量提取，例如一个响应为{code:xxx,result:{success:true,otherdata:xx}},要想提取code，只需要输入code即可，如果需要提取success
+								则需要输入result.success。
+							</div>
+							
+						
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_picker">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+						
+						
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>响应断言:</strong></i>
+							<i class="icon-chevron-up"><strong>响应断言:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_response_panel">
+							<i class="icon-chevron-up"><strong>响应断言</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+
+					<div id="div_case_response_panel" class="collapse">
+						<div class="form-group">
+							<div class="col-lg-12">
+								<label>系统断言:</label>
+								<div style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center" class="checkboxes" id="div_case_pre_assert">
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="table-responsive">
+									<label>自定义断言:</label>
+									<table class="table table-hover table-bordered"
+										id="tb_case_other_assert">
+										<tbody>
+											<tr>
+												<td width="40%" style="padding: 5px;"><input
+													type="text" class="form-control" placeholder="key"
+													/></td>
+												<td width="47%" style="padding: 5px;">
+													<!-- <div contentEditable="true" id="case_head_value" style="width:100%;overflow:scroll;">value</div> -->
+													<input type="text" class="form-control" placeholder="value"
+													/>
+												</td>
+												<td width="9%" style="padding: 5px;">
+													<div class="btn-group" style="width: 100%">
+														<button type="button"
+															class="btn btn-white dropdown-toggle"
+															data-toggle="dropdown">
+															include<span class="caret"></span>
+														</button>
+														<ul class="dropdown-menu">
+															<li><a>include</a></li>
+															<li><a>exclude</a></li>
+
+														</ul>
+													</div>
+												</td>
+												<td width="4%" style="padding: 5px;">
+													<button type="button" class="btn btn-danger">
+														<i class="icon-trash"></i>
+													</button>
+												</td>
+											</tr>
+										</tbody>
+
+									</table>
+									<div style="margin-top: -10px">
+										<button class="btn btn-success btn-sm" type="button" id="bt_case_add_assert">
+											<i class="icon-plus ">添加断言</i>
+										</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="col-lg-12">
+								<div class="table-responsive">
+									<label>sql断言:</label>
+									<table class="table table-hover table-bordered"
+										id="tb_case_sql_assert">
+										<tbody>
+											<tr>
+												<td width="25%" style="padding: 5px;">
+													<input type="text" id="input_case_sql_assert_name" class="form-control" placeholder="name" /></td>
+												<td width="52%" style="padding: 5px;">
+													<input type="text" id="input_case_sql_assert_sql" class="form-control" placeholder="请输入sql语句"/>
+												</td>
+												<td width="20%" style="padding: 5px;">
+													<input type="text" id="input_case_sql_assert_assert" class="form-control" placeholder="格式=0,<0,>0,<=0,>=0"/>
+												</td>																							
+												<td width="4%" style="padding: 5px;">
+													<button type="button" class="btn btn-danger">
+														<i class="icon-trash"></i>
+													</button>
+												</td>
+											</tr>
+										</tbody>
+
+									</table>
+									<div style="margin-top: -10px">
+										<button class="btn btn-success btn-sm" type="button" id="bt_case_add_sql_assert">
+											<i class="icon-plus ">添加断言</i>
+										</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_assert">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<div>
+					<div>
+						<!-- <label class="control-label"></label> -->
+						<!-- <a href="#" style="color: black" id=""
+							class="case_part_display_control"> <i
+							class="icon-chevron-down" style="display: none"><strong>后置条件:</strong></i>
+							<i class="icon-chevron-up"><strong>后置条件:</strong></i>
+						</a> -->
+						<button type="button" class="btn btn-default btn-sm case_part_display_control" data-toggle="collapse"
+								data-target="#div_case_post_require_panel">
+							<i class="icon-chevron-up"><strong>后置条件</strong></i>
+						</button>
+						<hr
+							style="margin-top: 7px; height: 1px; border: none; border-top: 1px solid #000000;" />
+					</div>
+					<div id="div_case_post_require_panel" class="collapse">
+						<div style="display:none">
+							<h5>后置案例:</h5>
+							<div class="panel-group" id="panel_case_post_requirement">
+								
+							</div>
+							
+							<div style="margin-top: 10px">
+								<button class="btn btn-success btn-sm" type="button"
+									id="bt_case_add_post_require"><i class="icon-plus">添加</i></button>
+							</div>
+							
+						</div>
+						
+						<div class="form-group" style="margin-top:10px">
+							<div class="col-lg-12">
+								<div class="table-responsive" style="" id="">
+									<label>sql:</label>
+								</div>
+								<div class="" id="">
+									<textarea id="textarea_case_post_sql" class="form-control"
+										rows="5" placeholder="请输入sql语句"></textarea>
+								</div>
+							</div>
+						</div>
+						<div style="display: flex; justify-content: flex-end">
+							<button class="btn btn-danger  btn-sm" type="button" id="bt_case_save_post_sql">
+								<i class="icon-save">保存</i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="div_case_select_case" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="case_modal_title">选择案例</h4>
+			</div>
+			<div class="modal-body">
+				<div style="height: 500px; overflow: auto">
+					<div id="div_case_select_case_tree"></div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-10 col-lg-12">
+						<button type="button" id="bt_case_confirm_select_case"
+							class="btn btn-danger">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

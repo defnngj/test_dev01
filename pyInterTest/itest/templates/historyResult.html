@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mosaddek">
+<meta name="keyword"
+	content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<link rel="shortcut icon" href="/static/img/test.png">
+
+<title>历史结果</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap-reset.css" rel="stylesheet">
+<!--external css-->
+<link href="/static/assets/font-awesome/css/font-awesome.css"
+	rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/style-responsive.css" rel="stylesheet" />
+
+<style type="text/css">
+input{
+	color:black;
+}
+textarea{
+	color:black;
+}
+</style>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.scrollTo.min.js"></script>
+<script src="/static/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="/static/pyInter/js/pyInterBase2.js"></script>
+
+</head>
+
+<body>
+
+	<section id="container" class="panel" style="overflow: auto">
+		<header class="panel-heading">
+			<!-- <span class="hidden-sm wht-color">案例详情</span> -->
+			<label style="color:red;">任务名称:&nbsp;{{data.name}},&nbsp;执行时间:&nbsp;{{data.time}},&nbsp;版本:&nbsp;{{data.version}}</label>
+
+		</header>
+		<div class="panel-body">
+			<div style="word-wrap:break-word;color:red;margin-bottom: 10px">总结:&nbsp;{{data.message}}</div>
+			<div class="panel-group" id="div_accordion">
+			    <div class="panel panel-info">
+			        <div class="panel-heading">
+			            <h4 class="panel-title">
+			                <a data-toggle="collapse" data-parent="#accordion3" 
+			                href="#div_collapse_pre">
+			                前置条件
+			                </a>
+			            </h4>
+			        </div>
+			        <div id="div_collapse_pre" class="panel-collapse collapse in">
+			            <div class="panel-body">
+			                <div id="div_result_pre_sql"  style="padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">{{data.preSql|default:"无数据"}}</div>
+                         	<div id="div_result_pre_cases" style="margin-top:10px">
+                         		<!-- <script>
+							   		var index = 0;
+							    </script> -->
+                         		<div class="panel-group" id="div_result_pre_cases">
+                         			{% for pre in data.preResults %}
+								    <div class="panel panel-success">
+								        <div class="panel-heading">
+								            <h4 class="panel-title">
+								                <a data-toggle="collapse" data-parent="#div_result_pre_cases"
+								                href="#div_collapse_pre_cases_detail_{{pre.reId}}">
+								                {{pre.caseName}}
+								                {% if pre.success > -1 %}
+								                <span class="badge bg-info">成功</span>
+								                {% else %}
+								                <span class="badge bg-important">失败</span>
+								                {% endif %}
+								                </a>
+								            </h4>
+								        </div>
+								        <div id="div_collapse_pre_cases_detail_{{pre.reId}}" class="panel-collapse collapse">
+								            <div class="panel-body">
+								                <ul id="myTab" class="nav nav-tabs">
+												    <li class="active">
+												        <a href="#div_tab_pre_case_message_{{pre.reId}}" data-toggle="tab">
+												            测试结果
+												        </a>
+												    </li>
+												    <li><a href="#div_tab_pre_case_presql_{{pre.reId}}" data-toggle="tab">前置sql</a></li>
+												    <li><a href="#div_tab_pre_case_request_{{pre.reId}}" data-toggle="tab">请求</a></li>
+												    <li><a href="#div_tab_pre_case_response_{{pre.reId}}" data-toggle="tab">响应</a></li>
+												    <li><a href="#div_tab_pre_case_picker_{{pre.reId}}" data-toggle="tab">变量提取</a></li>
+												    <li><a href="#div_tab_pre_case_assert_{{pre.reId}}" data-toggle="tab">断言</a></li>
+												    <li><a href="#div_tab_pre_case_postsql_{{pre.reId}}" data-toggle="tab">后置</a></li>
+												</ul>
+												<div id="myTabContent" class="tab-content">
+												    <div class="tab-pane fade in active" id="div_tab_pre_case_message_{{pre.reId}}" style="padding: 10px;word-wrap:break-word">
+												        {{pre.message}}
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_presql_{{pre.reId}}" style="padding: 10px;word-wrap:break-word">
+												        {{pre.preSql|default:"无数据"}}
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_request_{{pre.reId}}" style="margin-top:10px">
+												        <div style="word-break:break-all;">{{pre.method}}&nbsp;&nbsp;{{pre.url}}&nbsp;&nbsp;HTTP/1.1</div>
+														<br>
+														<div><strong>head：</strong></div>
+														<div style="word-wrap:break-word;padding: 5px;">
+														{% for i in pre.requestHead %}
+															{{i.key}}&nbsp;:&nbsp;{{i.value}}<br>
+														{% endfor %}
+														</div>
+														<br>
+														<div><strong>{{pre.parmasType}}</strong></div>
+														<div style="word-wrap:break-word;padding: 5px;" class="div_pre_request_body_class">
+														{% if pre.parmasType == "json" %}
+															{{pre.requestBody}}
+														   
+														{% else %}
+														   {% for j in pre.requestBody %}
+														   		{{j.key}}&nbsp;:&nbsp;{{j.value}}<br>
+														   {% endfor %}
+														{% endif %}
+														</div>
+														<script>
+													   		l = $(".div_pre_request_body_class").last();
+													   		t = "{{pre.parmasType}}"
+													   		if("json" == t){
+													   			s = $(l).html();
+														   		s = $.toJson(s);
+																s = $.text2divText(s);
+																$(l).html(s);
+													   		}
+													   </script>
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_response_{{pre.reId}}" style="margin-top:10px">
+												    	<div><strong>head：</strong></div>
+														<div style="word-wrap:break-word;padding: 5px;">
+														{% for i in pre.responseHead %}
+															{{i.key}}&nbsp;:&nbsp;{{i.value}}<br>
+														{% endfor %}
+														</div>
+														<!-- <br> -->
+														<div><strong>body：</strong></div>
+														<div style="word-wrap:break-word;padding: 5px;" class="div_pre_responsebody_class">
+															{{pre.responseBody}}
+														</div>
+														<script>
+													   		l = $(".div_pre_responsebody_class").last();
+													   		s = $(l).html();
+													   		s = $.toJson(s);
+															s = $.text2divText(s);
+															
+															$(l).html(s);
+													   </script>
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_picker_{{pre.reId}}" style="margin-top:10px">
+												        <table class="table table-bordered">
+														  <thead>
+														    <tr>
+														      <th>变量名</th>
+														      <th>值</th>
+														    </tr>
+														  </thead>
+														  <tbody>
+														  	{% for i in pre.pickerValues %} 
+														  		<tr><td width="30%">{{i.key}}</td><td width="70%">{{i.value}}</td></tr>
+															{% endfor %}
+														  </tbody>
+														</table> 
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_assert_{{pre.reId}}">
+												        {% for i in pre.asserts %}
+															{% if i.assertType == "sql" %}
+															   
+															   	<a class="list-group-item">
+															   		<h5 class="list-group-item-heading">{{i.sql}}</h5>
+															   	{% if i.result == True %}
+															   		<span class="badge badger-success">success</span>
+															   	{% else %}
+															   		<span class="badge badger-danger">failed</span>
+															   	{% endif %}
+																	<p class="list-group-item-text">{{i.sqlAssert}}</p>
+																</a>
+														   {% else %}
+																<a  class="list-group-item">
+																	<h5 class="list-group-item-heading">{{i.key}}&nbsp;:&nbsp;{{i.value}}</h5>
+																{% if i.result == True %}
+															   		<span class="badge badger-success">success</span>
+															   	{% else %}
+															   		<span class="badge badger-danger">failed</span>
+															   	{% endif %}
+																<p class="list-group-item-text">{{i.type}}</p></a>															   	
+															 {% endif %}
+														{% endfor %}
+												    </div>
+												    <div class="tab-pane fade" id="div_tab_pre_case_postsql_{{pre.reId}}">
+												        {{pre.postSql|default:"无数据"}}
+												    </div>
+												    
+												</div>
+								            </div>
+								        </div>
+								    </div>
+								    {% endfor %}
+								</div>
+								
+                         	</div>
+			            </div>
+			        </div>
+			    </div>
+			    <div class="panel panel-info">
+			        <div class="panel-heading">
+			            <h4 class="panel-title">
+			                <a data-toggle="collapse" data-parent="#accordion2" 
+			                href="#div_collapse_post_sql">
+			                后置条件
+			            </a>
+			            </h4>
+			        </div>
+			        <div id="div_collapse_post_sql" class="panel-collapse collapse in">
+				        <div class="panel-body">
+				            <div id="div_result_post_sql"  style="padding: 10px;border:1px solid rgb(241,241,247);word-wrap:break-word">{{data.postSql|default:"无数据"}}</div>
+				        </div>
+			        </div>
+			    </div>
+			    <div class="panel panel-info">
+			        <div class="panel-heading">
+			            <h4 class="panel-title">
+			                <a data-toggle="collapse" data-parent="#accordion1" 
+			                href="#div_collapse_cases_detail">
+			                请求详情
+			                </a>
+			            </h4>
+			        </div>
+			        <div id="div_collapse_cases_detail" class="panel-collapse collapse in">
+			            <div class="panel-body">
+			                <div class="panel-group" id="div_result_cases">
+			                	{% for re in data.results %}
+							    <div class="panel panel-success">
+							        <div class="panel-heading">
+							            <h4 class="panel-title">
+							                <a data-toggle="collapse" data-parent="#div_result_cases"
+							                href="#div_collapse_cases_detail_{{re.reId}}">
+							                {{re.caseName}}
+							                {% if re.success > -1 %}
+							                <span class="badge bg-info">成功</span>
+							                {% else %}
+							                <span class="badge bg-important">失败</span>
+							                {% endif %}
+							                </a>
+							            </h4>
+							        </div>
+							        <div id="div_collapse_cases_detail_{{re.reId}}" class="panel-collapse collapse">
+							            <div class="panel-body">
+							                <ul id="myTab" class="nav nav-tabs">
+											    <li class="active">
+											        <a href="#div_tab_case_message_{{re.reId}}" data-toggle="tab">
+											            测试结果
+											        </a>
+											    </li>
+											    <li><a href="#div_tab_case_presql_{{re.reId}}" data-toggle="tab">前置sql</a></li>
+											    <li><a href="#div_tab_case_request_{{re.reId}}" data-toggle="tab">请求</a></li>
+											    <li><a href="#div_tab_case_response_{{re.reId}}" data-toggle="tab">响应</a></li>
+											    <li><a href="#div_tab_case_picker_{{re.reId}}" data-toggle="tab">变量提取</a></li>
+											    <li><a href="#div_tab_case_assert_{{re.reId}}" data-toggle="tab">断言</a></li>
+											    <li><a href="#div_tab_case_postsql_{{re.reId}}" data-toggle="tab">后置</a></li>
+											</ul>
+											<div id="myTabContent" class="tab-content">
+											    <div class="tab-pane fade in active" id="div_tab_case_message_{{re.reId}}" style="padding: 10px;word-wrap:break-word">
+											    {{re.message}}
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_presql_{{re.reId}}" style="padding: 10px;word-wrap:break-word">  
+											    {{re.preSql|default:"无数据"}}
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_request_{{re.reId}}" style="margin-top:10px">
+											    	<div style="word-break:break-all;">{{re.method}}&nbsp;&nbsp;{{re.url}}&nbsp;&nbsp;HTTP/1.1</div>
+													<br>
+													<div><strong>head：</strong></div>
+													<div style="word-wrap:break-word;padding: 5px;">
+													{% for i in re.requestHead %}
+														{{i.key}}&nbsp;:&nbsp;{{i.value}}<br>
+													{% endfor %}
+													</div>
+													<br>
+													<div><strong>{{re.parmasType}}</strong></div>
+													<div style="word-wrap:break-word;padding: 5px;" class="div_re_request_body_class">
+													{% if re.parmasType == "json" %}
+													   {{re.requestBody}}
+													{% else %}
+													   {% for j in re.requestBody %}
+													   		{{j.key}}&nbsp;:&nbsp;{{j.value}}<br>
+													   {% endfor %}
+													{% endif %}
+													</div>
+													<script>
+												   		l = $(".div_re_request_body_class").last();
+												   		t = "{{re.parmasType}}"
+												   		if("json" == t){
+												   			s = $(l).html();
+													   		s = $.toJson(s);
+															s = $.text2divText(s);
+															$(l).html(s);
+												   		}
+												   </script>
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_response_{{re.reId}}" style="margin-top:10px">
+												    <div><strong>head：</strong></div>
+													<div style="word-wrap:break-word;padding: 5px;">
+													{% for i in re.responseHead %}
+														{{i.key}}&nbsp;:&nbsp;{{i.value}}<br>
+													{% endfor %}
+													</div>
+													<div><strong>body：</strong></div>
+													<div style="word-wrap:break-word;padding: 5px;" class="div_re_responsebody_class">
+													{{re.responseBody}}
+													</div>
+													<script>
+												   		l = $(".div_re_responsebody_class").last();
+												   		s = $(l).html();
+												   		s = $.toJson(s);
+														s = $.text2divText(s);
+														/* console.log(s); */
+														$(l).html(s);
+												   </script>
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_picker_{{re.reId}}" style="margin-top:10px">
+											    	<table class="table table-bordered">
+													  <thead>
+													    <tr>
+													      <th>变量名</th>
+													      <th>值</th>
+													    </tr>
+													  </thead>
+													  <tbody>
+													  	{% for i in re.pickerValues %} 
+													  		<tr><td width="30%">{{i.key}}</td><td width="70%">{{i.value}}</td></tr>
+														{% endfor %}
+													  </tbody>
+													</table> 	
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_assert_{{re.reId}}">
+											    	
+											    	<div class="list-group">
+														{% for i in re.asserts %}
+															{% if i.assertType == "sql" %}
+															   
+															   	<a class="list-group-item">
+															   		<h5 class="list-group-item-heading">{{i.sql}}</h5>
+															   	{% if i.result == True %}
+															   		<span class="badge badger-success">success</span>
+															   	{% else %}
+															   		<span class="badge badger-danger">failed</span>
+															   	{% endif %}
+																	<p class="list-group-item-text">{{i.sqlAssert}}</p>
+																</a>
+														   {% else %}
+																<a  class="list-group-item">
+																	<h5 class="list-group-item-heading">{{i.key}}&nbsp;:&nbsp;{{i.value}}</h5>
+																{% if i.result == True %}
+															   		<span class="badge badger-success">success</span>
+															   	{% else %}
+															   		<span class="badge badger-danger">failed</span>
+															   	{% endif %}
+																<p class="list-group-item-text">{{i.type}}</p></a>															   	
+															 {% endif %}
+														{% endfor %}
+													</div>
+											    </div>
+											    <div class="tab-pane fade" id="div_tab_case_postsql_{{re.reId}}" style="padding: 10px;word-wrap:break-word">
+											    {{re.postSql|default:"无数据"}}
+											    </div>
+											</div>
+							            </div>
+							        </div>
+							    </div>
+							    {% endfor %}
+							</div>
+							
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>
