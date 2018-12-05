@@ -1,0 +1,410 @@
+<div class="col-lg-12" id="">
+	<section class="panel">
+
+		<div class="panel-body">
+			<div style="width: 25%; float: left; height: 515px; overflow: auto">
+				<div class="panel-group" id="project_setting_menu">
+					<div class="panel panel-info">
+						<div class="panel-heading" style="cursor: pointer"
+							id="div_public_assert_head">
+							<h4 class="panel-title">
+								<i class="icon-sign-blank text-success"></i> <a
+									data-toggle="collapse" data-parent="#project_setting_menu"
+									href="#collapse_global_vars"> 系统断言 </a>
+							</h4>
+						</div>
+					</div>
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<div style="display: flex; justify-content: space-between">
+								<div>
+									<h4 class="panel-title">
+										<i class="icon-sign-blank text-warning"></i> <a
+											data-toggle="collapse" data-parent="#project_setting_menu"
+											href="#div_env_list"> 执行环境 <i class="icon-chevron-up"
+											id="i_setting_env_collapse"></i>
+										</a>
+
+									</h4>
+								</div>
+								<!-- <div>
+									<button class="btn btn-default  btn-xs" type="button">
+									<a href="#"><i class="icon-plus-sign-alt">添加</i></a>
+										
+									</button>
+								</div> -->
+							</div>
+
+						</div>
+						<div id="div_env_list" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div style="display: flex; justify-content: space-between">
+									<button class="btn btn-info  btn-xs" type="button"
+										id="bt_setting_add_env" style="">
+										<i class="icon-plus-sign-alt">添加</i>
+									</button>
+									<button class="btn btn-success  btn-xs" type="button"
+										id="bt_setting_edit_env" style="">
+										<i class="icon-edit">编辑</i>
+									</button>
+									<button class="btn btn-danger  btn-xs" type="button"
+										id="bt_setting_del_env" style="">
+										<i class="icon-trash">删除</i>
+									</button>
+								</div>
+								<div>
+									<ul class="nav nav-pills nav-stacked labels-info inbox-divider"
+										id="ul_setting_env" style="margin-top: 10px">
+										<!-- <li style="border-bottom: 1px solid #d5d8df"><a href="#">
+												<i class="icon-sign-blank text-info"></i>执行环境	
+										</a>
+										</li>
+										<li style="border-bottom: 1px solid #d5d8df"><a href="#">
+												<i class="icon-sign-blank text-info"></i>全局变量
+										</a></li>
+										<li style="border-bottom: 1px solid #d5d8df"><a href="#">
+												<i class="icon-sign-blank text-info "></i>mysql设置
+										</a>
+										</li> -->
+
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+                    <div class="panel panel-info">
+						<div class="panel-heading" style="cursor: pointer"
+							id="div_function_description">
+							<h4 class="panel-title">
+								<i class="icon-sign-blank text-info"></i> <a
+									data-toggle="collapse" data-parent="#"
+									href="#">函数说明</a>
+							</h4>
+						</div>
+					</div>
+                </div>
+
+
+
+			</div>
+
+			<div style="width: 3%; float: left; height: 515px; overflow: auto">
+				<div
+					style="width: 1px; height: 530px; background: #d5d8df; margin-left: 20px"></div>
+			</div>
+			<div style="width: 72%; float: left; height: 515px; overflow: auto">
+				<!--  -->
+
+				<div id="div_project_setting_assert">
+					<div>
+						<form role="form" id="form_system_assert_add_assert">
+							<div style="width: 20%; float: left">
+								<div class="form-group">
+									<label for="input_add_system_assert_name">名称</label> <input
+										type="text" class="form-control"
+										name="input_add_system_assert_name"
+										id="input_add_system_assert_name">
+								</div>
+							</div>
+							<div style="width: 35%; float: left">
+								<div class="form-group">
+									<label for="input_add_system_assert_key">关键字</label> <input
+										type="text" class="form-control"
+										name="input_add_system_assert_key"
+										id="input_add_system_assert_key">
+								</div>
+							</div>
+							<div style="width: 35%; float: left">
+								<div class="form-group">
+									<label for="input_add_system_assert_value">值</label> <input
+										type="text" class="form-control"
+										name="input_add_system_assert_value"
+										id="input_add_system_assert_value">
+								</div>
+							</div>
+							<div style="width: 10%; float: left">
+								<div class="form-group">
+									<label for="select_add_system_assert_type">类型</label> <select
+										class="form-control m-bot15" style="color: black"
+										id="select_add_system_assert_type">
+										<option selected="selected">include</option>
+										<option>exclude</option>
+									</select>
+								</div>
+
+							</div>
+						</form>
+					</div>
+
+					<div style="clear: both">
+						<button type="button" class="btn btn-danger btn-sm"
+							id="bt_add_system_assert">添加</button>
+						<hr style="margin-top: 10px"></hr>
+					</div>
+
+					<div style="height: 380px; overflow: auto">
+						<div class="table-responsive">
+							<table class="table table-hover table-bordered">
+								<!-- <caption>响应式表格布局</caption> -->
+								<thead>
+									<tr>
+										<th width="25%">名称</th>
+										<th width="30%">关键字</th>
+										<th width="38%">值</th>
+										<th width="7%">类型</th>
+										<th width="5%">ops</th>
+									</tr>
+								</thead>
+								<tbody id="tbody_system_assert_list">
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="div_project_setting_env_deail"
+					style="display: none; height: 100%">
+					<div>
+						<ul id="myTab" class="nav nav-tabs">
+							<li class="active"><a href="#div_tab_globalvars" data-toggle="tab">全局变量</a>
+							</li>
+							<li><a href="#div_tab_sql" data-toggle="tab">sql设置</a></li>
+							
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane fade in active" id="div_tab_globalvars">
+								<div>
+									<form role="form" id="form_system_global_value"
+										style="margin-top: 10px">
+										<div style="width: 20%; float: left">
+											<div class="form-group">
+												<label for="input_add_global_value_name">名称</label> <input
+													type="text" class="form-control"
+													name="input_add_global_value_name"
+													id="input_add_global_value_name">
+											</div>
+										</div>
+										<div style="width: 70%; float: left">
+											<div class="form-group">
+												<label for="input_add_global_value_value">值</label> <input
+													type="text" class="form-control"
+													name="input_add_global_value_value"
+													id="input_add_global_value_value">
+											</div>
+										</div>
+										<div style="width: 10%; float: left">
+											<div class="form-group">
+												<label for="select_add_global_value_type">类型</label> <select
+													class="form-control m-bot15" style="color: black"
+													id="select_add_global_value_type">
+													<option selected="selected">string</option>
+													<option>int</option>
+													<option>boolean</option>
+													<option>float</option>
+												</select>
+											</div>
+
+										</div>
+									</form>
+								</div>
+
+								<div style="clear: both;">
+									<button type="button" class="btn btn-danger btn-sm"
+										id="bt_add_global_value">添加</button>
+									<hr style="margin-top: 10px"></hr>
+								</div>
+
+								<div style="height: 330px; overflow: auto">
+									<div class="table-responsive">
+										<table class="table table-hover table-bordered">
+											<!-- <caption>响应式表格布局</caption> -->
+											<thead>
+												<tr>
+													<th width="20%">名称</th>
+													<th width="70%">值</th>
+													<th width="10%">类型</th>
+													<th width="5%">ops</th>
+												</tr>
+											</thead>
+											<tbody id="tbody_global_value_list">
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="tab-pane fade" id="div_tab_sql">
+								<form role="form" style="margin-top: 10px"
+									id="form_setting_mysql">
+									<div class="form-group">
+										<label for="select_setting_sql_type">类型</label> <select
+											class="form-control m-bot15" style="color: black"
+											id="select_setting_sql_type">
+											<option selected="selected">mysql</option>
+										</select>
+									</div>
+									
+									<div class="row">
+					                   <div class="col-lg-6">
+					                      	<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_sql_host">host:</label> <input
+													type="text" class="form-control" id="input_setting_sql_host" name="input_setting_sql_host">
+											</div>
+					                   </div>
+					                   <div class="col-lg-3">
+					                      	<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_sql_port">port:</label> <input
+													type="number" class="form-control" name="input_setting_sql_port"
+													id="input_setting_sql_port" value="3306">
+											</div>
+					                   </div>
+					                   <div class="col-lg-3">
+					                      	<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_sql_database">database:</label> <input
+													type="text" class="form-control" name="input_setting_sql_database"
+													id="input_setting_sql_database" value="test">
+											</div>
+					                   </div>
+					               </div>
+									
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_sql_user">user:</label> <input
+													type="text" class="form-control" id="input_setting_sql_user" name="input_setting_sql_user">
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_sql_pwd">Password:</label> <input
+													type="password" class="form-control"
+													id="input_setting_sql_pwd" name="input_setting_sql_pwd">
+											</div>
+										</div>
+									</div>
+								</form>
+								<form role="form" id="form_setting_ssh">
+									<div id="div_setting_ssh" style="display:none">
+										<label>SSH设置:</label>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_ssh_host">Host:</label> <input
+													type="text" class="form-control" id="input_setting_ssh_host" name="input_setting_ssh_host">
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group" style="margin-top:-2px">
+													<label for="input_setting_ssh_port">Port:</label> <input
+														type="number" class="form-control" id="input_setting_ssh_port" value="22" name="input_setting_ssh_port">
+												</div>
+											</div>
+										</div>
+										
+										
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_ssh_user">User:</label> <input
+													type="text" class="form-control" id="input_setting_ssh_user" name="input_setting_ssh_user">
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="form-group" style="margin-top:-2px">
+													<label for="input_setting_ssh_psw">PassWord:</label>
+													<div class="input-group m-bot15">
+														<input type="file" id="input_setting_file" style="display:none" mce_style="display:none">  
+														<input type="password" class="form-control" id="input_setting_ssh_psw" name="input_setting_ssh_psw">
+														<div class="input-group-btn">
+		                                                  <button tabindex=0 data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" style="width:106px">
+		                                                      PassWord &nbsp;<span class="caret"></span>
+		                                                  </button>
+		                                                  <ul role="menu" class="dropdown-menu pull-right" style="min-width: 100px;">
+		                                                      <li id="li_setting_switch_psw"><a>PassWord</a></li>
+		                                                      <li id="li_setting_switch_key"><a>Key</a></li>
+		                                                  </ul>
+		                                              </div>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									
+										<!-- <div class="row">
+											<div class="col-lg-12">
+												<div class="form-group" style="margin-top:-2px">
+												<label for="input_setting_ssh_key">SSH key:</label> <input
+													type="file" class="form-control" id="input_setting_ssh_key" name="input_setting_ssh_key">
+												</div>
+											</div>
+										</div> -->
+									</div>
+								</form>
+									<div class="form-group" style="margin-top:-2px;clear:both">
+										<button type="button" class="btn btn-info btn-sm" id="bt_setting_save_sql">保存</button>
+										<span  style="cursor:pointer;margin-left:10px" class="badge" id="span_setting_switch_modal" value=0><i class="icon-cog">切换ssh模式</i></span>
+									</div>
+
+								
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+
+				<div id="div_project_setting_no_data"  style="text-align: left; display: none;margin-top:0px">
+                    1.func_time: 获取当前时间戳函数, 输入 ${func_time} 既可以使用。<br/>
+                    2.func_random: 获取一定范围的随机数，有一个参数，代表随机参数的值，缺省值是100, 输入 ${func_random()} 或者 ${func_random(x)}既可以使用。<br/>
+                </div>
+
+			</div>
+		</div>
+	</section>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="add_env_modal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="h4_modal_env_title">添加执行环境</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" id="form_new_env">
+					{% csrf_token %}
+
+					<div class="form-group">
+						<label for="input_new_env_name" class="col-lg-2 control-label">名称:</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="input_new_env_name"
+								name="input_new_env_name">
+							<!-- <p class="help-block">Example block-level help text here.</p> -->
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-8">
+							<button type="button" id="bt_create_env" class="btn btn-danger">创建</button>
+							<button type="button" id="bt_create_env_cancel"
+								data-dismiss="modal" class="btn btn-default">取消</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

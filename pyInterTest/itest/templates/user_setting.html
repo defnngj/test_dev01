@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Mosaddek">
+  <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+  <link rel="shortcut icon" href="/static/img/test.png">
+  <title>接口测试平台</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-reset.css" rel="stylesheet">
+  <!--external css-->
+  <link href="/static/assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/style-responsive.css" rel="stylesheet"/>
+
+  <link href="/static/css/bootstrapValidator.min.css" rel="stylesheet"/>
+  <link href="/static/loading/css/jquery.mloading.css" rel="stylesheet"/>
+  <!-- 	for alert -->
+  <link href="/static/sweetalert/sweetalert.css" rel="stylesheet"/>
+
+
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+  <form class="form-signin" id="form_user_reset_pwd">
+    <h2 class="form-signin-heading">个人设置</h2>
+
+    <div class="login-wrap">
+      <div class="alert alert-block alert-danger fade in" id="div_user_message_boards" style="display:none">
+        <button class="close close-sm" type="button" onclick="$('#div_user_message_boards').hide();">
+          <i class="icon-remove"></i>
+        </button>
+        <strong id="user_message">修改密码失败,请重新检查输入！</strong>
+      </div>
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="input_user_name">用户名</label>
+        <input type="text" class="form-control required" value="{{ data.user_name }}" data-bv-notempty user_id="{{data.user_id}}"
+               placeholder="User ID" autofocus id="input_user_name" name="input_user_name" readonly>
+      </div>
+      <div class="form-group">
+        <label for="input_user_old_pwd">旧密码</label>
+        <input type="password" class="form-control required" data-bv-notempty placeholder="Password" autofocus
+               id="input_user_old_pwd" name="input_user_old_pwd">
+      </div>
+      <div class="form-group">
+        <label for="input_user_new_pwd">新密码</label>
+        <input type="password" class="form-control required" data-bv-notempty placeholder="Password"
+               id="input_user_new_pwd" name="input_user_new_pwd">
+      </div>
+      <button class="btn btn-lg btn-login btn-block" type="button" id="bt_reset_pwd">修改密码</button>
+    </div>
+  </form>
+</div>
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/assets/gritter/js/jquery.gritter.js"></script>
+<script src="/static/js/bootstrapValidator.min.js"></script>
+<!--  loading-->
+<script src="/static/loading/js/jquery.mloading.js"></script>
+<!--     for alert -->
+<script src="/static/sweetalert/sweetalert.min.js"></script>
+<script src="/static/pyInter/js/pyInterBase2.js"></script>
+<script src="/static/pyInter/js/pyInter_user.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1450 @@
+ERROR 2018-03-22 11:23:23,166 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 133, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:23,166 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 133, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:23,209 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /register HTTP/1.1" 500 17032
+ERROR 2018-03-22 11:23:31,448 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:31,448 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:31,464 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 11:23:32,531 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:32,531 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:32,546 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 11:23:42,671 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:42,671 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:42,688 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 11:23:53,333 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 133, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:53,333 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 133, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 11:23:53,350 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /register HTTP/1.1" 500 17032
+ERROR 2018-03-22 12:01:40,513 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 135, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:01:40,513 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /register
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 135, in register
+    cache.set(token, new_token.expireDate, settings.REDIS_TIMEOUT)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:01:40,592 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /register HTTP/1.1" 500 83192
+ERROR 2018-03-22 12:05:46,908 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:46,908 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:46,941 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 12:05:47,979 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:47,979 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:47,996 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 12:05:48,851 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:48,851 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 82, in login
+    cache.delete(token.Token)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 99, in __getattr__
+    return getattr(caches[DEFAULT_CACHE_ALIAS], name)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 80, in __getitem__
+    cache = _create_cache(alias)
+  File "/Library/Python/2.7/site-packages/django/core/cache/__init__.py", line 54, in _create_cache
+    "Could not find backend '%s': %s" % (backend, e))
+InvalidCacheBackendError: Could not find backend 'django_redis.cache.RedisCache': No module named django_redis.cache
+ERROR 2018-03-22 12:05:48,869 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16983
+ERROR 2018-03-22 12:09:41,244 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:09:41,244 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:09:41,331 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /project/1 HTTP/1.1" 500 87848
+ERROR 2018-03-22 12:15:19,970 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:15:19,970 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:15:20,041 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /project/1 HTTP/1.1" 500 87848
+ERROR 2018-03-22 12:18:12,342 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:18:12,342 /Library/Python/2.7/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 135: Internal Server Error: /project/1
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Python/2.7/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 58, in apiPageIndex
+    for i in tasks:
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 250, in __iter__
+    self._fetch_all()
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Library/Python/2.7/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/Library/Python/2.7/site-packages/django/db/models/sql/compiler.py", line 886, in execute_sql
+    raise original_exception
+OperationalError: no such column: itest_taskhistorymodel.lastRunningResult
+ERROR 2018-03-22 12:18:12,411 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /project/1 HTTP/1.1" 500 87848
+ERROR 2018-03-22 14:29:39,846 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py apiViews.py apiViews apiDebug 853: debug请求失败：HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /timeline.json (Caused by SSLError(SSLError(1, u'[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)'),))
+ERROR 2018-03-22 14:30:37,293 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py apiViews.py apiViews apiDebug 853: debug请求失败：HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /timeline.json (Caused by SSLError(SSLError(1, u'[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)'),))
+ERROR 2018-03-22 14:30:58,499 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py apiViews.py apiViews apiDebug 853: debug请求失败：HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /timeline.json?eid= (Caused by SSLError(SSLError(1, u'[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:590)'),))
+ERROR 2018-03-22 15:13:19,547 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 61: 新建模块失败：NOT NULL constraint failed: itest_testcasemodel.caseLabels
+ERROR 2018-03-22 15:21:25,505 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/models/testSuite.py testSuite.py testSuite getCases 87: TestCaseModel matching query does not exist.
+ERROR 2018-03-22 15:23:51,408 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/models/testSuite.py testSuite.py testSuite getCases 87: TestCaseModel matching query does not exist.
+ERROR 2018-03-23 16:05:48,262 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:12:12,839 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:17:39,579 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 50: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:26:10,285 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:28:39,606 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:28:46,708 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-03-23 16:28:58,192 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 11:58:10,466 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 11:58:15,987 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 11:58:30,934 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 11:58:47,766 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 11:58:52,250 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 12:01:10,661 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+ERROR 2018-04-02 12:02:52,943 /Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py caseViews.py caseViews addCase 48: 参数不正确，请检查请求参数
+WARNING 2018-04-03 15:46:28,260 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /api/register/ HTTP/1.1" 404 15216
+WARNING 2018-04-03 15:46:28,428 /Library/Python/2.7/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /favicon.ico HTTP/1.1" 404 15210
+ERROR 2018-11-06 19:13:29,378 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:13:29,378 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:13:29,482 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET / HTTP/1.1" 500 60498
+ERROR 2018-11-06 19:13:30,166 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:13:30,166 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:13:30,198 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /favicon.ico HTTP/1.1" 500 60232
+ERROR 2018-11-06 19:19:00,618 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 75, in login
+    new_token = globalVars.generateToken(user_name)  # 生成token
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/util/globalVars.py", line 35, in generateToken
+    hash_md5 = hashlib.md5(data)
+TypeError: Unicode-objects must be encoded before hashing
+ERROR 2018-11-06 19:19:00,618 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 75, in login
+    new_token = globalVars.generateToken(user_name)  # 生成token
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/util/globalVars.py", line 35, in generateToken
+    hash_md5 = hashlib.md5(data)
+TypeError: Unicode-objects must be encoded before hashing
+ERROR 2018-11-06 19:19:00,635 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16493
+ERROR 2018-11-06 19:19:02,421 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 75, in login
+    new_token = globalVars.generateToken(user_name)  # 生成token
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/util/globalVars.py", line 35, in generateToken
+    hash_md5 = hashlib.md5(data)
+TypeError: Unicode-objects must be encoded before hashing
+ERROR 2018-11-06 19:19:02,421 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /login
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/login_views.py", line 75, in login
+    new_token = globalVars.generateToken(user_name)  # 生成token
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/util/globalVars.py", line 35, in generateToken
+    hash_md5 = hashlib.md5(data)
+TypeError: Unicode-objects must be encoded before hashing
+ERROR 2018-11-06 19:19:02,434 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /login HTTP/1.1" 500 16493
+ERROR 2018-11-06 19:24:46,869 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /index
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:24:46,869 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /index
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:24:46,950 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /index HTTP/1.1" 500 60827
+ERROR 2018-11-06 19:24:47,355 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:24:47,355 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 52, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:24:47,392 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /favicon.ico HTTP/1.1" 500 60709
+ERROR 2018-11-06 19:26:02,958 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /index
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 53, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:26:02,958 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /index
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 53, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:26:03,037 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /index HTTP/1.1" 500 60824
+ERROR 2018-11-06 19:26:03,431 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 53, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:26:03,431 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/pyInterTest/CommonMiddleware.py", line 53, in process_request
+    if not request.COOKIES.has_key(globalVars.IToken):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:26:03,476 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "GET /favicon.ico HTTP/1.1" 500 60706
+ERROR 2018-11-06 19:27:56,408 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:56,408 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:56,457 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:27:59,036 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:59,036 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:59,049 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/list HTTP/1.1" 500 16362
+ERROR 2018-11-06 19:27:59,923 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /task/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/taskViews.py", line 66, in getTaskList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:59,923 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /task/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/taskViews.py", line 66, in getTaskList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:27:59,936 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /task/list HTTP/1.1" 500 16347
+ERROR 2018-11-06 19:28:01,289 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:01,289 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:01,301 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/list HTTP/1.1" 500 16362
+ERROR 2018-11-06 19:28:02,803 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:02,803 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:02,815 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:28:03,771 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:03,771 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:03,771 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:03,771 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:03,810 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/summary HTTP/1.1" 500 16387
+ERROR 2018-11-06 19:28:03,818 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/chart HTTP/1.1" 500 16378
+ERROR 2018-11-06 19:28:05,955 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:05,955 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:05,967 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:28:08,495 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:08,495 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:08,507 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/list HTTP/1.1" 500 16362
+ERROR 2018-11-06 19:28:13,989 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:13,989 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:14,001 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:28:15,211 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:15,212 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:15,211 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:15,212 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:15,228 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/chart HTTP/1.1" 500 16378
+ERROR 2018-11-06 19:28:15,236 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/summary HTTP/1.1" 500 16387
+ERROR 2018-11-06 19:28:21,779 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:21,779 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:21,791 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:28:40,141 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:40,142 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:40,141 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:40,142 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:28:40,165 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/summary HTTP/1.1" 500 16387
+ERROR 2018-11-06 19:28:40,166 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/chart HTTP/1.1" 500 16378
+ERROR 2018-11-06 19:30:13,644 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:13,645 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:13,644 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:13,645 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:13,663 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/summary HTTP/1.1" 500 16387
+ERROR 2018-11-06 19:30:13,670 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/chart HTTP/1.1" 500 16378
+ERROR 2018-11-06 19:30:15,319 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:15,319 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:15,331 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-06 19:30:16,720 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:16,721 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:16,720 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/summary
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 27, in getSummary
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:16,721 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /statistics/chart
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/statisticsView.py", line 53, in getChart
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-06 19:30:16,744 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/summary HTTP/1.1" 500 16387
+ERROR 2018-11-06 19:30:16,744 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /statistics/chart HTTP/1.1" 500 16377
+ERROR 2018-11-07 10:12:12,306 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:12:12,306 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:12:12,358 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16362
+ERROR 2018-11-07 10:13:18,202 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:13:18,202 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:13:18,251 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-07 10:14:38,803 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:14:38,803 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 189, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:14:38,857 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-07 10:15:39,605 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 192, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:15:39,605 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 192, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:15:39,655 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-07 10:16:12,202 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 193, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:16:12,202 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /module/lists
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 193, in getApiModules
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:16:12,250 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /module/lists HTTP/1.1" 500 16361
+ERROR 2018-11-07 10:30:52,245 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /case/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py", line 81, in caseDetail
+    if req.has_key("cId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:30:52,245 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /case/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/caseViews.py", line 81, in caseDetail
+    if req.has_key("cId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:30:52,297 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /case/detail HTTP/1.1" 500 16354
+ERROR 2018-11-07 10:32:57,027 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 832, in apiDebug
+    if req.has_key("url"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:32:57,027 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 832, in apiDebug
+    if req.has_key("url"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:32:57,042 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /api/debug HTTP/1.1" 500 16346
+ERROR 2018-11-07 10:34:15,306 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 834, in apiDebug
+    if req.has_key("method"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:34:15,306 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 834, in apiDebug
+    if req.has_key("method"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:34:15,362 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /api/debug HTTP/1.1" 500 16349
+ERROR 2018-11-07 10:35:54,911 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 837, in apiDebug
+    form=req["form"]
+KeyError: 'form'
+ERROR 2018-11-07 10:35:54,911 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /api/debug
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/apiViews.py", line 837, in apiDebug
+    form=req["form"]
+KeyError: 'form'
+ERROR 2018-11-07 10:35:54,968 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /api/debug HTTP/1.1" 500 16260
+ERROR 2018-11-07 10:40:07,788 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /task/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/taskViews.py", line 66, in getTaskList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:07,788 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /task/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/taskViews.py", line 66, in getTaskList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:07,845 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /task/list HTTP/1.1" 500 16347
+ERROR 2018-11-07 10:40:09,050 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:09,050 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:09,063 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/list HTTP/1.1" 500 16362
+ERROR 2018-11-07 10:40:25,087 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/add
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 25, in addTestSuite
+    if req.has_key("name"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:25,087 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/add
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 25, in addTestSuite
+    if req.has_key("name"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:40:25,099 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/add HTTP/1.1" 500 16355
+ERROR 2018-11-07 10:41:31,021 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:41:31,021 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/list
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 157, in getTestSuiteList
+    if req.has_key("pId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:41:31,032 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/list HTTP/1.1" 500 16362
+ERROR 2018-11-07 10:44:10,777 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:44:10,777 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:44:10,829 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/detail HTTP/1.1" 500 16367
+ERROR 2018-11-07 10:47:45,146 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:47:45,146 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 10:47:45,195 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/detail HTTP/1.1" 500 16367
+ERROR 2018-11-07 19:03:33,775 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 19:03:33,775 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /suite/detail
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/tech/klpro/interface_autosystem_python/pyInterTest/itest/views/testSuiteViews.py", line 55, in getTestSuite
+    if req.has_key("suId"):
+AttributeError: 'dict' object has no attribute 'has_key'
+ERROR 2018-11-07 19:03:33,837 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /suite/detail HTTP/1.1" 500 16379

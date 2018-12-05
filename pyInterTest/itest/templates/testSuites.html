@@ -1,0 +1,667 @@
+
+
+<div class="row">
+	<div class="col-lg-3" id="">
+		<section class="panel" style="min-height: 564px" id="">
+			<!-- <header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>
+						<strong>参数设置</strong>
+					</div>
+				</div>
+			</header> -->
+			<header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>测试套件</div>
+					<div>
+						<button class="btn btn-default  btn-xs" type="button"
+							data-toggle="modal" data-target="#suiteModal">
+							<i class="icon-plus-sign-alt">新建</i>
+						</button>
+					</div>
+				</div>
+			</header>
+			<div class="panel-body">
+				<div class="list-group" id="div_suite_list"></div>
+
+			</div>
+		</section>
+
+	</div>
+
+	<div class="col-lg-9" id="">
+		<section class="panel" style="min-height: 564px"
+			id="div_suite_detail_nodata">
+			<header class="panel-heading">案例列表</header>
+			<div class="panel-body">
+				<div style="text-align: center">无数据</div>
+			</div>
+		</section>
+		<section class="panel" style="min-height: 564px; display: none"
+			id="div_suite_detail">
+			<header class="panel-heading">
+				<div style="display: flex; justify-content: space-between">
+					<div>案例列表</div>
+					<div>
+						<button class="btn btn-default  btn-xs" type="button"
+							id="bt_suite_add_cases">
+							<i class="icon-plus-sign-alt">添加</i>
+						</button>
+					</div>
+				</div>
+			</header>
+			<div class="panel-body">
+
+				<div class="panel-group" id="div_suite_sql">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+
+							<div style="display: flex; justify-content: space-between">
+								<div>
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#div_suite_sql"
+											id="a_suite_show_pre" style="vertical-align: middle;"
+											href="#div_pre_sql"> 前置条件</a>
+									</h4>
+								</div>
+								<!-- <div>
+									<button type="button" class="btn btn-danger btn-xs" id="bt_suite_save_pre">保存</button>
+									<span class="label label-danger" style="cursor:pointer">保存</span>
+								</div> -->
+							</div>
+						</div>
+
+
+						<div id="div_pre_sql" class="panel-collapse collapse">
+							<div class="panel-body">
+
+								<div>
+									<h5>sql语句:</h5>
+									<textarea id="textarea_suite_pre" class="form-control"
+										placeholder="请输入sql语句"
+										style="color: black; resize: none; overflow: hidden;"></textarea>
+									<button type="button" class="btn btn-danger btn-sm"
+										id="bt_suite_save_pre" style="margin-top: 10px">保存</button>
+								</div>
+
+								<hr />
+								<div>
+									<h5>前置案例:</h5>
+									<div class="panel-group" id="panel_suite_requirement"></div>
+
+									<div style="margin-top: 10px">
+										<button class="btn btn-success btn-sm" type="button"
+											id="bt_suite_add_require">添加</button>
+									</div>
+
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-info">
+						<div class="panel-heading">
+
+							<div style="display: flex; justify-content: space-between">
+								<div>
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#div_suite_sql"
+											id="a_suite_show_post" href="#div_post_sql"> 后置条件</a>
+									</h4>
+								</div>
+								<!-- <div>
+									<button type="button" class="btn btn-danger btn-xs" id="bt_suite_save_post">保存</button>
+									<span class="label label-danger" style="cursor:pointer">保存</span>
+								</div> -->
+							</div>
+						</div>
+						<div id="div_post_sql" class="panel-collapse collapse">
+							<div class="panel-body">
+								<textarea id="textarea_suite_post" class="form-control"
+									placeholder="请输入mysql语句"
+									style="color: black; resize: none; overflow: hidden;"></textarea>
+								<button type="button" class="btn btn-danger btn-sm"
+									id="bt_suite_save_post" style="margin-top: 10px">保存</button>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div>
+					<hr />
+				</div>
+
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading" style="background: #edeef5">
+							<div style="display: flex; justify-content: space-between">
+								<div>
+									<h4 class="panel-title">
+										<!-- <input type="checkbox" name="suitecheck"
+											style="height: 14px; vertical-align: top;" />  -->
+										<a data-toggle="collapse" data-parent="#accordion"
+											style="vertical-align: middle;" href="#collapseOne"> <myban
+												id="myban_suite_name">点击我进行展开，再次点击我进行折叠。第 1 部分--hide
+											方法</myban> <span class="badge bg-info">post</span>
+										</a>
+
+									</h4>
+
+								</div>
+								<div>
+									<span class="label label-danger" style="cursor: pointer">删除</span>
+									<!-- <span class="badge bg-info">post</span> -->
+								</div>
+							</div>
+
+
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul id="myTab" class="nav nav-tabs">
+									<li class="active"><a href="#home" data-toggle="tab">
+											基本信息</a></li>
+									<li><a href="#home" data-toggle="tab"> 前置条件</a></li>
+									<li><a href="#ios" data-toggle="tab">头部设置</a></li>
+									<li><a href="#ios" data-toggle="tab">参数设置</a></li>
+									<li><a href="#ios" data-toggle="tab">响应设置</a></li>
+									<li><a href="#ios" data-toggle="tab">参数提取</a></li>
+									<li><a href="#ios" data-toggle="tab">后置条件</a></li>
+								</ul>
+								<div id="myTabContent" class="tab-content">
+									<div class="tab-pane fade in active" id="home">
+										<form class="form-horizontal" role="form"
+											id="suite_form_case_info">
+											<div>
+												<div style="margin-top: 15px">
+													<div style="width: 50%; float: left">
+														<div class="form-group">
+															<div class="col-lg-3">
+																<label class="control-label">接口名称:</label>
+															</div>
+															<div class="col-lg-9" style="margin-left: -5px" id="">
+																<input type="text" class="form-control"
+																	style="cursor: text" value="asdfasdf"
+																	id="input_suite_case_api_name" readonly>
+															</div>
+														</div>
+													</div>
+
+													<div style="width: 50%; float: left">
+														<div class="form-group">
+															<div class="col-lg-1"></div>
+															<div class="col-lg-2">
+																<label class="control-label">类型:</label>
+															</div>
+															<div class="col-lg-8" style="margin-left: 0px">
+																<input type="text" class="form-control"
+																	style="cursor: text" id="input_suite_case_api_method"
+																	readonly>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="form-group">
+														<label for="inputModuleName"
+															class="col-lg-2 control-label">url:</label>
+														<div class="col-lg-10" style="margin-left: -45px">
+															<input type="text" class="form-control" readonly
+																style="cursor: text" id="input_suite_case_api_url">
+														</div>
+
+													</div>
+												</div>
+
+												<div>
+													<div style="width: 50%; float: left">
+														<div class="form-group">
+															<div class="col-lg-3">
+																<label class="control-label">用例名称:</label>
+															</div>
+															<div class="col-lg-9" style="margin-left: -5px" id="">
+																<input type="text" class="form-control"
+																	style="cursor: text" id="input_suite_case_name"
+																	readonly>
+															</div>
+														</div>
+													</div>
+
+													<div style="width: 50%; float: left">
+														<div class="form-group">
+															<div class="col-lg-1"></div>
+															<div class="col-lg-2">
+																<label class="control-label">标签:</label>
+															</div>
+															<div class="col-lg-8" style="margin-left: 0px">
+																<input type="text" class="form-control"
+																	style="cursor: text" id="input_suite_case_label"
+																	readonly>
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div>
+													<div class="form-group">
+														<label for="inputModuleName"
+															class="col-lg-2 control-label">备注:</label>
+														<div class="col-lg-10"
+															style="margin-top: 5px; margin-left: -45px">
+															<textarea class="form-control" cols="10" rows="2"
+																style="cursor: text" name="textarea_case_dec" readonly
+																id="textarea_suite_case_dec"></textarea>
+														</div>
+
+													</div>
+												</div>
+
+
+											</div>
+										</form>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- <div class="panel panel-default">
+						<div class="panel-heading" style="background: #edeef5">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapseTwo"> 点击我进行展开，再次点击我进行折叠。第 2 部分--show 方法 </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse">
+							<div class="panel-body">Nihil anim keffiyeh helvetica,
+								craft beer labore wes anderson cred nesciunt sapiente ea
+								proident. Ad vegan excepteur butcher vice lomo.</div>
+						</div>
+					</div> -->
+
+
+				</div>
+
+			</div>
+		</section>
+	</div>
+</div>
+
+<!-- 基础信息模板 -->
+<div id="div_suite_case_base_model" style="display: none">
+	<form class="form-horizontal" role="form" id="form_suite_case_info">
+		<div>
+			<div style="margin-top: 15px">
+				<div style="width: 50%; float: left">
+					<div class="form-group">
+						<div class="col-lg-3">
+							<label class="control-label">接口名称:</label>
+						</div>
+						<div class="col-lg-9" style="margin-left: -5px" id="">
+							<input type="text" class="form-control" style="cursor: text"
+								value="asdfasdf" id="input_suite_case_api_name" readonly>
+						</div>
+					</div>
+				</div>
+
+				<div style="width: 50%; float: left">
+					<div class="form-group">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-2">
+							<label class="control-label">类型:</label>
+						</div>
+						<div class="col-lg-8" style="margin-left: 0px">
+							<input type="text" class="form-control" style="cursor: text"
+								id="input_suite_case_api_method" readonly>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div class="form-group">
+					<label for="inputModuleName" class="col-lg-2 control-label">url:</label>
+					<div class="col-lg-10" style="margin-left: -45px">
+						<input type="text" class="form-control" readonly
+							style="cursor: text" id="input_suite_case_api_url">
+					</div>
+
+				</div>
+			</div>
+
+			<div>
+				<div style="width: 50%; float: left">
+					<div class="form-group">
+						<div class="col-lg-3">
+							<label class="control-label">用例名称:</label>
+						</div>
+						<div class="col-lg-9" style="margin-left: -5px" id="">
+							<input type="text" class="form-control" style="cursor: text"
+								id="input_suite_case_name" readonly>
+						</div>
+					</div>
+				</div>
+
+				<div style="width: 50%; float: left">
+					<div class="form-group">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-2">
+							<label class="control-label">标签:</label>
+						</div>
+						<div class="col-lg-8" style="margin-left: 0px">
+							<input type="text" class="form-control" style="cursor: text"
+								id="input_suite_case_label" readonly>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div class="form-group">
+					<label for="inputModuleName" class="col-lg-2 control-label">备注:</label>
+					<div class="col-lg-10" style="margin-top: 5px; margin-left: -45px">
+						<textarea class="form-control autotext" cols="10" rows="2"
+							style="cursor: text" name="textarea_case_dec"
+							id="textarea_suite_case_dec"></textarea>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</form>
+</div>
+<!-- 前置模板 -->
+<div id="div_suite_case_pre_model" style="display: none">
+	<div class="form-group" style="margin-top: 10px;display:none">
+		<div class="col-lg-12">
+			<label>案例:</label>
+			<ul class="list-group" id="ul_suite_pre_require">
+				<!-- <li class="list-group-item">免费域名注册</li> -->
+
+			</ul>
+
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<label>sql:</label>
+			</div>
+			<div>
+				<textarea id="textarea_suite_pre_sql" class="form-control autotext" readonly
+					rows="5" style="cursor: text"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 头部模板 -->
+<div style="display: none; margin-top: 10px"
+	id="div_suite_case_head_model">
+	<div class="form-group" style="margin-top: 10px">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_header">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 参数模板 -->
+<div style="display: none" id="div_suite_case_parmas_model">
+	<div class="form-group" id="div_suite_case_parmas_model_form"
+		style="margin-top: 10px">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_parmas">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="form-group" id="div_suite_case_parmas_model_json"
+		style="display: none; margin-top: 10px">
+		<div class="col-lg-12">
+			<textarea id="textarea_suite_case_parmas"
+				class="form-control autotext" height="50px"
+				style="color: black; resize: none; overflow: hidden;"></textarea>
+		</div>
+		<div class="col-lg-12">
+			<div
+				style="background: #d8eecf; margin-top: 5px; border-radius: 5px;; padding: 10px">
+				点击展开</div>
+		</div>
+	</div>
+</div>
+
+<!-- 变量提取模板 -->
+<div style="display: none" id="div_suite_case_picker_model">
+	<div class="form-group" style="margin-top: 10px">
+		<div class="col-lg-12">
+			<div class="table-responsive" style="" id="">
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_value_picker">
+					<tbody>
+						<tr>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div >
+		<div class="col-lg-12" style="background:#d8eecf;margin-bottom:10px;border-radius: 5px;;padding:10px">
+			说明：目前只能接受json格式的响应的变量提取，例如一个响应为{code:xxx,result:{success:true,otherdata:xx}},要想提取code，只需要输入code即可，如果需要提取success
+			则需要输入result.success。
+		</div>
+	</div>
+</div>
+
+<!-- 响应模板 -->
+<div style="display: none" id="div_suite_case_response_model">
+	<div class="form-group" style="margin-top: 10px">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<label>系统断言:</label>
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_pre_assert">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<label>自定义断言:</label>
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_other_assert">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<label>sql断言:</label>
+				<table class="table table-hover table-bordered"
+					id="tb_suite_case_sql_assert">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- 后置模板 -->
+<div style="display: none" id="div_suite_case_post_model">
+	<div class="form-group" style="margin-top: 10px;display:none">
+		<div class="col-lg-12">
+			<label>案例:</label>
+			<ul class="list-group" id="ul_suite_post_require">
+
+			</ul>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-12">
+			<div class="table-responsive">
+				<label>sql:</label>
+			</div>
+			<div>
+				<textarea id="textarea_suite_case_post_sql" readonly
+					class="form-control autotext" rows="5"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="suiteModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="modal_title">新建测试套件</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" id="new_suite_form">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="input_new_suite_name" class="col-lg-2 control-label">名称:</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" id="input_new_suite_name"
+								name="input_new_suite_name">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input_new_suite_dec" class="col-lg-2 control-label">备注:</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" cols="10" rows="2"
+								id="input_new_suite_dec" name="input_new_suite_dec"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-8">
+							<button type="button" id="bt_create_suite" class="btn btn-danger">创建</button>
+							<button type="button" id="bt_create_suite_cancel"
+								data-dismiss="modal" class="btn btn-default">取消</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="suiteUpdateModal" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="modal_title">修改测试套件</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" id="update_suite_form">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="input_update_suite_name"
+							class="col-lg-2 control-label">名称:</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control"
+								id="input_update_suite_name" name="input_update_suite_name">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="input_update_suite_dec" class="col-lg-2 control-label">备注:</label>
+						<div class="col-lg-10">
+							<textarea class="form-control" cols="10" rows="2"
+								id="input_update_suite_dec" name="input_update_suite_dec"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-8">
+							<button type="button" id="bt_update_suite" class="btn btn-danger">保存</button>
+							<button type="button" id="bt_update_suite_cancel"
+								data-dismiss="modal" class="btn btn-default">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="selectCaseModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="modal_title">选择案例22</h4>
+			</div>
+			<div class="modal-body">
+				<div style="height: 400px; overflow: auto">
+					<!-- <div id="selectCaseTree"></div> -->
+					<div class="zTreeDemoBackground left">
+						<ul id="selectCaseTree" class="ztree"></ul>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-lg-offset-10 col-lg-12">
+						<button type="button" id="bt_confirm_select_case"
+							class="btn btn-danger">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

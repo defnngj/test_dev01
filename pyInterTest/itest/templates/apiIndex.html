@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Mosaddek">
+<meta name="keyword"
+	content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<link rel="shortcut icon" href="/static/img/test.png">
+
+<title>接口自动化系统</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap-reset.css" rel="stylesheet">
+<!--external css-->
+<link href="/static/assets/font-awesome/css/font-awesome.css"
+	rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/style-responsive.css" rel="stylesheet" />
+
+<!-- for the alert -->
+<link href="/static/pyInter/css/alert.css" rel="stylesheet" />
+<!-- 	for the validator -->
+<link href="/static/css/bootstrapValidator.min.css" rel="stylesheet" />
+<!-- 	for page loading -->
+<link href="/static/loading/css/jquery.mloading.css" rel="stylesheet" />
+<!-- 	for alert -->
+<link href="/static/sweetalert/sweetalert.css" rel="stylesheet" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+
+<link href="/static/assets/morris.js-0.4.3/morris.css" rel="stylesheet" />
+<!-- <link href="/static/treeview/css/bootstrap-treeview.css" rel="stylesheet" /> -->
+<link href="/static/select/bootstrap-select.css" rel="stylesheet" />
+<link href="/static/datePicker/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="/static/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<!-- <link rel="stylesheet" href="/static/zTree/css/demo.css" type="text/css"> -->
+<!-- <link rel="stylesheet" href="/static/zTree/css/demo.css" type="text/css">
+<link rel="stylesheet" href="/static/zTree/css/awesomeStyle/awesome.css" type="text/css">
+<link rel="stylesheet" href="/static/zTree/css/metroStyle/metroStyle.css" type="text/css"> -->
+<style type="text/css">
+div#rMenu {position:absolute; visibility:hidden;;text-align: left;padding: 2px;}
+div#rMenu ul li{
+	margin: 1px 0;
+	padding: 0 5px;
+	cursor: pointer;
+	list-style: none outside none;
+	background-color: #DFDFDF;
+}
+</style>
+
+<style type="text/css">
+input{
+	color:black;
+}
+textarea{
+	color:black;
+}
+</style>
+
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery.scrollTo.min.js"></script>
+	<script src="/static/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script type="text/javascript"
+		src="/static/assets/data-tables/jquery.dataTables.js"></script>
+	<script type="text/javascript"
+		src="/static/assets/data-tables/DT_bootstrap.js"></script>
+
+
+	<!--common script for all pages-->
+	<script src="/static/js/common-scripts.js"></script>
+	<!--script for this page only-->
+	<script src="/static/js/dynamic-table.js"></script>
+	<!--     for the validator -->
+	<script src="/static/js/bootstrapValidator.min.js"></script>
+	<!--  loading-->
+	<script src="/static/loading/js/jquery.mloading.js"></script>
+	<!--     for alert -->
+	<script src="/static/sweetalert/sweetalert.min.js"></script>	
+	
+	<script src="/static/assets/morris.js-0.4.3/morris.min.js" type="text/javascript"></script>
+	<script src="/static/assets/morris.js-0.4.3/raphael-min.js" type="text/javascript"></script>
+	<script src="/static/assets/chart-master/Chart.js"></script>
+	<script src="/static/datePicker/bootstrap-datetimepicker.js"></script>
+	<script src="/static/select/bootstrap-select.js"></script>
+	<script src="/static/datePicker/locales/bootstrap-datetimepicker.fr.js"></script>
+	<script type="text/javascript" src="/static/zTree/js/jquery.ztree.all.min.js"></script>
+	<script type="text/javascript" src="/static/zTree/js/jquery.ztree.core.min.js"></script>
+	<script type="text/javascript" src="/static/zTree/js/jquery.ztree.excheck.min.js"></script>
+	<script type="text/javascript" src="/static/zTree/js/jquery.ztree.exedit.min.js"></script>
+	<script type="text/javascript" src="/static/zTree/js/jquery.ztree.exhide.min.js"></script>
+
+</head>
+
+{% block content %}
+
+<body style="overflow: auto">
+	<section id="container"  style="overflow: auto">
+	<header class="header white-bg">
+		<a href="/" class="logo">接口自动化<span>平台</span></a>
+		<div class="top-nav">
+			<form action="/logout" method="post" id="logout">
+				{% csrf_token %}
+				<ul class="nav pull-right top-menu">
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <img alt=""
+							src="/static/img/head.png"> <span class="username">name</span>
+							<b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+
+							<li><a href="/user_setting_page"><i class="icon-cog"></i>个人设置</a></li>
+							<li onclick="$.about_me()"><a><i class="icon-info-sign"></i>关于</a></li>
+							<!-- <li><a><i class="icon-question"></i>帮助</a></li> -->
+
+							<li onclick="$('#logout').submit()"><a href="#"><i
+									class="icon-key"></i>退出</a></li>
+
+						</ul></li>
+					</ul>
+				</form>
+			</div>
+		</header>
+		
+		<section id="main-content111">
+    <header class="tab-head">
+        <ul class="nav nav-tabs" id="tab_menu">
+
+            <li class="active">
+                <a data-toggle="tab" href="#main_chart" id="statistics_tab"><i class="icon-home">&nbsp;&nbsp;</i>项目首页</a>
+            </li>
+
+            <li class="">
+                <a data-toggle="tab" href="#api_define" id="apiDefine"><i class="icon-reorder">&nbsp;&nbsp;</i>api定义</a>
+            </li>
+
+            <li class="">
+                <a data-toggle="tab" href="#api_debug"><i class="icon-bug">&nbsp;&nbsp;</i>接口调试</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#test_suites" id="suite_tab"><i class="icon-list-ul">&nbsp;&nbsp;</i>测试套件</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#test_tasks" id="task_tab"><i class="icon-time">&nbsp;&nbsp;</i>测试任务</a>
+            </li>
+            <li class="">
+                <a data-toggle="tab" href="#project_setting" id="setting_tab"><i class="icon-cog">&nbsp;&nbsp;</i>项目配置</a>
+            </li>
+        </ul>
+    </header>
+    <section class="wrapper tab-container">
+    	
+       <!-- page start-->
+		<div class="tab-content">
+
+            <div class="tab-pane active" id="main_chart">
+            	
+        		<div class="row state-overview">
+					<div class="col-lg-3 col-sm-6">
+					    <section class="panel">
+					        <div class="symbol terques">
+					            <i class="icon-h-sign"></i>
+					        </div>
+					        <div class="value">
+					            <h1 id="h1_chart_api_count">{{data.api}}</h1>
+					            <p>接口数</p>
+					        </div>
+					    </section>
+					</div>
+                    <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol red">
+                              <i class="icon-tags"></i>
+                          </div>
+                          <div class="value">
+                              <h1 id="h1_chart_case_count">{{data.case}}</h1>
+                              <p>用例数</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol yellow">
+                              <i class="icon-shopping-cart"></i>
+                          </div>
+                          <div class="value">
+                              <h1 id="h1_chart_suite_count">{{data.suite}}</h1>
+                              <p>套件数</p>
+                          </div>
+                      </section>
+                  </div>
+                  <div class="col-lg-3 col-sm-6">
+                      <section class="panel">
+                          <div class="symbol blue">
+                              <i class="icon-bar-chart"></i>
+                          </div>
+                          <div class="value">
+                              <h1 id="h1_chart_task_count">{{data.task}}</h1>
+                              <p>任务数</p>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+            	
+            	
+                <div class="row">
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                测试结果统计
+                            </header>
+                            <div class="panel-body">
+                                <div id="hero-area" class="graph"></div>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+	
+	        <div class="tab-pane" id="api_define">
+	        	<section class="panel">
+	        	<div class="row">
+                  <div class="col-lg-3" style="height:100%">
+                  		
+                      <section class="panel">
+   
+	        			<div class="row">
+                          <div class="col-lg-12">
+                  		
+                      		<section class="panel" >
+                      		
+                          		<header class="panel-heading">
+                          			<div style="display: flex;justify-content:space-between">
+		                          		<div>
+		                          			模块列表
+		                          		</div>
+		                          		<div>
+		                          		<!-- <button class="btn btn-default btn-xs" type="button"  style="margin-top:-5px"></button> -->
+		                          		
+		                          		<div class="btn-group">
+		                          			
+		                          			<button class="btn btn-default btn-xs" type="button" id="bt_add_module_interface"><i class="icon-plus-sign">&nbsp;</i>新建项目</button>
+		                          			
+	                                      <!-- <button class="btn btn-default btn-xs" type="button" id="bt_add_module_interface"><i class="icon-plus-sign">&nbsp;</i>新建</button>
+	                                      <div class="btn-group">
+	                                          <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle" type="button" id="select_add_type">模块<span class="caret"></span></button>
+	                                          <ul class="dropdown-menu" style="min-width: 20px;min-height: 50px">
+	                                              <li class="select_add_type"><a href="#">模块</a></li>
+	                                              <li class="select_add_type"><a href="#">接口</a></li> 
+	                                          </ul>
+		                                      </div>
+		                                  </div> -->
+		                                  <!-- <button class="btn btn-default btn-xs" type="button" id="bt_edit_module" style=""><i class="icon-edit-sign">&nbsp;</i>编辑</button>
+		                          		  <button class="btn btn-default btn-xs" type="button" id="bt_delete_module_interface" style=""><i class="icon-remove-sign">&nbsp;</i>删除</button> -->
+		                          		</div>
+		                          		<!-- <label style="font-size:10px;"><input type="checkbox" id="checkbox_add_root_module">根目录</label> -->
+		                          		</div>
+		                          	</div>
+                          		</header>
+                          		<div class="panel-body" style="height:100%;overflow:auto;width:100%;border-right:1px solid rgb(241,241,247);border-bottom:1px solid rgb(241,241,247)">
+                          		<!-- <div class="panel-body" style="overflow:auto;height:497px;width:100%;"> -->
+                          			<div>
+                          				<div id="tree" style="display:none">
+                          					
+                          				</div>
+                          				<!-- <div style="height:80px" style="display:none">
+                          				
+                          				</div> -->
+                          				<div style="min-height:430px;overflow-y: auto; overflow-x: scroll" >
+                          					<div class="zTreeDemoBackground left">
+												<ul id="ztree" class="ztree"></ul>
+											</div>
+											<div id="rMenu">
+												<!-- <ul>
+													<li id="m_add_module" onclick=""><a>添加模块</a></li>
+													<li id="m_edit_module" onclick=""><a>编辑模块</a></li>
+													<li id="m_del_module" onclick=""><a>删除模块</a></li>
+													<li id="m_add_api" onclick=""><a>添加接口</a></li>
+													<li id="m_edit_api" onclick=""><a>编辑接口</a></li>
+													<li id="m_copy_api" onclick=""><a>复制接口</a></li>
+													<li id="m_del_api" onclick=""><a>删除接口</a></li>
+													<li id="m_add_case" onclick=""><a>添加案例</a></li>
+													<li id="m_copy_case" onclick=""><a>复制案例</a></li>
+													<li id="m_del_case" onclick=""><a>删除案例</a></li>
+												</ul> -->
+												
+													
+												<div class="dropdown">
+													<ul class="dropdown-menu dropdown-menu-right" style="min-width: 30px;font-size: 3px">
+														
+														<li id="m_add_module" onclick="ApiHandle.a_add_module()"><a><i class="icon-plus">模块</i></a></li>
+														<li id="m_edit_module" onclick="ApiHandle.a_edit_module()"><a><i class="icon-pencil">编辑</i></a></li>
+														<li id="m_add_api" onclick="ApiHandle.a_add_interface()"><a><i class="icon-plus">接口</i></a></li>
+														<li id="m_del_module" onclick="ApiHandle.a_delete_module()"><a><i class="icon-remove">删除</i></a></li>
+														
+														<li id="m_add_case" onclick="CaseHandle.a_add_case()"><a><i class="icon-plus">案例</i></a></li>
+														<li id="m_copy_api" onclick="ApiHandle.copy_api()"><a><i class="icon-copy">复制</i></a></li>
+														<li id="m_del_api" onclick="ApiHandle.a_delete_interface()"><a><i class="icon-remove">删除</i></a></li>
+																												
+														<li id="m_copy_case" onclick="CaseHandle.copy_case()"><a><i class="icon-copy">复制</i></a></li>
+														<li id="m_del_case" onclick="CaseHandle.a_delete_case()"><a><i class="icon-remove">删除</i></a></li>
+													</ul>
+												</div>
+											</div>	
+                          				</div>
+                          			</div>
+                          			
+                          		</div>
+                          	</section>
+                          </div>
+                         </div>
+                          
+                          
+                      </section>
+					 
+                  </div>
+                  
+                  <div class="col-lg-9">
+                  	{% include 'apiDetail.html' %}
+                      
+
+                  </div>
+               </div>
+               </section>
+	        	
+	            </div>
+	
+	            <div class="tab-pane" id="api_debug">
+	                {% include 'apiDebug.html' %}
+	            </div>
+	            <div class="tab-pane" id="test_suites">
+	                {% include 'testSuites.html' %}
+	            </div>
+	            <div class="tab-pane" id="test_tasks">
+	                {% include 'testTasks.html' %}
+	            </div>
+	            <div class="tab-pane" id="project_setting">
+	                {% include 'projectSetting.html' %}
+	            </div>
+
+              </div>
+              <!-- page end-->
+          </section>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="moduleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_module_title">新建模块</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="modal_module_form">
+                		{% csrf_token %}
+
+                         <div class="form-group">
+                             <label for="inputModuleName" class="col-lg-2 control-label">模块名称:</label>
+                             <div class="col-lg-10">
+                                 <input type="text" class="form-control" id="inputModuleName" name="inputModuleName" placeholder="模块名称">
+                             </div>
+                         </div>
+                         
+                         
+                         <div class="form-group">
+                             <div class="col-lg-offset-2 col-lg-8">
+                                 <button type="button" id="bt_create_module" class="btn btn-danger">创建</button>
+                                 <button type="button" id="bt_update_module" class="btn btn-danger">更新</button>
+                             </div>
+                         </div>
+              
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="interModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_title">新建接口</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="new_inter_form">
+                		{% csrf_token %}
+
+                         <div class="form-group">
+                             <label for="inputModuleName" class="col-lg-2 control-label">接口名称:</label>
+                             <div class="col-lg-10">
+                                 <input type="text" class="form-control" id="input_new_inter_name" name="input_new_inter_name">
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>                        
+                         
+                         <div class="form-group">
+                             <label for="inputModuleName" class="col-lg-2 control-label">接口url:</label>
+                             <div class="col-lg-10">
+                                 <input type="text" class="form-control" id="input_new_inter_url" name="input_new_inter_url">
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>
+                         
+                         <div class="form-group">
+					        <label class="col-lg-2 control-label">请求类型:</label>
+					        <div class="col-lg-10">
+					            <label class="radio-inline"> <input type="radio" name="input_new_inter_method" id="" value="get" checked>get</label>
+					            <label class="radio-inline"> <input type="radio" name="input_new_inter_method" id="" value="post">post</label>
+					            <label class="radio-inline"> <input type="radio" name="input_new_inter_method" id="" value="put">put</label>
+					            <label class="radio-inline"> <input type="radio" name="input_new_inter_method" id="" value="delete">delete</label>
+					            <!-- <label class="radio-inline"> <input type="radio" name="season" id="seasonSpringFall" value="spring-fall" disabled> Spring-Fall </label> -->
+					        </div>
+					    </div>
+                         
+                         <div class="form-group">
+                             <label for="inputModuleName" class="col-lg-2 control-label">备注:</label>
+                             <div class="col-lg-10">
+                                 <textarea class="form-control" cols="10" rows="2" id="input_new_inter_dec" name="input_new_inter_dec"></textarea>
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>                        
+                         
+                         <div class="form-group">
+                             <div class="col-lg-offset-2 col-lg-8">
+                                 <button type="button" id="bt_create_inter" class="btn btn-danger">创建</button>
+                                 <button type="button" id="bt_create_inter_cancel" data-dismiss="modal" class="btn btn-default">取消</button>
+                             </div>
+                         </div>
+              
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="caseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modal_title">新建案例</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" id="new_case_form">
+                		{% csrf_token %}
+
+                         <div class="form-group">
+                             <label for="input_new_case_name" class="col-lg-2 control-label">名称:</label>
+                             <div class="col-lg-10">
+                                 <input type="text" class="form-control" id="input_new_case_name" name="input_new_case_name">
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>                        
+                         
+                         <div class="form-group">
+                             <label for="input_new_case_dec" class="col-lg-2 control-label">备注:</label>
+                             <div class="col-lg-10">
+                                 <textarea class="form-control" cols="10" rows="2" id="input_new_case_dec" name="input_new_case_dec"></textarea>
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>  
+                         
+                         <div class="form-group">
+                             <label for="input_new_case_label" class="col-lg-2 control-label">标签:</label>
+                             <div class="col-lg-10">
+                                 <input type="text" class="form-control" id="input_new_case_label" name="input_new_case_label" placeholder="请输入案例的标签，使用,隔开">
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                             </div>
+                         </div>                      
+                         
+                         <div class="form-group">
+                             <div class="col-lg-offset-2 col-lg-8">
+                                 <button type="button" id="bt_create_case" class="btn btn-danger">创建</button>
+                                 <button type="button" id="bt_create_case_cancel" data-dismiss="modal" class="btn btn-default">取消</button>
+                             </div>
+                         </div>
+              
+	                </form>
+	            </div>
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->	
+	</section>
+{% endblock %}
+
+
+	
+	<script src="/static/pyInter/js/pyInterBase2.js"></script>	
+	<script>
+
+	PIBase.userInfo={};
+   	PIBase.userInfo["userName"] = "{{data.userName}}";
+   	PIBase.userInfo["userId"] = {{data.userId}};
+   	UserInfo = PIBase.userInfo;
+   	$(".username").html(PIBase.userInfo["userName"])
+	</script>
+
+{% block script %}
+
+	<script src="/static/pyInter/js/pyInterChart.js"></script>
+	<script>
+		chart = {{ data.charts|safe }};
+		InitChartData(chart);
+	</script>
+	
+	<script src="/static/pyInter/zTree/zTreeHandle.js"></script>
+	<script src="/static/pyInter/js/pyInterApi.js"></script>
+	<script>
+		ApiHandle.pId={{data.pId}};
+		ProjectInfo["pId"]=ApiHandle.pId;
+	</script>
+	<script src="/static/pyInter/js/pyInterCase.js"></script>
+	<script src="/static/pyInter/js/pyInterDebug.js"></script>
+	<script src="/static/pyInter/js/pyInterSuite.js"></script>
+	<script src="/static/pyInter/js/pyInterSetting.js"></script>
+	<script src="/static/pyInter/js/pyInterTasks.js"></script>
+
+
+{% endblock %}
+	</body>
+</html>

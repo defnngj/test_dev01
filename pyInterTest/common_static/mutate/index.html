@@ -1,0 +1,73 @@
+<script src="http://www.google.com/jsapi"></script> <script> google.load("jquery",'1.7'); google.load("jqueryui", "1"); </script>
+<script src="js/events.min.js"></script>
+<script src="js/mutate.min.js"></script>
+<script>
+	
+	
+$(function() {
+    //how to use it
+	var	 iii=0;
+	var expanded = false;
+    $('div.monitor').mutate('height width', function(el,info) {
+		expanded = true;
+        $('#heighter').text('height changed:' + $(el).height());
+        $('#widther').text('Width changed:' + $(el).width());
+    });
+
+    $('div.monitor').mutate('top left right bottom', function(el,info) {
+        $('#topper').text('box has moved either (top,left,right or bottom):' + parseInt($(el).css('top')));
+		  if(parseInt($(el).css('top'))>=250) $('#topper2').html('Element Moved top to more than 250:<strong class="red">' + parseInt($(el).css('top'))+'px</strong> this is especially usefull when you need to make a game. Exact 250px maybe be a little more tricky, as some pixels may skip due to animation time so it\'s better to use more than or less than ');
+    });
+    $('div.monitor').mutate('hide', function(el,info) {
+      $('#hidder').text('Element was hidden:'+iii++);
+    });
+    $('div.monitor').mutate('show', function(el,info) {
+        $('#shower').text('Element is now visible:'+ iii++);
+    });
+
+    //illustration purpuso only
+    $('#subm3').click(function() {
+		$('#my1').stop(true,true).css({width:300,height:100}).animate({width: 500,height:500},1000);
+	 });
+    $('#subm2').click(function() {
+		$('#my1').toggle();
+	 });
+    $('#subm').click(function() {
+       $('#my1').stop(true,true).css('top',0).animate({'top':300},2000);
+    });
+    $('.monitor').resizable().draggable();
+});
+	
+</script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css" media="all" />
+<style>
+	div.monitor{width: 960px; margin: auto;height: 200px; overflow: hidden; border:1px solid red;background: whitesmoke;padding: 20px;cursor: move;}
+	.new_class{height: 101px;}
+	.red{color: red;}
+</style>
+
+<input type="submit" id="subm" value="animate" /> <br />
+<input type="submit" id="subm2" value="Toggle Visibility" /> <br />
+<input type="submit" id="subm3" value="Expand box" /> <br />
+<span id="heighter"></span> <br />
+<span id="widther"></span><br />
+<span id="topper"></span><br />
+<span id="topper2"></span><br />
+<span id="hidder"></span><br />
+<span id="shower"></span><br />
+<div id="my1" class="monitor">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat, augue at viverra ultricies, turpis dui mollis libero, sit amet varius lacus lorem ac dolor. Proin et justo nec erat facilisis semper eget imperdiet dolor. Donec nulla sem, tincidunt eget malesuada at, ullamcorper vel erat. Donec condimentum, dui eu feugiat vestibulum, nisi lorem egestas ligula, eu dignissim ante metus venenatis urna. Sed ut risus tortor. Curabitur eu turpis ac diam convallis tincidunt at vel erat. Aenean condimentum scelerisque ultrices. Integer lorem mi, lacinia ac semper id, pharetra non lectus. Duis vitae turpis nec lectus euismod volutpat vel ultricies urna. Integer eu pellentesque sem. Nulla ullamcorper eros id est faucibus suscipit. Ut at nulla vitae tortor ultricies laoreet eget eu leo. Donec euismod pharetra est, id lacinia nunc pharetra a.
+    </p>
+</div>
+<div id="my2" class="monitor">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat, augue at viverra ultricies, turpis dui mollis libero, sit amet varius lacus lorem ac dolor. Proin et justo nec erat facilisis semper eget imperdiet dolor. Donec nulla sem, tincidunt eget malesuada at, ullamcorper vel erat. Donec condimentum, dui eu feugiat vestibulum, nisi lorem egestas ligula, eu dignissim ante metus venenatis urna. Sed ut risus tortor. Curabitur eu turpis ac diam convallis tincidunt at vel erat. Aenean condimentum scelerisque ultrices. Integer lorem mi, lacinia ac semper id, pharetra non lectus. Duis vitae turpis nec lectus euismod volutpat vel ultricies urna. Integer eu pellentesque sem. Nulla ullamcorper eros id est faucibus suscipit. Ut at nulla vitae tortor ultricies laoreet eget eu leo. Donec euismod pharetra est, id lacinia nunc pharetra a.
+    </p>
+</div>
+<div id="my2">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque consequat, augue at viverra ultricies, turpis dui mollis libero, sit amet varius lacus lorem ac dolor. Proin et justo nec erat facilisis semper eget imperdiet dolor. Donec nulla sem, tincidunt eget malesuada at, ullamcorper vel erat. Donec condimentum, dui eu feugiat vestibulum, nisi lorem egestas ligula, eu dignissim ante metus venenatis urna. Sed ut risus tortor. Curabitur eu turpis ac diam convallis tincidunt at vel erat. Aenean condimentum scelerisque ultrices. Integer lorem mi, lacinia ac semper id, pharetra non lectus. Duis vitae turpis nec lectus euismod volutpat vel ultricies urna. Integer eu pellentesque sem. Nulla ullamcorper eros id est faucibus suscipit. Ut at nulla vitae tortor ultricies laoreet eget eu leo. Donec euismod pharetra est, id lacinia nunc pharetra a.
+    </p>
+</div>
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Mosaddek">
+  <meta name="keyword"
+        content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <link rel="shortcut icon" href="/static/img/test.png">
+
+  <title>接口自动化系统</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-reset.css" rel="stylesheet">
+  <!--external css-->
+  <link href="/static/assets/font-awesome/css/font-awesome.css"
+        rel="stylesheet"/>
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/style-responsive.css" rel="stylesheet"/>
+  <!-- for the alert -->
+  <link href="/static/pyInter/css/alert.css" rel="stylesheet"/>
+  <!-- 	for the validator -->
+  <link href="/static/css/bootstrapValidator.min.css" rel="stylesheet"/>
+  <!-- 	for page loading -->
+  <link href="/static/loading/css/jquery.mloading.css" rel="stylesheet"/>
+  <!-- 	for alert -->
+  <link href="/static/sweetalert/sweetalert.css" rel="stylesheet"/>
+  <link href="/static/pyInter/css/my_style.css" rel="stylesheet"/>
+</head>
+
+<body class="auto_scroll">
+
+<section id="container" class="auto_scroll">
+  <!--header start-->
+  <header class="header white-bg">
+    <a href="/" class="logo">接口自动化<span>平台</span></a>
+    <div class="top-nav">
+      <form action="/logout" method="post" id="logout">
+        {% csrf_token %}
+        <ul class="nav pull-right top-menu">
+          <li class="dropdown"><a data-toggle="dropdown"
+                                  class="dropdown-toggle" href="#"> <img alt=""
+                                                                         src="/static/img/head.png"> <span
+                  class="username" user_id="{{data.user_id}}">{{data.user_name}}</span>
+            <b class="caret"></b>
+          </a>
+            <ul class="dropdown-menu extended logout">
+              <div class="log-arrow-up"></div>
+
+              <li><a href="/user_setting_page"><i class="icon-cog"></i>个人设置</a></li>
+              <li onclick="$.about_me()"><a><i class="icon-info-sign"></i>关于</a></li>
+
+              <li onclick="$('#logout').submit()"><a href="#"><i
+                      class="icon-key"></i>退出</a></li>
+            </ul>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </header>
+
+  <section id="main-content">
+
+
+    <section class="wrapper">
+      <aside class="lg-side">
+        <div class="inbox-head">
+          <h3>项目</h3>
+
+          <div class="input-append pull-right">
+            <button type="button" class="btn btn-primary btn-danger"
+                    id="bt_open_add_project_modal">
+              创建<i class="icon-plus"></i>
+            </button>
+          </div>
+        </div>
+      </aside>
+      <!--mail inbox start-->
+      <div class="mail-box">
+
+        <aside class="sm-side">
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+               aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"
+                          aria-hidden="true">&times;
+                  </button>
+                  <h4 class="modal-title" id="modal_title">新建项目</h4>
+                </div>
+                <div class="modal-body">
+                  <form class="form-horizontal" role="form" id="modal_form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">项目名称</label>
+                      <div class="col-lg-10 form-group">
+                        <input type="text" class="form-control"
+                               id="text_project_name" name="text_project_name"
+                               placeholder="">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">描述</label>
+                      <div class="col-lg-10 form-group">
+													<textarea class="form-control" id="text_project_dec"
+                                    name="text_project_dec" cols="30" rows="10"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="form-group ">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <div class="div_modal_button">
+                          <button type="button" class="btn btn-send"
+                                  id="bt_create_project">创建
+                          </button>
+                          <button type="button" class="btn btn-send"
+                                  id="bt_update_project">更新
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
+
+          <ul class="nav nav-pills nav-stacked labels-info inbox-divider">
+            <li>
+              <h4>类型</h4>
+            </li>
+            <li id="get_all_projects"><a href="#"> <i
+                    class=" icon-sign-blank text-info "></i>全部项目
+            </a></li>
+            <li id="get_my_projects"><a href="#"> <i
+                    class=" icon-sign-blank text-danger"></i>我的项目
+            </a></li>
+            <li id="get_other_projects"><a href="#"> <i
+                    class=" icon-sign-blank text-success"></i>其他项目
+            </a></li>
+
+
+          </ul>
+          <ul class="nav nav-pills nav-stacked labels-info ">
+            <li>
+              <h4>状态</h4>
+            </li>
+            <li id="get_normal_projects"><a href="#"> <i
+                    class=" icon-circle text-muted "></i>正常项目
+            </a></li>
+            <li id="get_close_projects"><a href="#"> <i
+                    class=" icon-circle text-muted "></i>已关闭项目
+            </a></li>
+          </ul>
+
+
+        </aside>
+        <aside class="lg-side">
+          <div class="inbox-body div_project_list">
+
+            <!-- page start-->
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="panel">
+
+                  <table class="table table-striped border-top" id="sample_1">
+                    <thead>
+                    <tr>
+                      <th>项目名称</th>
+                      <th>介绍</th>
+                      <th>创建人</th>
+                      <th>任务数</th>
+                      <th>接口数</th>
+                      <th>状态</th>
+                      <th>创建时间</th>
+                      <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+
+                </section>
+              </div>
+            </div>
+            <!-- page end-->
+
+          </div>
+        </aside>
+      </div>
+
+      <!--mail inbox end-->
+    </section>
+  </section>
+  <!--main content end-->
+</section>
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.scrollTo.min.js"></script>
+<script src="/static/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script type="text/javascript"
+        src="/static/assets/data-tables/jquery.dataTables.js"></script>
+<script type="text/javascript"
+        src="/static/assets/data-tables/DT_bootstrap.js"></script>
+<script src="/static/js/bootstrapValidator.min.js"></script>
+<!--  loading-->
+<script src="/static/loading/js/jquery.mloading.js"></script>
+<!--     for alert -->
+<script src="/static/sweetalert/sweetalert.min.js"></script>
+
+<!--common script for all pages-->
+<script src="/static/js/common-scripts.js"></script>
+<!--script for this page only-->
+<script src="/static/js/dynamic-table.js"></script>
+<!--     for the validator -->
+
+<script src="/static/pyInter/js/pyInterBase2.js"></script>
+<script>
+    PIBase.userInfo = {};
+    PIBase.userInfo["userName"] = $(".username").html();
+    PIBase.userInfo["userId"] = $(".username").attr("user_id");
+    PIBase.userInfo["user_name"] = $(".username").html();
+    PIBase.userInfo["user_id"] = $(".username").attr("user_id");
+    UserInfo = PIBase.userInfo;
+</script>
+
+<script src="/static/pyInter/js/pyInter_project.js"></script>
+{#<script>#}
+{#    var list = {{data.projects|safe}}#}
+{#        ProjectHandle.fleshTableData(list);#}
+{##}
+{#</script>#}
+</body>
+</html>
