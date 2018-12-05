@@ -21,6 +21,7 @@
 
 			<div class="form-group">
 				<label>用例：</label>
+				<input type="checkbox" id="selectAll">全选/取消</input>
 				<div class="caseList" style="overflow-y:scroll; height: 200px; background: #FFFFFF; padding-left: 15px;">
 					
 				</div>
@@ -47,43 +48,59 @@
 	// 初始化用例的列表
 	CaseListInit()
 
-		// 保存任务
-		$("#saveTask").click(function () {
+	// 保存任务
+	$("#saveTask").click(function () {
 
-			let tName = $("#taskName").val();
-			let tDescribe = $("#taskDescribe").val();
+		let tName = $("#taskName").val();
+		let tDescribe = $("#taskDescribe").val();
 
-			if (tName === "") {
-				window.alert("任务的名称不能为空！");
+		if (tName === "") {
+			window.alert("任务的名称不能为空！");
+		}
+
+		let selectCases = document.querySelectorAll("div.caseList > input");
+		//var selectCasesId = new Array()
+		var selectCasesId = "";
+		for (let i = 0; i < selectCases.length; i++) {
+			//window.alert("1111");
+			if (selectCases[i].checked === true){
+				let case_id = selectCases[i].value;
+				//selectCasesId.push(case_id);
+				selectCasesId = selectCasesId + case_id + ","
 			}
+		}
 
-			let selectCases = document.querySelectorAll("div.caseList > input");
-			//var selectCasesId = new Array()
-			var selectCasesId = "";
-			for (let i = 0; i < selectCases.length; i++) {
-				//window.alert("1111");
-				if (selectCases[i].checked === true){
-					let case_id = selectCases[i].value;
-					//selectCasesId.push(case_id);
-					selectCasesId = selectCasesId + case_id + ","
-				}
+		console.log("选中的用例id", selectCasesId);
+
+		$.post("/interface/save_task_data/", {
+			"task_name": tName,
+			"task_describe": tDescribe,
+			"task_cases": selectCasesId,
+		}, function (resp) {
+			if (resp.success === "true"){
+				window.alert(resp.message);
+			}else{
+				window.alert(resp.message);
 			}
-
-			console.log("选中的用例id", selectCasesId);
-
-			$.post("/interface/save_task_data/", {
-				"task_name": tName,
-				"task_describe": tDescribe,
-				"task_cases": selectCasesId,
-			}, function (resp) {
-				if (resp.success === "true"){
-					window.alert(resp.message);
-				}else{
-					window.alert(resp.message);
-				}
-			});
-
 		});
+
+	});
+	
+	// 保存任务
+	$("#selectAll").click(function () {
+		
+		var selectAll = document.querySelector("#selectAll");
+		var allCases = document.querySelectorAll(".caseList > input");
+		if(selectAll.checked === true){
+			for(let i=0; i < allCases.length; i++){
+				allCases[i].checked = true;
+			}
+		}else{
+			for (let i = 0; i < allCases.length; i++) {
+				allCases[i].checked = false;
+			}
+		}
+	});
 
 </script>
 
