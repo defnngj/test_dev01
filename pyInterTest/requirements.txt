@@ -10,10 +10,9 @@ celery==3.1.25
 certifi==2017.7.27.1
 chardet==3.0.4
 click==6.7
-Django==1.11.3
+Django==2.0.4
 django-celery==3.2.1
 django-crontab==0.7.1
-Flask==0.12.1
 funcsigs==1.0.2
 futures==3.1.1
 gevent==1.2.1
@@ -65,7 +64,6 @@ pyobjc-framework-Social==2.5.1
 pyobjc-framework-SyncServices==2.5.1
 pyobjc-framework-SystemConfiguration==2.5.1
 pyobjc-framework-WebKit==2.5.1
-pyOpenSSL==0.13.1
 pyparsing==2.2.0
 python-dateutil==1.5
 pytz==2013.7
@@ -73,3 +71,4 @@ scipy==0.13.0b1
 simplejson==3.11.1
 threadpool==1.3.2
 tzlocal==1.4
+pyOpenSSL==18.0.0
