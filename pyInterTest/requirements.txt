@@ -10,7 +10,7 @@ celery==3.1.25
 certifi==2017.7.27.1
 chardet==3.0.4
 click==6.7
-Django==2.0.4
+Django==2.0.8
 django-celery==3.2.1
 django-crontab==0.7.1
 funcsigs==1.0.2
