@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite errors="0" failures="1" name="MyTest-20181205233335" skipped="0" tests="2" time="1.963" timestamp="2018-12-05T23:33:37">
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_2" time="1.453" timestamp="2018-12-05T23:33:37"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_1" time="0.510" timestamp="2018-12-05T23:33:35">
-			<failure message="3 != 4" type="AssertionError">
-<![CDATA[Traceback (most recent call last):
-  File "C:\Python36\lib\site-packages\ddt.py", line 145, in wrapper
-    return func(self, *args, **kwargs)
-  File "D:/class_dev/test_dev_sample/test_platform/interface_app/extend/task_run.py", line 28, in test_dicts_extracted_into_kwargs
-    self.assertEqual(2+1, 4)
-AssertionError: 3 != 4
-]]>			</failure>
-		</testcase>
+	<testsuite errors="0" failures="0" name="MyTest-20181206221115" skipped="0" tests="2" time="1.930" timestamp="2018-12-06T22:11:17">
+		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_1" time="0.495" timestamp="2018-12-06T22:11:15"/>
+		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_2" time="1.435" timestamp="2018-12-06T22:11:17"/>
 		<system-out>
 <![CDATA[]]>		</system-out>
 		<system-err>

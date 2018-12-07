@@ -1,40 +1,60 @@
+import sys
+import json
 import unittest
 from ddt import ddt, data, file_data, unpack
 import requests
 import xmlrunner
+from os.path import dirname, abspath
+BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
+BASE_PATH = BASE_DIR.replace("\\", "/")
+sys.path.append(BASE_PATH)
 
-global case1
-global case2
+print("运行测试文件：", BASE_PATH)
 
-case = {'first': 1, 'second': 3, 'third': 2}
-case1 = {'url': 'http://httpbin.org/post', 'method': 'post', 'data': {'key': 'value'}}
-case2 = {'url': 'https://api.github.com/events', 'method': 'get', 'data': {}}
+# 定义任务的目录
+TASK_PATH = BASE_PATH + "/resource/tasks/"
+
 
 @ddt
-class MyTest(unittest.TestCase):
+class InterfaceTest(unittest.TestCase):
 
     @unpack
-    @data(case1,
-          case2)
-    def test_dicts_extracted_into_kwargs(self, url, method, data):
-        # print("URL", url)
-        # print("方法", method)
-        # print("参数", data)
-        if method == "post":
-            r = requests.post(url, data=data)
-            self.assertEqual(2+1, 4)
+    @file_data(TASK_PATH + "cases_data.json")
+    def test_run_casess(self, url, method, type_, header, parameter, assert_):
+        print("URL", url)
+        print("方法", method)
+
+        if header == "{}":
+            header_dict = {}
+        else:
+            aa = header.replace("\'", "\"")
+            header_dict = json.loads(aa)
+
+        if parameter == "{}":
+            parameter_dict = {}
+        else:
+            aa = parameter.replace("\'", "\"")
+            parameter_dict = json.loads(aa)
 
         if method == "get":
-            r = requests.get(url, params=data)
-            #print(r.text)
-            self.assertEqual(2+2, 4)
+            if type_ == "from":
+                r = requests.get(url, headers=header_dict, params=parameter_dict)
+ 
+        if method == "post":
+            if type_ == "from":
+                r = requests.post(url, headers=header_dict, data=parameter_dict)
+            elif type_ == "json":
+                r = requests.post(url, headers=header_dict, json=parameter_dict)
+
+
 
 # 运行测试用例
 def run_cases():
-    with open('D:/class_dev/test_dev_sample/test_platform/interface_app/extend/results.xml', 'wb') as output:
+    with open(TASK_PATH + 'results.xml', 'wb') as output:
         unittest.main(
             testRunner=xmlrunner.XMLTestRunner(output=output),
             failfast=False, buffer=False, catchbreak=False)
+
 
 if __name__ == '__main__':
     run_cases()
