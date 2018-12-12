@@ -1,34 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite errors="0" failures="0" name="MyTest-20181207230949" skipped="0" tests="9" time="8.543" timestamp="2018-12-07T23:09:57">
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00001_11" time="1.758" timestamp="2018-12-07T23:09:50"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00002_20" time="0.024" timestamp="2018-12-07T23:09:51"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00003_23" time="0.001" timestamp="2018-12-07T23:09:51"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00004_24" time="1.103" timestamp="2018-12-07T23:09:52"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00005_25" time="1.064" timestamp="2018-12-07T23:09:53"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00006_19" time="1.392" timestamp="2018-12-07T23:09:54"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00007_1" time="0.022" timestamp="2018-12-07T23:09:54"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00008_3" time="2.118" timestamp="2018-12-07T23:09:56"/>
-		<testcase classname="MyTest" name="test_dicts_extracted_into_kwargs_00009_13" time="1.062" timestamp="2018-12-07T23:09:57"/>
+	<testsuite errors="0" failures="0" name="InterfaceTest-20181212231342" skipped="0" tests="3" time="2.806" timestamp="2018-12-12T23:13:44">
+		<testcase classname="InterfaceTest" name="test_run_casess_00001_1" time="0.044" timestamp="2018-12-12T23:13:42"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00002_2" time="1.440" timestamp="2018-12-12T23:13:43"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00003_3" time="1.322" timestamp="2018-12-12T23:13:44"/>
 		<system-out>
-<![CDATA[URL https://api.github.com/events
-方法 get
-URL http://www.baidu.com
-方法 get
-URL http://www.baidu.com
-方法 get
-URL https://api.github.com/some/endpoint
-方法 post
-URL https://api.github.com/some/endpoint
-方法 post
-URL https://api.github.com/events
-方法 get
-URL http://www.baidu.com
+<![CDATA[URL http://www.baidu.com
 方法 get
 URL https://api.github.com/events
 方法 get
-URL https://api.github.com/some/endpoint
-方法 post
+URL https://api.github.com/events
+方法 get
 ]]>		</system-out>
 		<system-err>
 <![CDATA[]]>		</system-err>

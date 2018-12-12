@@ -47,7 +47,6 @@ class InterfaceTest(unittest.TestCase):
                 r = requests.post(url, headers=header_dict, json=parameter_dict)
 
 
-
 # 运行测试用例
 def run_cases():
     with open(TASK_PATH + 'results.xml', 'wb') as output:
