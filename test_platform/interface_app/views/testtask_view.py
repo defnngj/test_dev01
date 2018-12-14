@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from interface_app.models import TestTask, TestCase
+from interface_app.models import TestTask, TestCase, TestResult
 from interface_app.extend.task_run import run_cases
 import os 
 import json
@@ -43,6 +43,16 @@ def run_task(request, tid):
         return HttpResponse("404")
 
 
-# 如何去运行这些用例？--单元测试框架 + 数据驱动
+# 查看任务结果列表
+def task_result_list(request, tid):
+    if request.method == "GET":
+        task_obj = TestTask.objects.get(id=tid)
+        result_list = TestResult.objects.filter(task_id=tid)
 
-# unittest + ddt
+        return render(request, "task_result.html", {
+            "type": "result",
+            "task_name": task_obj.name,
+            "task_result_list": result_list,
+        })
+    else:
+        return HttpResponse("404")

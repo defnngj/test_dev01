@@ -41,7 +41,7 @@ class TestResult(models.Model):
     name = models.CharField("名称", max_length=100, blank=False, default="")
     task = models.ForeignKey(TestTask, on_delete=models.CASCADE)
     error = models.IntegerField("错误用例")
-    failures = models.IntegerField("失败用例")
+    failure = models.IntegerField("失败用例")
     skipped = models.IntegerField("跳过用例")
     tests = models.IntegerField("总用例数")
     run_time = models.FloatField("运行时长")

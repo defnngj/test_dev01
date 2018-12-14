@@ -1,7 +1,7 @@
 import json
 import requests
 from test_platform import common
-from interface_app.models import TestTask
+from interface_app.models import TestTask, TestResult
 from project_app.models import Project, Module
 
 """
@@ -11,20 +11,31 @@ from project_app.models import Project, Module
 
 # 保存任务
 def save_task_data(request):
-	if request.method == "POST":
-		name = request.POST.get("task_name", "")
-		describe = request.POST.get("task_describe", "")
-		cases = request.POST.get("task_cases", "")
-	
-		if name == "":
-			return common.response_failed("任务的名称不能为空")
-		
-		# 保存数据库
-		task = TestTask.objects.create(name=name, describe=describe, cases=cases)
-		if task is None:
-			return common.response_failed("创建失败")
+    if request.method == "POST":
+        name = request.POST.get("task_name", "")
+        describe = request.POST.get("task_describe", "")
+        cases = request.POST.get("task_cases", "")
+        if name == "":
+            return common.response_failed("任务的名称不能为空")
 
-		return common.response_succeed(message="创建任务成功！")
-	else:
-		return common.response_failed("请求方法错误")
+        # 保存数据库
+        task = TestTask.objects.create(name=name, describe=describe, cases=cases)
+        if task is None:
+            return common.response_failed("创建失败")
 
+        return common.response_succeed(message="创建任务成功！")
+    else:
+        return common.response_failed("请求方法错误")
+
+
+# 查看任务结果
+def task_result(request):
+    if request.method == "POST":
+        rid = request.POST.get("result_id", "")
+        result_obj = TestResult.objects.get(id=rid)
+        data = {
+            "result": result_obj.result,
+        }
+        return common.response_succeed(message="获取成功！", data=data)
+    else:
+        return common.response_failed("请求方法错误")

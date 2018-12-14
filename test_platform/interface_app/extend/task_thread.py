@@ -55,11 +55,33 @@ class TaskThread():
         dom = minidom.parse(TASK_PATH + 'results.xml')
         root = dom.documentElement
         ts = root.getElementsByTagName('testsuite')
+        errors = ts[0].getAttribute("errors")
+        failures = ts[0].getAttribute("failures")
+        skipped = ts[0].getAttribute("skipped")
+        tests = ts[0].getAttribute("tests")
+        name = ts[0].getAttribute("name")
+        run_time = ts[0].getAttribute("time")
+
+        with(open(TASK_PATH + 'results.xml', "r", encoding="utf-8")) as f:
+            result_text = f.read()
+
+        print(type(result_text))
+        print(result_text)
+
         print("errors", ts[0].getAttribute("errors"))
         print("fail", ts[0].getAttribute("failures"))
         print("tests", ts[0].getAttribute("tests"))
 
-        # TestResult.objects.create("") 保存到结果表里面
+        ret = TestResult.objects.create(name=name,
+                                  error=errors,
+                                  failure=failures,
+                                  skipped=skipped,
+                                  tests=tests,
+                                  task_id =self.tid,
+                                  run_time=run_time,
+                                  result=result_text) #保存到结果表里面
+        print(ret)
+
 
     def run(self):
         threads = []
