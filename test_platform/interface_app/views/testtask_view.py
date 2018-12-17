@@ -1,24 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from interface_app.models import TestTask, TestCase, TestResult
-from interface_app.extend.task_run import run_cases
-import os 
-import json
-from interface_app.apps import TASK_PATH, RUN_TASK_FILE
-from interface_app.extend.task_thread import TaskThread
+from django.http import HttpResponse
+from interface_app.models import TestTask, TestResult
+
 
 """
 说明：接口任务文件，返回HTML页面
 """
 
+
 # 获取任务列表
 def task_manage(request):
-    testtasks = TestTask.objects.all()
-    
+    task_list = TestTask.objects.all()
     if request.method == "GET":
         return render(request, "task_manage.html", {
             "type": "list",
-            "testtasks": testtasks,
+            "testtasks": task_list,
         })
     else:
         return HttpResponse("404")
@@ -34,11 +30,14 @@ def add_task(request):
         return HttpResponse("404")
 
 
-# 运行任务
-def run_task(request, tid):
+# 编辑任务
+def edit_task(request, tid):
     if request.method == "GET":
-        TaskThread(tid).new_run()
-        return HttpResponseRedirect("/interface/task_manage")
+        task_obj = TestTask.objects.get(id=tid)
+        return render(request, "edit_task.html", {
+            "type": "edit",
+            "task": task_obj,
+        })
     else:
         return HttpResponse("404")
 

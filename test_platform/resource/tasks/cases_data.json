@@ -1,1 +1,74 @@
-{"1": {"url": "http://www.baidu.com", "method": "get", "type_": "from", "header": "{}", "parameter": "{}", "assert_": "{}"}, "2": {"url": "https://api.github.com/events", "method": "get", "type_": "from", "header": "{}", "parameter": "{}", "assert_": "8620110017"}, "3": {"url": "https://api.github.com/events", "method": "get", "type_": "from", "header": "{}", "parameter": "{}", "assert_": "13354"}}
+{
+	"11": {
+		"url": "https://api.github.com/events",
+		"method": "get",
+		"type_": "from",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": ""
+	},
+	"20": {
+		"url": "http://www.baidu.com",
+		"method": "get",
+		"type_": "from",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": "{}"
+	},
+	"23": {
+		"url": "http://www.baidu.com",
+		"method": "get",
+		"type_": "json",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": "{}"
+	},
+	"24": {
+		"url": "https://api.github.com/some/endpoint",
+		"method": "post",
+		"type_": "json",
+		"header": "{\"content-type\": \"application/json\"}",
+		"parameter": "{'some': 'data'}",
+		"assert_": "https://developer.github.com/v3"
+	},
+	"25": {
+		"url": "https://api.github.com/some/endpoint",
+		"method": "post",
+		"type_": "json",
+		"header": "{\"content-type\": \"application/json\"}",
+		"parameter": "{'some': 'data'}",
+		"assert_": "https://developer.github.com/v3"
+	},
+	"19": {
+		"url": "https://api.github.com/events",
+		"method": "get",
+		"type_": "from",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": "8619848032"
+	},
+	"1": {
+		"url": "http://www.baidu.com",
+		"method": "get",
+		"type_": "from",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": "{}"
+	},
+	"3": {
+		"url": "https://api.github.com/events",
+		"method": "get",
+		"type_": "from",
+		"header": "{}",
+		"parameter": "{}",
+		"assert_": "13354"
+	},
+	"13": {
+		"url": "https://api.github.com/some/endpoint",
+		"method": "post",
+		"type_": "json",
+		"header": "{}",
+		"parameter": "{'some': 'data'}",
+		"assert_": "\"message\":\"Not Found\""
+	}
+}

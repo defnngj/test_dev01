@@ -31,12 +31,11 @@
                     <td>{{ result.run_time }}</td>
                     <td>{{ result.create_time | date:"Y-m-d H:i:s" }}</td>
                     <td>
-                        <!--<a href="/interface/task_result_list/{{result.id}}/" style="margin-right: 8px;">-->
-                            <!--<span class="glyphicon glyphicon-eye-open"></span>-->
-                        <!--</a>-->
-                        <input type="button" onclick="Go('{{result.id}}')"
-                               data-toggle="modal"
-                               data-target="#myModal" />
+                    <a type="button" onclick="SeeResult('{{result.id}}')"
+                        data-toggle="modal"
+                        data-target="#myModal" >
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -54,18 +53,18 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        模态框（Modal）标题
+                        详细报告：
                     </h4>
                 </div>
-                <div class="modal-body" id="resultText">
+                <div class="modal-body" id="resultText" style="max-height: 300px; overflow-y: scroll;">
                     在这里添加一些文本
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <!-- <button type="button" class="btn btn-primary">
                         提交更改
-                    </button>
+                    </button> -->
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
@@ -77,13 +76,13 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-	function Go(rid) {
+	function SeeResult(rid) {
         $.post("/interface/task_result/", {
 			"result_id": rid,
 		}, function (resp) {
 			if (resp.success === "true"){
 			    console.log(resp.data.result);
-			    document.querySelector("#resultText").innerText ="<h1>"+resp.data.result+"</h1>"
+			    document.querySelector("#resultText").innerText = resp.data.result;
 			}else{
 				window.alert(resp.message);
 			}

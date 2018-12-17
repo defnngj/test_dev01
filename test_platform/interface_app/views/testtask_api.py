@@ -1,8 +1,7 @@
-import json
-import requests
 from test_platform import common
 from interface_app.models import TestTask, TestResult
-from project_app.models import Project, Module
+from interface_app.extend.task_thread import TaskThread
+
 
 """
 说明：该文件中的接口由前段JS调用，返回JSON格式数据。
@@ -24,6 +23,28 @@ def save_task_data(request):
             return common.response_failed("创建失败")
 
         return common.response_succeed(message="创建任务成功！")
+    else:
+        return common.response_failed("请求方法错误")
+
+
+# 运行任务
+def run_task(request):
+    if request.method == "POST":
+        tid = request.POST.get("task_id", "")
+        if tid == "":
+            return common.response_failed("任务ID不能为空")
+
+        task_list = TestTask.objects.all()
+        runing_task = 0
+        for task in task_list:
+            if task.status == 1:
+                runing_task = 1
+                break
+        if runing_task == 1:
+            return common.response_failed("当前有任务正在执行...")
+        else:
+            TaskThread(tid).new_run()
+            return common.response_succeed(message="已执行")
     else:
         return common.response_failed("请求方法错误")
 

@@ -26,12 +26,13 @@ urlpatterns = [
     # 任务管理
     path('task_manage/', testtask_view.task_manage),
     path('add_task/', testtask_view.add_task),
-    path('run_task/<int:tid>/', testtask_view.run_task),
+    path('edit_task/<int:tid>/', testtask_view.edit_task),
     path('task_result_list/<int:tid>/', testtask_view.task_result_list),
 
     # 任务管理--由JS调用的接口
     path('get_case_list', testcase_api.get_case_list),
     path('save_task_data/', testtask_api.save_task_data),
+    path('run_task/', testtask_api.run_task),
     path('task_result/', testtask_api.task_result),
 
     

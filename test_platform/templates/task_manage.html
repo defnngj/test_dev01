@@ -41,7 +41,7 @@
 				<li><a href="/interface/case_manage/">
 						<span class="glyphicon glyphicon-th-list"></span> 用例管理</a>
 				</li>
-				<li class="active"><a href="#">
+				<li class="active"><a href="/interface/task_manage/">
 						<span class="glyphicon glyphicon-tasks"></span> 任务管理</a>
 				</li>
 			</ul>
@@ -96,15 +96,23 @@
 							{% endif %}
 
 							{% if task.status == 2 %}
-							<td>已执行</td>
+							<td>已完成</td>
 							{% endif %}
 
 							<td>{{ task.create_time | date:"Y-m-d H:i:s" }}</td>
 							<td>
-								<a href="/interface/run_task/{{task.id}}/" style="margin-right: 8px;">
+								<!-- <a href="/interface/run_task/{{task.id}}/" style="margin-right: 8px;">
+									<span class="glyphicon glyphicon-play"></span>
+								</a> -->
+								<a href="#" onclick="RunTask('{{task.id}}')" style="margin-right: 8px;">
 									<span class="glyphicon glyphicon-play"></span>
 								</a>
-								<a href="/interface/delete_project/{{task.id}}/" style="margin-right: 8px;">
+
+								<a href="/interface/edit_task/{{task.id}}/" style="margin-right: 8px;">
+									<span class="glyphicon glyphicon-edit"></span>
+								</a>
+
+								<a href="/interface/delete_task/{{task.id}}/" style="margin-right: 8px;">
 									<span class="glyphicon glyphicon-trash"></span>
 								</a>
 								<a href="/interface/task_result_list/{{task.id}}/" style="margin-right: 8px;">
@@ -116,8 +124,6 @@
 					</tbody>
 				</table>
 			</div>
-
-
 		</div>
 		{% endif %}
 
@@ -129,6 +135,19 @@
 
 				<!-- add_task.html -->
 				
+				{% endblock %}
+			</div>
+		</div>
+		{% endif %}
+
+		<!-- 编辑任务页面 -->
+		{% if type == 'edit'%}
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="row">
+				{% block edit_task %}
+		
+				<!-- add_task.html -->
+		
 				{% endblock %}
 			</div>
 		</div>
@@ -148,10 +167,26 @@
 		{% endif %}
 
 
-
 	</div>
 
-
 </div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	function RunTask(tid) {
+		$.post("/interface/run_task/", {
+			"task_id": tid,
+		}, function (resp) {
+			if (resp.success === "true") {
+				window.alert(resp.message);
+				window.location.reload()
+			} else {
+				window.alert(resp.message);
+			}
+		});
+	}
+
+</script>
 
 {% endblock %}
