@@ -90,8 +90,12 @@
                             <td>{{ case.req_method }}</td>
                             <td>{{ case.create_time | date:"Y-m-d H:i:s" }}</td>
                             <td>
-                                <a href="/interface/debug_case/{{case.id}}/">调试</a>
-                                <a href="/interface/delete_project/{{case.id}}/">删除</a>
+                                <a href="/interface/debug_case/{{case.id}}/">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </a>
+                                <a href="/interface/delete_case/{{case.id}}/">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
                             </td>
                         </tr>
                         {% endfor %}

@@ -10,7 +10,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # 获取用例列表
 def case_manage(request):
-    testcases = TestCase.objects.all()
+    testcases = TestCase.objects.get_queryset().order_by('id')
     paginator = Paginator(testcases, 5)
 
     page = request.GET.get('page')

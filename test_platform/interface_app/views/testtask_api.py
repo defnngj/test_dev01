@@ -16,6 +16,10 @@ def save_task_data(request):
         cases = request.POST.get("task_cases", "")
         if name == "":
             return common.response_failed("任务的名称不能为空")
+        
+        # 去掉最后一个字符
+        if cases[-1] == ",":
+            cases = cases[:-1]
 
         # 保存数据库
         task = TestTask.objects.create(name=name, describe=describe, cases=cases)
@@ -75,9 +79,10 @@ def get_task_info(request):
             "name": task_obj.name,
             "describe": task_obj.describe
         }
+        
         cases_id = task_obj.cases.split(",")
-        cases_id.pop(-1)
         cases_list = return_cases_list()
+
         for i in range(len(cases_list)):
             for cid in cases_id:
                 if int(cid) == int(cases_list[i]["id"]):
@@ -88,5 +93,31 @@ def get_task_info(request):
         task_info["cases"] = cases_list
 
         return common.response_succeed(message="获取成功！", data=task_info)
+    else:
+        return common.response_failed("请求方法错误")
+
+
+# 更新任务
+def updata_task(request):
+    
+    if request.method == "POST":
+        tid = request.POST.get("task_id", "")
+        name = request.POST.get("task_name", "")
+        describe = request.POST.get("task_describe", "")
+        cases = request.POST.get("task_cases", "")
+        if tid == "":
+            return common.response_failed("任务id不能为空")
+        
+        # 去掉最后一个字符
+        if cases[-1] == ",":
+            cases = cases[:-1]
+        
+        task_obj = TestTask.objects.get(id=tid)
+        task_obj.name = name
+        task_obj.describe = describe
+        task_obj.cases = cases
+        task_obj.save()
+
+        return common.response_succeed(message="保存成功！")
     else:
         return common.response_failed("请求方法错误")

@@ -101,9 +101,6 @@
 
 							<td>{{ task.create_time | date:"Y-m-d H:i:s" }}</td>
 							<td>
-								<!-- <a href="/interface/run_task/{{task.id}}/" style="margin-right: 8px;">
-									<span class="glyphicon glyphicon-play"></span>
-								</a> -->
 								<a href="#" onclick="RunTask('{{task.id}}')" style="margin-right: 8px;">
 									<span class="glyphicon glyphicon-play"></span>
 								</a>
@@ -180,7 +177,7 @@
 		}, function (resp) {
 			if (resp.success === "true") {
 				window.alert(resp.message);
-				window.location.reload()
+				window.location.reload();
 			} else {
 				window.alert(resp.message);
 			}

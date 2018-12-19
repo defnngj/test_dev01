@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-	<testsuite errors="0" failures="0" name="InterfaceTest-20181217232844" skipped="0" tests="9" time="8.131" timestamp="2018-12-17T23:28:52">
-		<testcase classname="InterfaceTest" name="test_run_casess_00001_11" time="1.597" timestamp="2018-12-17T23:28:46"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00002_20" time="0.031" timestamp="2018-12-17T23:28:46"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00003_23" time="0.000" timestamp="2018-12-17T23:28:46"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00004_24" time="1.092" timestamp="2018-12-17T23:28:47"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00005_25" time="1.068" timestamp="2018-12-17T23:28:48"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00006_19" time="1.514" timestamp="2018-12-17T23:28:50"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00007_1" time="0.029" timestamp="2018-12-17T23:28:50"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00008_3" time="1.692" timestamp="2018-12-17T23:28:51"/>
-		<testcase classname="InterfaceTest" name="test_run_casess_00009_13" time="1.107" timestamp="2018-12-17T23:28:52"/>
+	<testsuite errors="0" failures="0" name="InterfaceTest-20181219024850" skipped="0" tests="9" time="8.369" timestamp="2018-12-19T02:48:58">
+		<testcase classname="InterfaceTest" name="test_run_casess_00001_11" time="1.439" timestamp="2018-12-19T02:48:51"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00002_20" time="0.114" timestamp="2018-12-19T02:48:51"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00003_23" time="0.000" timestamp="2018-12-19T02:48:51"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00004_24" time="1.410" timestamp="2018-12-19T02:48:53"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00005_25" time="1.122" timestamp="2018-12-19T02:48:54"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00006_19" time="1.562" timestamp="2018-12-19T02:48:55"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00007_1" time="0.121" timestamp="2018-12-19T02:48:55"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00008_3" time="1.344" timestamp="2018-12-19T02:48:57"/>
+		<testcase classname="InterfaceTest" name="test_run_casess_00009_13" time="1.257" timestamp="2018-12-19T02:48:58"/>
 		<system-out>
 <![CDATA[URL https://api.github.com/events
 方法 get

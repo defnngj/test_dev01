@@ -35,6 +35,7 @@ urlpatterns = [
     path('run_task/', testtask_api.run_task),
     path('task_result/', testtask_api.task_result),
     path('get_task_info/', testtask_api.get_task_info),
+    path('updata_task/', testtask_api.updata_task),
 
 ]
 

@@ -31,7 +31,7 @@
                     <td>{{ result.run_time }}</td>
                     <td>{{ result.create_time | date:"Y-m-d H:i:s" }}</td>
                     <td>
-                    <a type="button" onclick="SeeResult('{{result.id}}')"
+                    <a  href="#" onclick="SeeResult('{{result.id}}')"
                         data-toggle="modal"
                         data-target="#myModal" >
                         <i class="glyphicon glyphicon-eye-open"></i>
@@ -62,12 +62,9 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <!-- <button type="button" class="btn btn-primary">
-                        提交更改
-                    </button> -->
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
+            </div>
+        </div>
     </div>
 
 

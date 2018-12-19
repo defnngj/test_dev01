@@ -18,7 +18,6 @@ class TaskThread():
     def run_cases(self,  tid):
         task_obj = TestTask.objects.get(id=tid)
         cases_list = task_obj.cases.split(",")
-        cases_list.pop(-1)
         task_obj.status = 1   # 修改状态改为执行中
         task_obj.save()
 
@@ -37,12 +36,9 @@ class TaskThread():
             }
             all_cases_dict[case_obj.id] = case_dict
 
-        print(all_cases_dict)
-
         cases_str = json.dumps(all_cases_dict)
 
         cases_data_file = TASK_PATH + "cases_data.json"
-        print(cases_data_file)
 
         with open(cases_data_file, "w+") as f:
             f.write(cases_str)

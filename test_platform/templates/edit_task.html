@@ -56,26 +56,25 @@
 		}
 
 		let selectCases = document.querySelectorAll("div.caseList > input");
-		//var selectCasesId = new Array()
 		var selectCasesId = "";
 		for (let i = 0; i < selectCases.length; i++) {
-			//window.alert("1111");
 			if (selectCases[i].checked === true) {
 				let case_id = selectCases[i].value;
-				//selectCasesId.push(case_id);
 				selectCasesId = selectCasesId + case_id + ","
 			}
 		}
 
 		console.log("选中的用例id", selectCasesId);
 
-		$.post("/interface/updata_task_data/", {
+		$.post("/interface/updata_task/", {
+			"task_id": task_id,
 			"task_name": tName,
 			"task_describe": tDescribe,
 			"task_cases": selectCasesId,
 		}, function (resp) {
 			if (resp.success === "true") {
 				window.alert(resp.message);
+				window.location.reload();
 			} else {
 				window.alert(resp.message);
 			}
@@ -83,7 +82,7 @@
 
 	});
 
-	// 全选/取消任务
+	// 全选/取消用例
 	$("#selectAll").click(function () {
 
 		var selectAll = document.querySelector("#selectAll");
