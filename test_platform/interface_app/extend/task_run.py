@@ -21,30 +21,32 @@ class InterfaceTest(unittest.TestCase):
     @unpack
     @file_data(TASK_PATH + "cases_data.json")
     def test_run_casess(self, url, method, type_, header, parameter, assert_):
-        print("URL", url)
-        print("方法", method)
 
         if header == "{}":
             header_dict = {}
         else:
-            aa = header.replace("\'", "\"")
-            header_dict = json.loads(aa)
+            hearder_str = header.replace("\'", "\"")
+            header_dict = json.loads(hearder_str)
 
         if parameter == "{}":
             parameter_dict = {}
         else:
-            aa = parameter.replace("\'", "\"")
-            parameter_dict = json.loads(aa)
+            parameter_str = parameter.replace("\'", "\"")
+            parameter_dict = json.loads(parameter_str)
+     
 
         if method == "get":
             if type_ == "from":
                 r = requests.get(url, headers=header_dict, params=parameter_dict)
- 
+                self.assertIn(assert_, r.text)
+        
         if method == "post":
             if type_ == "from":
                 r = requests.post(url, headers=header_dict, data=parameter_dict)
+                self.assertIn(assert_, r.text)
             elif type_ == "json":
                 r = requests.post(url, headers=header_dict, json=parameter_dict)
+                self.assertIn(assert_, r.text)
 
 
 # 运行测试用例

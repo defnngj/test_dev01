@@ -65,9 +65,6 @@ var CaseListInit = function () {
                 let devCaseList = document.querySelector(".caseList");
                 devCaseList.innerHTML = options;
 
-                console.log("最后：", options);
-                
-
             } else {
                 window.alert(resp.message);
             }
@@ -93,7 +90,6 @@ var TaskInit = function (task_id) {
             if (resp.success === "true") {
                 console.log(resp.data);
                 let result = resp.data;
-                console.log("结果", result);
                 document.getElementById("taskName").value = result.name;
                 document.getElementById("taskDescribe").value = result.describe;
 

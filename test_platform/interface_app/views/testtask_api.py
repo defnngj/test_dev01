@@ -81,7 +81,10 @@ def get_task_info(request):
         }
         
         cases_id = task_obj.cases.split(",")
+        print(cases_id)
+
         cases_list = return_cases_list()
+        print(cases_list)
 
         for i in range(len(cases_list)):
             for cid in cases_id:
@@ -119,5 +122,19 @@ def updata_task(request):
         task_obj.save()
 
         return common.response_succeed(message="保存成功！")
+    else:
+        return common.response_failed("请求方法错误")
+
+
+# 删除任务
+def delete_task(request):
+    if request.method == "POST":
+        tid = request.POST.get("task_id", "")
+        if tid == "":
+            return common.response_failed("任务id不能为空")
+
+        task_obj = TestTask.objects.get(id=tid)
+        task_obj.delete()
+        return common.response_succeed(message="删除成功！")
     else:
         return common.response_failed("请求方法错误")

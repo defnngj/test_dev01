@@ -109,7 +109,7 @@
 									<span class="glyphicon glyphicon-edit"></span>
 								</a>
 
-								<a href="/interface/delete_task/{{task.id}}/" style="margin-right: 8px;">
+								<a href="#" onclick="DeleteTask('{{task.id}}')" style="margin-right: 8px;">
 									<span class="glyphicon glyphicon-trash"></span>
 								</a>
 								<a href="/interface/task_result_list/{{task.id}}/" style="margin-right: 8px;">
@@ -171,18 +171,33 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+	//运行任务
 	function RunTask(tid) {
 		$.post("/interface/run_task/", {
 			"task_id": tid,
 		}, function (resp) {
 			if (resp.success === "true") {
 				window.alert(resp.message);
-				window.location.reload();
+				window.location.reload(); // 刷新页面
 			} else {
 				window.alert(resp.message);
 			}
 		});
 	}
+
+	//删除任务
+	function DeleteTask(tid) {
+			$.post("/interface/delete_task/", {
+				"task_id": tid,
+			}, function (resp) {
+				if (resp.success === "true") {
+					window.alert(resp.message);
+					window.location.reload(); // 刷新页面
+				} else {
+					window.alert(resp.message);
+				}
+			});
+		}
 
 </script>
 

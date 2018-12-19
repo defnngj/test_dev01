@@ -74,7 +74,8 @@
 		}, function (resp) {
 			if (resp.success === "true") {
 				window.alert(resp.message);
-				window.location.reload();
+				// 跳转到任务管理页面
+				window.location.href = "/interface/task_manage/";
 			} else {
 				window.alert(resp.message);
 			}
