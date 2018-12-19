@@ -1,19 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
+  <div class="bg">
+    <div class="container">
 
-  <div class="container">
+      <form class="form-signin" method="post" action="/login_action/">
+        <h2 class="form-signin-heading login-title">测试平台</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
+        <p id="error">{{ error }}</p>
+        {% csrf_token %}
+        <button class="btn btn-lg btn-primary btn-block" id="LoginButton" type="submit">登录</button>
+      </form>
 
-    <form class="form-signin" method="post" action="/login_action/">
-      <h2 class="form-signin-heading">测试平台</h2>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="text" name="username" id="inputEmail" class="form-control" placeholder="username">
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
-      <p id="error">{{ error }}</p>
-      {% csrf_token %}
-      <button class="btn btn-lg btn-primary btn-block" id="LoginButton" type="submit">登录</button>
-    </form>
-
-  </div> <!-- /container -->
-
+    </div> <!-- /container -->
+  </div>
+  <style>
+  .bg{
+      background:url(/static/image/index.jpeg) no-repeat center fixed;
+      height: 600px;
+      /* background-size: contain;
+      width: 1170px; */
+  }
+  .login-title{
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    color: aquamarine;
+  }
+  
+  </style>
 {% endblock %}
