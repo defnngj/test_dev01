@@ -79,3 +79,49 @@ var CaseListInit = function () {
     getCaseListInfo();
 
 };
+
+
+// 根据任务ID获取任务数据
+var TaskInit = function (task_id) {
+
+    var options = "";
+    function getCaseListInfo() {
+        // 获取某个任务的信息
+        $.post("/interface/get_task_info/", {
+            "taskId": task_id
+        }, function (resp) {
+            if (resp.success === "true") {
+                console.log(resp.data);
+                let result = resp.data;
+                console.log("结果", result);
+                document.getElementById("taskName").value = result.name;
+                document.getElementById("taskDescribe").value = result.describe;
+
+                let cases = result.cases;
+                for (let i = 0; i < cases.length; i++) {
+                    var option = "";
+                    if (cases[i].status === true){
+                        option = '<input type="checkbox" checked="1"  name="' + cases[i].name
+                            + '" value="' + cases[i].id + '" /> ' + cases[i].name + '<br>'
+                    }else{
+                        option = '<input type="checkbox"  name="' + cases[i].name
+                            + '" value="' + cases[i].id + '" /> ' + cases[i].name + '<br>'
+                    }
+                    
+                    options = options + option;
+
+                }
+                let devCaseList = document.querySelector(".caseList");
+                devCaseList.innerHTML = options;
+
+            } else {
+                window.alert(resp.message);
+            }
+            //$("#result").html(resp);
+        });
+    }
+
+    // 调用getCaseListInfo函数
+    getCaseListInfo();
+
+};

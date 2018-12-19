@@ -1,7 +1,7 @@
 from test_platform import common
-from interface_app.models import TestTask, TestResult
+from interface_app.models import TestTask, TestResult, TestCase
 from interface_app.extend.task_thread import TaskThread
-
+from interface_app.views.testcase_api import return_cases_list
 
 """
 说明：该文件中的接口由前段JS调用，返回JSON格式数据。
@@ -58,5 +58,35 @@ def task_result(request):
             "result": result_obj.result,
         }
         return common.response_succeed(message="获取成功！", data=data)
+    else:
+        return common.response_failed("请求方法错误")
+
+
+# 获取任务信息
+def get_task_info(request):
+    if request.method == "POST":
+        tid = request.POST.get("taskId", "")
+        if tid == "":
+            return common.response_failed("任务id不能为空")
+
+        task_obj = TestTask.objects.get(id=tid)
+        task_info = {
+            "id": task_obj.id,
+            "name": task_obj.name,
+            "describe": task_obj.describe
+        }
+        cases_id = task_obj.cases.split(",")
+        cases_id.pop(-1)
+        cases_list = return_cases_list()
+        for i in range(len(cases_list)):
+            for cid in cases_id:
+                if int(cid) == int(cases_list[i]["id"]):
+                    cases_list[i]["status"] = True
+                    break
+            else:
+                cases_list[i]["status"] = False
+        task_info["cases"] = cases_list
+
+        return common.response_succeed(message="获取成功！", data=task_info)
     else:
         return common.response_failed("请求方法错误")

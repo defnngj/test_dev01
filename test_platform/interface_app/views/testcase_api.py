@@ -230,23 +230,26 @@ def get_case_list(request):
     :return:
     """
     if request.method == "GET":
-
-        cases_list = []
-
-        projects = Project.objects.all()
-        for project in projects:
-            modules = Module.objects.filter(project_id = project.id)
-            for module in modules:
-                cases = TestCase.objects.filter(module_id= module.id)
-                for case in cases:
-                    case_info = project.name +" -> "+ module.name +" -> "+ case.name
-                    case_dict = {
-                        "id": case.id,
-                        "name": case_info
-                    }
-                    cases_list.append(case_dict)
-
+        cases_list = return_cases_list()
         return common.response_succeed(data=cases_list)
-
     else:
         return common.response_failed("请求方法错误")
+
+
+def return_cases_list():
+    """内部方法：获取用例列表"""
+    cases_list = []
+    projects = Project.objects.all()
+    for project in projects:
+        modules = Module.objects.filter(project_id=project.id)
+        for module in modules:
+            cases = TestCase.objects.filter(module_id=module.id)
+            for case in cases:
+                case_info = project.name + " -> " + module.name + " -> " + case.name
+                case_dict = {
+                    "id": case.id,
+                    "name": case_info
+                }
+                cases_list.append(case_dict)
+
+    return cases_list

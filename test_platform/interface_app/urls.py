@@ -34,8 +34,8 @@ urlpatterns = [
     path('save_task_data/', testtask_api.save_task_data),
     path('run_task/', testtask_api.run_task),
     path('task_result/', testtask_api.task_result),
+    path('get_task_info/', testtask_api.get_task_info),
 
-    
 ]
 
 
