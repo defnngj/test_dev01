@@ -1,5 +1,5 @@
 celery==3.1.26.post2
-Django==2.1.4
+Django==2.1.5
 django-celery==3.2.2
 django-crontab==0.7.1
 django-redis==4.10.0
