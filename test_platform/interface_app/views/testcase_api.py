@@ -154,7 +154,6 @@ def update_case(request):
         header = request.POST.get("header", "")
         module_name = request.POST.get("module", "")
         assert_text = request.POST.get("assert_text", "")
-        print("接口id", case_id)
 
         if url == "" or method == "" or req_type == "" or module_name == "" or assert_text == "":
             return common.response_failed("必传参数为空")

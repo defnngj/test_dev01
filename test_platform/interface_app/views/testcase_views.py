@@ -24,7 +24,7 @@ def case_manage(request):
         contacts = paginator.page(paginator.num_pages)
     
     if request.method == "GET":
-        return render(request, "case_manage.html", {
+        return render(request, "cases/case_manage.html", {
             "type": "list",
             "testcases": contacts,
         })
@@ -50,7 +50,7 @@ def search_case_name(request):
             # 如果页数超出查询范围，取最后一页
             contacts = paginator.page(paginator.num_pages)
         
-        return render(request, "case_manage.html", {
+        return render(request, "cases/case_manage.html", {
             "type": "list",
             "testcases": contacts,
             "case_name": case_name,
@@ -62,7 +62,7 @@ def search_case_name(request):
 # 创建接口测试用例
 def add_case(request):
     if request.method == "GET":
-        return render(request, "add_case.html", {
+        return render(request, "cases/add_case.html", {
             "type": "add"
         })
     else:
@@ -71,10 +71,9 @@ def add_case(request):
 
 # 编辑接口测试用例
 def debug_case(request, cid):
-    print("调试的用例id", cid)
 
     if request.method == "GET":
-        return render(request, "debug_case.html", {
+        return render(request, "cases/debug_case.html", {
             "type": "debug"
         })
     else:

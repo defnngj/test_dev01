@@ -1,9 +1,9 @@
-{% extends "task_manage.html" %}
-{% block edit_task %}
+{% extends "tasks/task_manage.html" %}
+{% block add_task %}
 
 <fieldset>
 	<div id="legend" class="">
-		<legend class="">编辑任务</legend>
+		<legend class="">创建任务</legend>
 	</div>
 
 	<div style="width:80%; margin-left: 20px;">
@@ -11,7 +11,7 @@
 
 			<div class="form-group">
 				<label>名称：</label>
-				<input type="text" id="taskName" class="form-control">
+				<input type="text" id="taskName"  class="form-control">
 			</div>
 
 			<div class="form-group">
@@ -23,11 +23,15 @@
 				<label>用例：</label>
 				<input type="checkbox" id="selectAll">全选/取消</input>
 				<div class="caseList" style="overflow-y:scroll; height: 200px; background: #FFFFFF; padding-left: 15px;">
+					
 				</div>
+				
 			</div>
 
+			
 			<div style="width: 100%; height: 60px;">
-				<button type="button" class="btn btn-primary" id="saveTask" style="float: right;margin-right: 10px;">保存</button>
+				<button type="button" class="btn btn-primary" id="saveTask" 
+				style="float: right;margin-right: 10px;">保存</button>
 			</div>
 
 		</form>
@@ -40,12 +44,11 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-	let url_path = document.location.pathname;
-	let task_id = url_path.split("/")[3];
-	// 初始化任务数据
-	TaskInit(task_id)
 
-	// 更新任务
+	// 初始化用例的列表
+	CaseListInit()
+
+	// 保存任务
 	$("#saveTask").click(function () {
 
 		let tName = $("#taskName").val();
@@ -56,43 +59,43 @@
 		}
 
 		let selectCases = document.querySelectorAll("div.caseList > input");
+		//var selectCasesId = new Array()
 		var selectCasesId = "";
 		for (let i = 0; i < selectCases.length; i++) {
-			if (selectCases[i].checked === true) {
+			//window.alert("1111");
+			if (selectCases[i].checked === true){
 				let case_id = selectCases[i].value;
+				//selectCasesId.push(case_id);
 				selectCasesId = selectCasesId + case_id + ","
 			}
 		}
 
 		console.log("选中的用例id", selectCasesId);
 
-		$.post("/interface/updata_task/", {
-			"task_id": task_id,
+		$.post("/interface/save_task_data/", {
 			"task_name": tName,
 			"task_describe": tDescribe,
 			"task_cases": selectCasesId,
 		}, function (resp) {
-			if (resp.success === "true") {
+			if (resp.success === "true"){
 				window.alert(resp.message);
-				// 跳转到任务管理页面
-				window.location.href = "/interface/task_manage/";
-			} else {
+			}else{
 				window.alert(resp.message);
 			}
 		});
 
 	});
-
-	// 全选/取消用例
+	
+	//全选用例
 	$("#selectAll").click(function () {
-
+		
 		var selectAll = document.querySelector("#selectAll");
 		var allCases = document.querySelectorAll(".caseList > input");
-		if (selectAll.checked === true) {
-			for (let i = 0; i < allCases.length; i++) {
+		if(selectAll.checked === true){
+			for(let i=0; i < allCases.length; i++){
 				allCases[i].checked = true;
 			}
-		} else {
+		}else{
 			for (let i = 0; i < allCases.length; i++) {
 				allCases[i].checked = false;
 			}

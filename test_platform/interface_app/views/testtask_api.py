@@ -81,10 +81,8 @@ def get_task_info(request):
         }
         
         cases_id = task_obj.cases.split(",")
-        print(cases_id)
 
         cases_list = return_cases_list()
-        print(cases_list)
 
         for i in range(len(cases_list)):
             for cid in cases_id:
