@@ -15,6 +15,12 @@ class ProjectForm(forms.Form):
     name = forms.CharField(label='名称', max_length=100)
     describe = forms.CharField(label="描述", widget=forms.Textarea)
 
+# 更多类型
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=100) 
+    message = forms.CharField(widget=forms.Textarea)  # 文本框
+    sender = forms.EmailField()  # Email类型
+    cc_myself = forms.BooleanField(required=False) # 布尔类型
 ```
 
 2、视图 __views.py__ 样例代码。
@@ -52,7 +58,8 @@ def get_name(request):
 ```html
 <form action="/your-name/" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form }}  <!--渲染整个表单-->
+    {{ form.name }}  <!--渲染表单的一个字段-->
     <input type="submit" value="Submit">
 </form>
 ```
@@ -75,9 +82,11 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
+        fields = ['name', 'describe', 'status']
         exclude = ['create_time']
 
 ```
+* fields 表示显示的字段。
 * exclude 表示屏蔽的表字段。
 
 实现编辑项目视图：views.py 
@@ -89,9 +98,8 @@ def edit_project(request, pid):
         # 更新数据
     else:
         if pid:
-            form = ProjectForm(
-                instance=Project.objects.get(id=pid)
-                )
+            p = Project.objects.get(id=pid)
+            form = ProjectForm(instance=p)
         else:
             form = ProjectForm()
 

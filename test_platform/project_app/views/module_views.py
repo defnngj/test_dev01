@@ -58,9 +58,8 @@ def edit_module(request, mid):
             return HttpResponseRedirect('/manage/module_manage/')
     else:
         if mid:
-            form = ModuleForm(
-                instance=Module.objects.get(id=mid)
-            )
+            module = Module.objects.get(id=mid)
+            form = ModuleForm(instance=m)
 
     return render(request, 'module_manage.html', {
         'form': form,
