@@ -1,5 +1,17 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>测试平台</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/signin.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/dashboard.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "image/index.jpg" %}">
+
+</head>
+<body class="body">
+
   <div class="bg">
     <div class="container">
 
@@ -16,16 +28,28 @@
 
     </div>
   </div>
-  
-  <style>
+
+  <div>
+    <p>© 2019 testclass.net, 重定向科技. 虫师</p>
+  </div>
+</body>
+</html>
+
+<style>
+  .body {
+       padding-top: 0px;
+       padding-bottom: 0px; 
+  }
+  .form-signin {
+    margin-top: 80px;
+  }
   .bg {
       background:url(/static/image/index.jpg) no-repeat center fixed;
-      height: 600px;
+      height: 655px;
   }
   .login-title {
     text-align: center;
     font-family: "Times New Roman", Times, serif;
     color: aquamarine;
   }
-  </style>
-{% endblock %}
+</style>
