@@ -9,14 +9,15 @@
     <div style="width:80%; margin-left: 20px;">
         <form action="/debug/" method="get" class="bs-example bs-example-form" role="form" style="margin-top: 30px">
 
-            <div class="form-group" style="height: 20px;">
-                <label>项目：</label>
-                <select id="project_name"></select>
-            </div>
+            <div>
+                <label style="float: left">项目：</label>
+                <select class="form-control select2-single" id="project_name"
+                    style="width: 146px; margin-bottom: 10px;">
+                </select>
 
-            <div class="form-group">
-                <label>模块：</label>
-                <select id="module_name"></select>
+                <label style="float: left;">模块：</label>
+                <select class="form-control select2-single" id="module_name"
+                        style="width: 146px; margin-bottom: 10px;"></select>
             </div>
 
             <div class="input-group">
